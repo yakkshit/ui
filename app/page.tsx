@@ -1,7 +1,7 @@
 import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { cn, constructMetadata } from "@/lib/utils";
-import { FadeIn } from "@/registry/components/magicui/fade-in";
+import { FadeIn } from "@/registry/components/frontend/fade-in";
 import { Metadata } from "next";
 import Link from "next/link";
 

@@ -1,58 +1,44 @@
 ---
 title: Magic Card
-date: 2024-07-07
-description: A spotlight effect that follows your mouse cursor and highlights borders on hover.
+date: 2023-07-12
+summary: A linear gradient that can be used as a background for a component.
 author: dillionverma
 published: true
+video: https://cdn.magicuikit.com/linear-gradient.mp4
 ---
 
-<ComponentPreview name="magic-card-demo" />
-
-## Installation
-
-<Tabs defaultValue="cli">
-
-<TabsList>
-  <TabsTrigger value="cli">CLI</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
-<TabsContent value="cli">
-
-```bash
-npx magicui-cli add magic-card
-```
-
-</TabsContent>
-
-<TabsContent value="manual">
+<ComponentPreview name="linear-gradient-demo" />
 
 <Steps>
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>
 
-<ComponentSource name="magic-card" />
+## Installation
 
-<Step>Update the import paths to match your project setup.</Step>
+Copy and page the following code into your project.
+
+```text
+components/magicui/linear-gradient.tsx
+```
+
+<ComponentSource name="linear-gradient" >
+
+</ComponentSource>
+
+</Step>
 
 </Steps>
 
-</TabsContent>
-
-</Tabs>
-
 ## Props
 
-### MagicCard
+### Linear Gradient
 
-| Prop name            | Type            | Default   | Description                                 |
-| -------------------- | --------------- | --------- | ------------------------------------------- |
-| children             | React.ReactNode | -         | The content to be rendered inside the card  |
-| className            | string          | -         | Additional CSS classes to apply to the card |
-| gradientSize         | number          | 200       | Size of the gradient effect                 |
-| gradientColor        | string          | "#262626" | Color of the gradient effect                |
-| gradientOpacity      | number          | -         | Opacity of the gradient effect              |
-| gradientTransparency | number          | 80        | Transparency level of the gradient effect   |
-
-## Credits
-
-This component is inspired by [Linear.app](https://linear.app/features)
+| Prop            | Type   | Description                                                                             | Default   |
+| --------------- | ------ | --------------------------------------------------------------------------------------- | --------- |
+| from            | string | The starting color of the gradient                                                      | #00000000 |
+| to              | string | The ending color of the gradient                                                        | #290A5C   |
+| width           | string | The width of the gradient                                                               | 100%      |
+| height          | string | The height of the gradient                                                              | 100%      |
+| transitionPoint | string | The point at which the gradient transitions from the starting color to the ending color | 50%       |
+| direction       | string | The direction of the gradient                                                           | bottom    |
+| className       | string | The class name of the component                                                         | ""        |

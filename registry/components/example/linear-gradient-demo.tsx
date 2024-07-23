@@ -1,4 +1,4 @@
-import LinearGradient from "@/registry/components/magicui/linear-gradient";
+import LinearGradient from "@/registry/components/frontend/linear-gradient";
 
 export default function LinearGradientDemo() {
   return (

@@ -5,17 +5,17 @@ const ui: Registry = {
   "magic-card": {
     name: "magic-card",
     type: "components:ui",
-    files: ["registry/components/magicui/magic-card.tsx"],
+    files: ["registry/components/frontend/magic-card.tsx"],
   },
   "linear-gradient": {
     name: "linear-gradient",
     type: "components:ui",
-    files: ["registry/components/magicui/linear-gradient.tsx"],
+    files: ["registry/components/frontend/linear-gradient.tsx"],
   },
   "radial-gradient": {
     name: "radial-gradient",
     type: "components:ui",
-    files: ["registry/components/magicui/radial-gradient.tsx"],
+    files: ["registry/components/frontend/radial-gradient.tsx"],
   },
 };
 

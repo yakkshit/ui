@@ -4,6 +4,7 @@ import { useMounted } from "@/hooks/use-mounted";
 import { TableOfContents } from "@/lib/toc";
 import { cn } from "@/lib/utils";
 import { useEffect, useMemo, useState } from "react";
+import { Contribute } from "./contribute";
 
 interface TocProps {
   toc: TableOfContents;
@@ -30,10 +31,12 @@ export function DashboardTableOfContents({ toc }: TocProps) {
   }
 
   return (
-    <div className="space-y-2">
+    <><div className="space-y-2">
       <p className="font-medium">On This Page</p>
       <Tree tree={toc} activeItem={activeHeading} />
-    </div>
+    </div><div className="space-y-4 sticky top-16 -mt-10 h-[calc(100vh-3.5rem)] py-12">
+        <Contribute />
+      </div></>
   );
 }
 

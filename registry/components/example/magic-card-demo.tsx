@@ -1,7 +1,7 @@
 import {
   MagicCard,
   MagicContainer,
-} from "@/registry/components/magicui/magic-card";
+} from "@/registry/components/frontend/magic-card";
 
 export default function MagicCardWithGradient() {
   return (

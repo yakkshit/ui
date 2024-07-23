@@ -1,7 +1,7 @@
 export const siteConfig = {
-  name: "Magic UI",
+  name:  "lingo UI",
   url: "https://ui.cedzlabs.com.com",
-  ogImage: "https://ui.cedzlabs.com/og.jpg",
+  ogImage: "https://lingo.cedzlabs.com/",
   description:
     "Beautifully designed landing page components built with React & Tailwind CSS.",
   links: {

@@ -1,5 +1,5 @@
-import { constructMetadata } from "@/lib/utils";
-import { FadeIn } from "@/registry/components/magicui/fade-in";
+import { constructMetadata, formatDate } from "@/lib/utils";
+import { FadeIn } from "@/registry/components/frontend/fade-in";
 import { allComponents } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
 import Link from "next/link";
@@ -38,7 +38,7 @@ export default async function ComponentPage() {
                 key={post._id}
                 className="group relative flex grow flex-col overflow-hidden rounded-xl border hover:border-gray-300 dark:border-gray-800 dark:hover:border-gray-700 transition-all duration-300"
               >
-                {post.video && (
+                {/* {post.video && (
                   <div className="overflow-hidden">
                     <video
                       src={post.video}
@@ -49,14 +49,14 @@ export default async function ComponentPage() {
                       className="relative -bottom-1 aspect-video" // needed because random black line at bottom of video
                     />
                   </div>
-                )}
+                )} */}
                 <div className="flex grow flex-col p-3">
                   <h2>{post.title}</h2>
-                  {/* {post.date && (
+                  {post.date && (
                     <p className="text-sm text-gray-500">
                       {formatDate(post.date)}
                     </p>
-                  )} */}
+                  )}
                   {post.summary && (
                     <p className="mb-2 text-sm text-muted-foreground">
                       {post.summary}
