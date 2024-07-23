@@ -7,7 +7,6 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 // import { getCurrentUser } from "@/lib/session";
 import { getTableOfContents } from "@/lib/toc";
 import { absoluteUrl, cn, constructMetadata } from "@/lib/utils";
-import { Payment } from "@prisma/client";
 import { allComponents } from "contentlayer/generated";
 import { ChevronRight } from "lucide-react";
 import type { Metadata } from "next";
