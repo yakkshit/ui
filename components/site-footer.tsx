@@ -19,7 +19,7 @@ export function SiteFooter() {
             rel="noreferrer"
             className="font-medium underline underline-offset-4"
           >
-            dillion
+            cedzlabs
           </a>
           .
         </p>

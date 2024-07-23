@@ -4,7 +4,6 @@ import { MainNav } from "@/components/main-nav";
 import { MobileNav } from "@/components/mobile-nav";
 import { ModeToggle } from "@/components/mode-toggle";
 import { buttonVariants } from "@/components/ui/button";
-import { UserAccountNav } from "@/components/user-account-nav";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { User } from "next-auth";
