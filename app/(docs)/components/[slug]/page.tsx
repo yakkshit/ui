@@ -43,10 +43,10 @@ export async function generateMetadata({
   } = component;
 
   return constructMetadata({
-    title: `${title} - Magic UI`,
+    title: `${title} - Longo UI`,
     description,
     openGraph: {
-      title: `${title} - Magic UI`,
+      title: `${title} - Longo UI`,
       description,
       type: "article",
       publishedTime,
@@ -140,7 +140,7 @@ export default async function Component({ params }: Props) {
         </div>
 
         <div className="flex flex-col pt-8 gap-4">
-          {/* component.video && (
+          {/* {component.video && (
             <div className="flex md:hidden overflow-hidden relative rounded-xl border dark:border-slate-800 md:p-8 justify-center items-center flex-col max-w-[65ch]">
               <video
                 src={component.video}
@@ -151,7 +151,7 @@ export default async function Component({ params }: Props) {
                 className="relative -bottom-1 aspect-video" // needed because random black line at bottom of video
               />
             </div>
-          ) */}
+          )} */}
           <Mdx code={component.body.code} />
         </div>
       </div>

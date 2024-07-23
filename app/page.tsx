@@ -6,7 +6,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = constructMetadata({
-  title: "Magic UI",
+  title: "Longo UI",
   description:
     "Beautiful UI components and templates to make your landing page look stunning.",
   image: "https://magicuikit.com/components/opengraph-image",
@@ -39,7 +39,7 @@ export default function Home() {
             delay={0.2}
           >
             <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
-              Magic UI is a curated collection of beautiful landing page
+              Longo UI is a curated collection of beautiful landing page
               components built using React + Tailwind CSS + Framer Motion
             </p>
           </FadeIn>

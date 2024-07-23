@@ -5,7 +5,7 @@ import { compareDesc } from "date-fns";
 import Link from "next/link";
 
 export const metadata = constructMetadata({
-  title: "Components - Magic UI",
+  title: "Components - Longo UI",
   description:
     "Beautiful UI components to make your landing page look stunning.",
 });
@@ -38,7 +38,7 @@ export default async function ComponentPage() {
                 key={post._id}
                 className="group relative flex grow flex-col overflow-hidden rounded-xl border hover:border-gray-300 dark:border-gray-800 dark:hover:border-gray-700 transition-all duration-300"
               >
-                {/* {post.video && (
+                {post.video && (
                   <div className="overflow-hidden">
                     <video
                       src={post.video}
@@ -49,7 +49,7 @@ export default async function ComponentPage() {
                       className="relative -bottom-1 aspect-video" // needed because random black line at bottom of video
                     />
                   </div>
-                )} */}
+                )}
                 <div className="flex grow flex-col p-3">
                   <h2>{post.title}</h2>
                   {post.date && (

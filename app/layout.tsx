@@ -9,7 +9,7 @@ import "@/styles/mdx.css";
 import { Metadata } from "next";
 
 export const metadata: Metadata = constructMetadata({
-  title: "Magic UI",
+  title: "Longo UI",
   description:
     "Beautiful UI components and templates to make your landing page look stunning.",
 });

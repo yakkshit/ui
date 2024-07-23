@@ -63,6 +63,12 @@ export const docsConfig: DocsConfig = {
           href: `/components/linear-gradient`,
           items: [],
         },
+        {
+          title: "Magic-card",
+          href: `/components/magic-card`,
+          items: [],
+          label:'new'
+        },
       ],
     },
 
@@ -70,12 +76,11 @@ export const docsConfig: DocsConfig = {
       title: "Backend",
       items: [
         {
-          title: "Magic Card",
-          href: `/components/magic-card`,
+          title: "Wait list",
+          href: `/components/wait-list`,
           items: [],
           label:'new'
         },
-        
       ],
     },
   ],

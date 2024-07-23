@@ -17,6 +17,11 @@ const ui: Registry = {
     type: "components:ui",
     files: ["registry/components/frontend/radial-gradient.tsx"],
   },
+  "wait-list": {
+    name: "wait-list",
+    type: "components:ui",
+    files: ["registry/components/backend/toast/waitlist.tsx"],
+  },
 };
 
 const example: Registry = {
@@ -42,6 +47,14 @@ const example: Registry = {
     files: ["registry/components/example/radial-gradient-demo.tsx"],
     component: React.lazy(
       () => import("@/registry/components/example/radial-gradient-demo")
+    ),
+  },
+  "wait-list-demo": {
+    name: "wait-list-demo",
+    type: "components:example",
+    files: ["registry/components/example/wait-list-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/wait-list-demo")
     ),
   },
 };
