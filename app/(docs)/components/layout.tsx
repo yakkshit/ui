@@ -1,3 +1,7 @@
+import { DocsSidebarNav } from "@/components/sidebar-nav";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { docsConfig } from "@/config/docs";
+
 interface ComponentLayoutProps {
   children: React.ReactNode;
 }
