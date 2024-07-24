@@ -43,10 +43,10 @@ export async function generateMetadata({
   } = component;
 
   return constructMetadata({
-    title: `${title} - Longo UI`,
+    title: `${title} - Lingo UI`,
     description,
     openGraph: {
-      title: `${title} - Longo UI`,
+      title: `${title} - Lingo UI`,
       description,
       type: "article",
       publishedTime,

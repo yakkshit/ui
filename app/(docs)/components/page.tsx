@@ -5,7 +5,7 @@ import { compareDesc } from "date-fns";
 import Link from "next/link";
 
 export const metadata = constructMetadata({
-  title: "Components - Longo UI",
+  title: "Components - Lingo UI",
   description:
     "Beautiful UI components to make your landing page look stunning.",
 });

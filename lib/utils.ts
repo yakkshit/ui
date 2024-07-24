@@ -37,8 +37,8 @@ export function absoluteUrl(path: string) {
 }
 
 export function constructMetadata({
-  title = "Longo UI - Modern React + Tailwind CSS components & Templates",
-  description = "Longo UI is a curated collection of the best landing page components built using React + Tailwind CSS + Framer Motion",
+  title = "Lingo UI - Modern React + Tailwind CSS components & Templates",
+  description = "Lingo UI is a curated collection of the best landing page components built using React + Tailwind CSS + Framer Motion",
   ...props
 }: {
   title?: string;

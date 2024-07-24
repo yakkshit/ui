@@ -42,6 +42,6 @@ export const env = createEnv({
     // STRIPE_API_KEY: process.env.STRIPE_API_KEY,
     // STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET,
     // STRIPE_PRO_MONTHLY_PLAN_ID: process.env.STRIPE_PRO_MONTHLY_PLAN_ID,
-    // NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
+    NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
   },
 });
