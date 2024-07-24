@@ -1,5 +1,3 @@
-"use client"
-
 import Waitlist from "../backend/toast/waitlist";
 
 

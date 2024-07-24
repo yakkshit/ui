@@ -9,7 +9,7 @@ export const metadata: Metadata = constructMetadata({
   title: "Lingo UI",
   description:
     "Beautiful UI components and templates to make your landing page look stunning.",
-  image: "https://magicuikit.com/components/opengraph-image",
+  image: "https://ui.cedzlabs.com/components/img",
 });
 
 export default function Home() {

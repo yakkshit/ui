@@ -66,17 +66,17 @@ export function constructMetadata({
       card: "summary_large_image",
       title,
       description,
-      creator: "@dillionverma",
+      creator: "@yakkshit",
     },
-    icons: "/favicon.ico",
-    metadataBase: new URL("https://magicuikit.com"),
+    icons: "public/logo.png",
+    metadataBase: new URL("https://ui.cedzlabs.com"),
     authors: [
       {
-        name: "dillionverma",
-        url: "https://twitter.com/dillionverma",
+        name: "yakkshit",
+        url: "https://twitter.com/yakkshit",
       },
     ],
-    creator: "dillionverma",
+    creator: "yakkshit",
     themeColor: [
       { media: "(prefers-color-scheme: light)", color: "white" },
       { media: "(prefers-color-scheme: dark)", color: "black" },

@@ -33,7 +33,7 @@ const computedFields = {
         dateModified: doc.date,
         description: doc.summary,
         image: doc.image,
-        url: `https://magicuikit.com/${doc._raw.flattenedPath}`,
+        url: `https://ui.cedzlabs.com/${doc._raw.flattenedPath}`,
         author: {
           "@type": "Person",
           name: doc.author,
@@ -98,7 +98,7 @@ export const Showcase = defineDocumentType(() => ({
           dateModified: doc.date,
           description: doc.summary,
           image: doc.image,
-          url: `https://magicui.design/${doc._raw.flattenedPath}`,
+          url: `https://ui.cedzlabs.com/${doc._raw.flattenedPath}`,
           author: {
             "@type": "Person",
             name: doc.author,

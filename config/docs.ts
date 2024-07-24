@@ -1,6 +1,4 @@
-import { allComponents } from "@/.contentlayer/generated";
 import { MainNavItem, SidebarNavItem } from "@/types";
-import { compareDesc } from "date-fns";
 
 interface DocsConfig {
   mainNav: MainNavItem[];
@@ -67,11 +65,16 @@ export const docsConfig: DocsConfig = {
           title: "Magic-card",
           href: `/components/magic-card`,
           items: [],
-          label:'new'
+          label: "new",
+        },
+        {
+          title: "Blob",
+          href: `/components/blob`,
+          items: [],
+          label: "3D",
         },
       ],
     },
-
     {
       title: "Backend",
       items: [
@@ -79,7 +82,7 @@ export const docsConfig: DocsConfig = {
           title: "Wait list",
           href: `/components/wait-list`,
           items: [],
-          label:'new'
+          label: "new",
         },
       ],
     },

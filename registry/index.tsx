@@ -22,6 +22,11 @@ const ui: Registry = {
     type: "components:ui",
     files: ["registry/components/backend/toast/waitlist.tsx"],
   },
+  "blob": {
+    name: "blob",
+    type: "components:ui",
+    files: ["registry/components/frontend/3d/blob/blob.tsx"],
+  },
 };
 
 const example: Registry = {
@@ -55,6 +60,14 @@ const example: Registry = {
     files: ["registry/components/example/wait-list-demo.tsx"],
     component: React.lazy(
       () => import("@/registry/components/example/wait-list-demo")
+    ),
+  },
+  "blob-demo": {
+    name: "blob-demo",
+    type: "components:example",
+    files: ["registry/components/example/blob-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/blob-demo")
     ),
   },
 };
