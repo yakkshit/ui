@@ -5,7 +5,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ["localhost", "cdn.cedzlabs.com", "www.youtube.com", "www.playbook.com"],
+    domains: ["localhost", "cdn.cedzlabs.com", "www.youtube.com", "www.playbook.com", "prod.spline.design"],
   },
 };
 

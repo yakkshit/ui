@@ -1,3 +1,5 @@
+"use client";
+
 import Blob from "../frontend/3d/blob/blob";
 
 
