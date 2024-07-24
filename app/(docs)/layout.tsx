@@ -1,5 +1,6 @@
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 interface MarketingLayoutProps {
   children: React.ReactNode;
@@ -15,6 +16,7 @@ export default async function MarketingLayout({
       <main className="flex-1">
         <div className="pointer-events-none h-screen absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]" />
         {children}
+        <SpeedInsights/>
       </main>
       <SiteFooter />
     </div>

@@ -15,6 +15,7 @@ export default function ComponentLayout({ children }: ComponentLayoutProps) {
           </ScrollArea>
         </aside> */}
       {children}
+      <SpeedInsights/>
     </div>
   );
 }
