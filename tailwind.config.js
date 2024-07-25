@@ -62,11 +62,16 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         gradient: "gradient 8s linear infinite",
+        showcontent: 'showcontent 1s ease-in-out forwards',
       },
       keyframes: {
         "accordion-down": {
           from: { height: 0 },
           to: { height: "var(--radix-accordion-content-height)" },
+        },
+        showcontent: {
+          '0%': { opacity: 0, transform: 'translate(0, 100px)', filter: 'blur(33px)' },
+          '100%': { opacity: 1, transform: 'translate(0, 0)', filter: 'blur(0)' },
         },
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },

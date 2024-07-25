@@ -73,6 +73,26 @@ export const docsConfig: DocsConfig = {
           items: [],
           label: "3D",
         },
+        {
+          title: "Slider",
+          href: `/components/slider`,
+          items: [],
+        },
+        {
+          title: "Buttons",
+          href: `/components/buttons`,
+          items: [],
+        },
+        {
+          title: "Text Effects",
+          href: `/components/text`,
+          items: [],
+        },
+        {
+          title: "Github Heat Map",
+          href: `/components/github-heat-map`,
+          items: [],
+        },
       ],
     },
     {
@@ -81,6 +101,11 @@ export const docsConfig: DocsConfig = {
         {
           title: "Wait list",
           href: `/components/wait-list`,
+          items: [],
+        },
+        {
+          title: "Maps Location",
+          href: `/components/map-location`,
           items: [],
           label: "new",
         },

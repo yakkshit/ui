@@ -27,6 +27,31 @@ const ui: Registry = {
     type: "components:ui",
     files: ["registry/components/frontend/3d/blob/blob.tsx"],
   },
+  "slider": {
+    name: "slider",
+    type: "components:ui",
+    files: ["registry/components/frontend/slider.tsx"],
+  },
+  "maps-location": {
+    name: "maps-location",
+    type: "components:ui",
+    files: ["registry/components/backend/map/maplocation.tsx"],
+  },
+  "buttons": {
+    name: "buttons",
+    type: "components:ui",
+    files: ["registry/components/frontend/buttons.tsx"],
+  },
+  "text": {
+    name: "text",
+    type: "components:ui",
+    files: ["registry/components/frontend/text.tsx"],
+  },
+  "github-heat-map": {
+    name: "github-heat-map",
+    type: "components:ui",
+    files: ["registry/components/frontend/github-heat-map.tsx"],
+  },
 };
 
 const example: Registry = {
@@ -68,6 +93,46 @@ const example: Registry = {
     files: ["registry/components/example/blob-demo.tsx"],
     component: React.lazy(
       () => import("@/registry/components/example/blob-demo")
+    ),
+  },
+  "slider-demo": {
+    name: "slider-demo",
+    type: "components:example",
+    files: ["registry/components/example/slider-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/slider-demo")
+    ),
+  },
+  "map-location-demo": {
+    name: "map-location-demo",
+    type: "components:example",
+    files: ["registry/components/example/map-location-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/map-location-demo")
+    ),
+  },
+  "buttons-demo": {
+    name: "buttons-demo",
+    type: "components:example",
+    files: ["registry/components/example/buttons-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/buttons-demo")
+    ),
+  },
+  "text-demo": {
+    name: "text-demo",
+    type: "components:example",
+    files: ["registry/components/example/text-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/text-demo")
+    ),
+  },
+  "github-heat-map-demo": {
+    name: "github-heat-map-demo",
+    type: "components:example",
+    files: ["registry/components/example/github-heat-map-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/github-heat-map-demo")
     ),
   },
 };
