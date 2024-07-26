@@ -1,0 +1,66 @@
+---
+title: Testimonials
+date: 2023-07-02
+summary: A spotlight effect that follows your mouse cursor and highlights borders on hover.
+author: yakkshit
+published: true
+video: https://cdn.magicuikit.com/magic-card.mp4
+---
+
+<ComponentPreview name="testimonials-demo" />
+
+<Steps>
+
+<Step>
+
+## Prerequisites
+
+```bash
+npm install -D tailwindcss tailwind-merge clsx
+```
+
+</Step>
+
+<Step>
+
+## Installation
+
+Copy and page the following code into your project.
+
+```text
+components/magicui/magic-card.tsx
+```
+
+<ComponentSource name="testimonials" />
+
+</Step>
+
+</Steps>
+
+## Props
+
+### MagicContainer
+
+| Prop name | Type      | Default | Description                             |
+| --------- | --------- | ------- | --------------------------------------- |
+| children  | ReactNode | -       | The children to render                  |
+| className | string    | -       | The className to apply to the container |
+
+### MagicCard
+
+| Prop name      | Type      | Default                | Description                        |
+| -------------- | --------- | ---------------------- | ---------------------------------- |
+| children       | ReactNode | -                      | The children to render             |
+| className      | string    | -                      | The className to apply to the card |
+| maskSize       | number    | 200                    | The size of the spotlight mask     |
+| borderColor    | string    | #475569                | The color of the border            |
+| borderWidth    | number    | 1                      | The width of the border            |
+| borderRadius   | number    | 16                     | The radius of the border           |
+| spotlight      | boolean   | true                   | Whether to show the spotlight      |
+| spotlightColor | string    | rgba(255,255,255,0.03) | The color of the spotlight         |
+| isolated       | boolean   | true                   | Whether to isolate the card        |
+| background     | string    | rgba(255,255,255,0.1)  | The background of the card         |
+
+## Credits
+
+This component is inspired by [Linear.app](https://linear.app/features)

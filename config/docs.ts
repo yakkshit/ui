@@ -107,6 +107,11 @@ export const docsConfig: DocsConfig = {
           title: "Maps Location",
           href: `/components/map-location`,
           items: [],
+        },
+        {
+          title: "Testimonials",
+          href: `/components/testimonials`,
+          items: [],
           label: "new",
         },
       ],

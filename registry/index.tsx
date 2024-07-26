@@ -52,6 +52,11 @@ const ui: Registry = {
     type: "components:ui",
     files: ["registry/components/frontend/github-heat-map.tsx"],
   },
+  "testimonials": {
+    name: "testimonials",
+    type: "components:ui",
+    files: ["registry/components/backend/testimonials/Testimonials.tsx"],
+  },
 };
 
 const example: Registry = {
@@ -133,6 +138,14 @@ const example: Registry = {
     files: ["registry/components/example/github-heat-map-demo.tsx"],
     component: React.lazy(
       () => import("@/registry/components/example/github-heat-map-demo")
+    ),
+  },
+  "testimonials-demo": {
+    name: "testimonials-demo",
+    type: "components:example",
+    files: ["registry/components/example/testimonials-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/testimonials-demo")
     ),
   },
 };
