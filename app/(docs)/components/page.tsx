@@ -7,7 +7,7 @@ import Link from "next/link";
 export const metadata = constructMetadata({
   title: "Components - Lingo UI",
   description:
-    "Beautiful UI components to make your landing page look stunning.",
+    "Beautiful API connected UI components to make your landing page look stunning.",
 });
 
 export default async function ComponentPage() {
