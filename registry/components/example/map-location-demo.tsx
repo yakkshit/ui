@@ -1,4 +1,4 @@
-import MapLocation from "../backend/map/maplocation";
+import MapLocation from "../backend/map/map";
 
 const MapLocationDemo: React.FC = () => {
   return (
@@ -6,7 +6,7 @@ const MapLocationDemo: React.FC = () => {
       <MapLocation
         title="Map/Location"
         description="Displays maps and location data"
-        api="update your API"
+        api="update your API key to display map"
         features="Map embedding, geolocation, route planning"
       />
     </div>

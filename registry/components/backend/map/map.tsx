@@ -29,8 +29,8 @@ const MapLocation: React.FC<MapLocationProps> = ({ title, description, api, feat
         <div className="p-8">
           <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">{title}</div>
           <p className="mt-2 text-gray-500">{description}</p>
-          <p className="mt-2 text-gray-500"><strong>API:</strong> {api}</p>
-          <p className="mt-2 text-gray-500"><strong>Features:</strong> {features}</p>
+          <p className="mt-2 text-gray-500"><strong className='mt-2 text-gray-500'>API:</strong> {api}</p>
+          <p className="mt-2 text-gray-500"><strong className='mt-2 text-gray-500'>Features:</strong> {features}</p>
         </div>
       </div>
     </motion.div>
