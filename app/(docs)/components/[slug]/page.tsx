@@ -1,6 +1,4 @@
 import Facebook from "@/components/icons/facebook";
-import LinkedIn from "@/components/icons/linkedin";
-import Twitter from "@/components/icons/twitter";
 import { Mdx } from "@/components/mdx-components";
 import { DashboardTableOfContents } from "@/components/toc";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -57,6 +55,8 @@ export async function generateMetadata({
         "Landing Page",
         "Components",
         "Next.js",
+        "API",
+        "Superbase",
       ],
     },
   });

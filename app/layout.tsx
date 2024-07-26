@@ -12,7 +12,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = constructMetadata({
   title: "Lingo UI",
   description:
-    "Beautiful UI components and templates to make your landing page look stunning.",
+    "Beautiful API Connected UI components and templates to make your landing page look stunning.",
 });
 
 export default function RootLayout({
