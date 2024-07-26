@@ -57,6 +57,16 @@ video: https://cdn.magicuikit.com/magic-card.mp4
   Follow the instructions shown in the Video Tutorial.
   <VideoEmbed src="https://cdn.magicuikit.com/magic-card.mp4" />
   </Step>
+  <Step>
+  ``` SQL
+      CREATE TABLE testimonials (
+      id SERIAL PRIMARY KEY,
+      name VARCHAR(255) NOT NULL,
+      feedback TEXT NOT NULL,
+      rating INT CHECK (rating >= 0 AND rating <= 5) NOT NULL
+  );
+  ```
+  </Steps>
   <Step>Done.</Step>
 </Steps>
 

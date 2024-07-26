@@ -35,6 +35,18 @@ components/magicui/magic-card.tsx
 
 </Step>
 
+<Step>
+  ``` SQL
+      CREATE TABLE testimonials (
+      id SERIAL PRIMARY KEY,
+      name VARCHAR(255) NOT NULL,
+      feedback TEXT NOT NULL,
+      rating INT CHECK (rating >= 0 AND rating <= 5) NOT NULL
+  );
+
+  ```
+  </Steps>
+
 </Steps>
 
 ## Props
