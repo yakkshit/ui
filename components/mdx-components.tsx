@@ -10,6 +10,7 @@ import { CopyButton, CopyNpmCommandButton } from "./copy-button";
 import VideoEmbed from "./video-embedd";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { Event, trackEvent } from "@/lib/events";
+import { Accordion } from "./ui/accordion";
 
 
 const CustomLink = (props: any) => {
@@ -31,6 +32,7 @@ const CustomLink = (props: any) => {
 };
 
 const components = {
+  Accordion,
   a: CustomLink,
   Image,
   ComponentSource,
