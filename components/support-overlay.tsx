@@ -43,6 +43,7 @@ const SupportOverlay: React.FC<VideoContainerProps> = ({ videoSrc, supportLink }
             url={videoSrc}
             playing={true}
             muted={isMuted}
+            loop={true}
             width="100%"
             height="100%"
             controls={false} // Hide default controls
