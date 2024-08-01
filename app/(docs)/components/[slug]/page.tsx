@@ -33,12 +33,7 @@ export async function generateMetadata({
     return;
   }
 
-  const {
-    title,
-    date: publishedTime,
-    summary: description,
-    slug,
-  } = component;
+  const { title, date: publishedTime, summary: description, slug } = component;
 
   return constructMetadata({
     title: `${title} - Lingo UI`,
@@ -67,13 +62,6 @@ interface Props {
 }
 
 export default async function Component({ params }: Props) {
-  // const user = await getCurrentUser();
-  // const { payments } = await getUserPayments(user?.id!);
-
-  // const paid = payments.some(
-  //   (payment: Payment) => payment.status === "succeeded"
-  // );
-
   const component = allComponents.find(
     (component) => component.slugAsParams === params.slug
   );
@@ -84,13 +72,13 @@ export default async function Component({ params }: Props) {
   const toc = await getTableOfContents(component.body.raw);
 
   return (
-    <main className="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
+    <main className="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_auto]">
       <div className="mx-auto w-full min-w-0">
         {/* Breadcrumb */}
         <div className="mb-4 flex items-center space-x-1 text-sm text-muted-foreground">
           <Link
             href="/components/Button"
-            className="transition-colors  hover:text-foreground/80"
+            className="transition-colors hover:text-foreground/80"
           >
             <div className="overflow-hidden text-ellipsis whitespace-nowrap">
               Components
@@ -112,56 +100,54 @@ export default async function Component({ params }: Props) {
           )}
         </div>
 
-        <div className="mt-4 flex items-center justify-between">
+        {/* <div className="mt-4 flex items-center justify-between"> */}
           {/* <div className="flex items-center space-x-6">
-            <Link
-              href={`https://twitter.com/intent/tweet?text=${component.title}&url=https://magicuikit.com/components/${component.slugAsParams}&via=${component.author}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Twitter className="h-6 w-6" />
-            </Link>
-            <Link
-              href={`
-            http://www.linkedin.com/shareArticle?mini=true&url=https://magicuikit.com/components/${component.slugAsParams}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <LinkedIn className="h-6 w-6" />
-            </Link>
-            <Link
-              href={`https://www.facebook.com/sharer/sharer.php?u=https://magicuikit.com/components/${component.slugAsParams}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Facebook className="h-6 w-6" />
-            </Link>
-          </div> */}
-        </div>
+        <Link
+          href={`https://twitter.com/intent/tweet?text=${component.title}&url=https://magicuikit.com/components/${component.slugAsParams}&via=${component.author}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Twitter className="h-6 w-6" />
+        </Link>
+        <Link
+          href={`
+        http://www.linkedin.com/shareArticle?mini=true&url=https://magicuikit.com/components/${component.slugAsParams}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <LinkedIn className="h-6 w-6" />
+        </Link>
+        <Link
+          href={`https://www.facebook.com/sharer/sharer.php?u=https://magicuikit.com/components/${component.slugAsParams}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Facebook className="h-6 w-6" />
+        </Link>
+      </div> */}
+        {/* </div> */}
 
-        <div className="flex flex-col pt-8 gap-4">
+        <div className="flex flex-col pt-8 gap-4 w-auto ">
           {/* {component.video && (
-            <div className="flex md:hidden overflow-hidden relative rounded-xl border dark:border-slate-800 md:p-8 justify-center items-center flex-col max-w-[65ch]">
-              <video
-                src={component.video}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="relative -bottom-1 aspect-video" // needed because random black line at bottom of video
-              />
-            </div>
-          )} */}
+        <div className="flex md:hidden overflow-hidden relative rounded-xl border dark:border-slate-800 md:p-8 justify-center items-center flex-col max-w-[65ch]">
+          <video
+            src={component.video}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="relative -bottom-1 aspect-video" // needed because random black line at bottom of video
+          />
+        </div>
+      )} */}
           <Mdx code={component.body.code} />
         </div>
       </div>
 
       {component.toc && (
-        <div className="hidden text-sm xl:block">
+        <div className="hidden xl:block">
           <div className="sticky top-16 -mt-10 h-[calc(100vh-3.5rem)] overflow-hidden pt-6">
-            <ScrollArea className="pb-10">
-              <DashboardTableOfContents toc={toc} />
-            </ScrollArea>
+            <DashboardTableOfContents toc={toc} />
           </div>
         </div>
       )}

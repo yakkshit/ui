@@ -11,7 +11,7 @@ import VideoEmbed from "./video-embedd";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { Event, trackEvent } from "@/lib/events";
 import { Accordion } from "./ui/accordion";
-
+import SupportOverlay from "./support-overlay";
 
 const CustomLink = (props: any) => {
   const href = props.href;
@@ -38,6 +38,7 @@ const components = {
   ComponentSource,
   ComponentPreview,
   VideoEmbed,
+  SupportOverlay,
   table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
     <div className="w-full overflow-y-auto">
       <table className={cn("w-full", className)} {...props} />
@@ -118,7 +119,7 @@ const components = {
       {...props}
     />
   ),
-  
+
   pre: ({
     className,
     __rawString__,
@@ -161,18 +162,16 @@ const components = {
             className={cn("absolute right-4 top-4", __withMeta__ && "top-16")}
           />
         )}
-        {__npmCommand__ &&
-          __yarnCommand__ &&
-          __pnpmCommand__ && (
-            <CopyNpmCommandButton
-              commands={{
-                __npmCommand__,
-                __pnpmCommand__,
-                __yarnCommand__,
-              }}
-              className={cn("absolute right-4 top-4", __withMeta__ && "top-16")}
-            />
-          )}
+        {__npmCommand__ && __yarnCommand__ && __pnpmCommand__ && (
+          <CopyNpmCommandButton
+            commands={{
+              __npmCommand__,
+              __pnpmCommand__,
+              __yarnCommand__,
+            }}
+            className={cn("absolute right-4 top-4", __withMeta__ && "top-16")}
+          />
+        )}
       </>
     );
   },
@@ -198,6 +197,7 @@ export function Mdx({ code }: MDXProps) {
     <article
       className={cn(
         `prose dark:prose-invert prose-gray leading-tighter tracking-tighter`,
+        `max-w-4xl`, // Increase max width to 4xl, adjust as needed
         // `md:prose-lg lg:prose-xl`,
 
         // no underline on links
