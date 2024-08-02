@@ -51,10 +51,10 @@ const SupportOverlay: React.FC<VideoContainerProps> = ({ videoSrc, supportLink }
           <motion.div
             className="absolute inset-0 flex items-center justify-center bg-gray-600 bg-opacity-70 text-white rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-300"
             initial={{ opacity: 0 }}
-            whileHover={{ opacity: 1 }}
+            whileHover={{ opacity: 2 }}
           >
             <Link href={supportLink}>
-              Buy a ☕️
+              Buy me a ☕️
             </Link>
           </motion.div>
           <button

@@ -28,6 +28,10 @@ module.exports = {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
         },
+        boxShadow: {
+          'white-glow': '0 0 15px 5px rgba(255, 255, 255, 0.5)',
+          'grey-glow': '0 0 15px 5px rgba(128, 128, 128, 0.5)',
+        },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
