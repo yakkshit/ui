@@ -1,34 +1,36 @@
 ---
 title: Wait List
 date: 2023-07-12
-summary: A guide for integrating a waitlist component into your project.
+summary: Join our cutting-edge Waitlist component! This uses Shadcn for UI, Framer Motion for animations, and Supabase for the database. Sign up for early access and updates!
 author: yakkshit
 published: true
-video: https://cdn.magicuikit.com/magic-card.mp4
+video: https://youtu.be/d5boLezzS5c?si=q76W5QXEwD0ecy8w
 ---
 
+<SupportOverlay videoSrc="https://youtu.be/2XpRLqst5aI?si=zxQmKKHppo5gaBM4" supportLink="https://www.cedzlabs.com/payments" />
 <ComponentPreview name="wait-list-demo" />
 
 ## Installation
 
 <Tabs defaultValue="doc">
 
-<TabsList>
-  <TabsTrigger value="doc">Doc</TabsTrigger>
-  <TabsTrigger value="video">Video</TabsTrigger>
-</TabsList>
+  <TabsList>
+    <TabsTrigger value="doc">Doc</TabsTrigger>
+    <TabsTrigger value="video">Video</TabsTrigger>
+  </TabsList>
 
-<TabsContent value="doc">
+  <TabsContent value="doc">
 
-<Steps>
-  <Step>
-  Install the Required Dependencies in your project:
-    - shadcn ui Button
-    - radix ui
+  <Steps>
+    <Step>
+    ## Prerequisites:
+      Install the Required Dependencies in your project:
+      - shadcn ui Button
+      - radix ui
 
-    ```bash
-    npx shadcn-ui@latest add button && npx shadcn-ui@latest add input && npx shadcn-ui@latest add toast
-    ```
+        ```bash
+        npx shadcn-ui@latest add button && npx shadcn-ui@latest add input && npx shadcn-ui@latest add toast
+        ```
   </Step>
   
   <Step>
@@ -37,14 +39,37 @@ video: https://cdn.magicuikit.com/magic-card.mp4
     <ComponentSource name="wait-list" />
 
   </Step>
+
+  <Step>
+  ## Supabase setup
+
+  - Create a new project on [Supabase](https://app.supabase.io/).
+  - Create a new table named `testimonials` int the SQL editor with the following schema:
+  ``` SQL
+      CREATE TABLE testimonials (
+      id SERIAL PRIMARY KEY,
+      name VARCHAR(255) NOT NULL,
+      feedback TEXT NOT NULL,
+      rating INT CHECK (rating >= 0 AND rating <= 5) NOT NULL
+  );
+
+  ```
+  </Step>
   
   <Step>
+  ## .env file
   Create the following `.env` variables:
 
     ```env
     NEXT_PUBLIC_MAGIC_API_KEY=YOUR_MAGIC_API_KEY
     NEXT_PUBLIC_MAGIC_PROJECT_ID=YOUR_MAGIC_PROJECT_ID
     ```
+
+    You can find the environment variables for your project in the API settings under project settings.
+  </Step>
+
+  <Step>
+  Congrats! You have successfully created a Waitlist component for your project! 🎉
   </Step>
 </Steps>
 
@@ -55,19 +80,26 @@ video: https://cdn.magicuikit.com/magic-card.mp4
 <Steps>
   <Step>
   Follow the instructions shown in the Video Tutorial.
-  <VideoEmbed src="https://cdn.magicuikit.com/magic-card.mp4" />
+  <VideoEmbed src="https://youtu.be/d5boLezzS5c?si=q76W5QXEwD0ecy8w" 
+  text="<ins>[For more tech videos, please visit our YT channel](https://youtube.com/@cedzlabs)</ins>"/>
   </Step>
-  <Step>Done.</Step>
+  <Step>Done!</Step>
 </Steps>
 
 </TabsContent>
 
 </Tabs>
 
-## Credits
+## Props
 
-| name      | Description                             | Reference Link      |
+for more information, refer the  documentation below:
+
+| Toast     | Prop                                    | Reference Link      |
 | --------- | --------------------------------------- |---------------------|
 | Schadcn ui| (snadcn)[https://ui.shadcn.com]         |                     |
 | className | The className to apply to the container |                     |
+
+| Prop name  | Type      | Default | Description                             |
+| ---------- | --------- | ------- | --------------------------------------- |
+| popupText  | string    | -       | Subscribed successfully               |
 
