@@ -14,6 +14,7 @@ import { Accordion, AccordionContent,
   AccordionItem,
   AccordionTrigger, } from "./ui/accordion";
 import SupportOverlay from "./support-overlay";
+import { Button } from "./ui/button";
 
 const CustomLink = (props: any) => {
   const href = props.href;
@@ -38,6 +39,7 @@ const components = {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
+  Button,
   a: CustomLink,
   Image,
   ComponentSource,

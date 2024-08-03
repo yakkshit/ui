@@ -5,7 +5,7 @@ interface DocsConfig {
   sidebarNav: SidebarNavItem[];
 }
 
-export const docsConfig: DocsConfig = {
+const docsConfig: DocsConfig = {
   mainNav: [
     {
       title: "Components",
@@ -88,11 +88,6 @@ export const docsConfig: DocsConfig = {
           href: `/components/text`,
           items: [],
         },
-        {
-          title: "Github Heat Map",
-          href: `/components/github-heat-map`,
-          items: [],
-        },
       ],
     },
     {
@@ -114,7 +109,59 @@ export const docsConfig: DocsConfig = {
           items: [],
           label: "new",
         },
+        {
+          title: "Github Heat Map",
+          href: `/components/github-heat-map`,
+          items: [],
+        },
       ],
     },
   ],
 };
+
+const sortDocsConfig = (docsConfig: DocsConfig): DocsConfig => {
+  const { sidebarNav } = docsConfig;
+
+  // Separate the "Getting Started" section
+  const gettingStartedSection = sidebarNav.find(section => section.title === "Getting Started");
+  const otherSections = sidebarNav.filter(section => section.title !== "Getting Started");
+
+  const sortedOtherSections = otherSections.map(section => {
+    const items = section.items || [];
+
+    const sortedItems = items
+      .filter(item => item.label !== 'new')
+      .sort((a, b) => a.title.localeCompare(b.title));
+    
+    const newItems = items
+      .filter(item => item.label === 'new')
+      .sort((a, b) => a.title.localeCompare(b.title));
+    
+    return {
+      ...section,
+      items: [
+        ...sortedItems,
+        {
+          items: newItems,
+        }
+      ]
+    };
+  }).sort((a, b) => a.title.localeCompare(b.title));
+
+  // Ensure "Getting Started" section is always first
+  const sortedSidebarNav = [
+    ...(gettingStartedSection ? [gettingStartedSection] : []),
+    ...sortedOtherSections,
+  ];
+
+  return {
+    ...docsConfig,
+    sidebarNav: sortedSidebarNav,
+  };
+};
+
+// Process the docsConfig
+const updatedDocsConfig = sortDocsConfig(docsConfig);
+
+// Export the sorted and updated configuration
+export { updatedDocsConfig as docsConfig };
