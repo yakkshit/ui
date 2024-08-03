@@ -11,6 +11,7 @@ export const metadata = constructMetadata({
   title: "Components - Lingo UI",
   description:
     "Beautiful API connected UI components to make your landing page look stunning.",
+    image: "logo.png",
 });
 
 export default async function ComponentPage() {
