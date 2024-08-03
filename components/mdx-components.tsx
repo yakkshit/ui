@@ -10,7 +10,9 @@ import { CopyButton, CopyNpmCommandButton } from "./copy-button";
 import VideoEmbed from "./video-embedd";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { Event, trackEvent } from "@/lib/events";
-import { Accordion } from "./ui/accordion";
+import { Accordion, AccordionContent,
+  AccordionItem,
+  AccordionTrigger, } from "./ui/accordion";
 import SupportOverlay from "./support-overlay";
 
 const CustomLink = (props: any) => {
@@ -33,6 +35,9 @@ const CustomLink = (props: any) => {
 
 const components = {
   Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
   a: CustomLink,
   Image,
   ComponentSource,
@@ -197,7 +202,7 @@ export function Mdx({ code }: MDXProps) {
     <article
       className={cn(
         `prose dark:prose-invert prose-gray leading-tighter tracking-tighter`,
-        `max-w-4xl`, // Increase max width to 4xl, adjust as needed
+        `max-w-6xl`, // Increase max width to 4xl, adjust as needed
         // `md:prose-lg lg:prose-xl`,
 
         // no underline on links

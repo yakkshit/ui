@@ -3,6 +3,7 @@ import { FadeIn } from "@/registry/components/frontend/fade-in";
 import { allComponents } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata = constructMetadata({
   title: "Components - Lingo UI",
@@ -18,7 +19,7 @@ export default async function ComponentPage() {
     });
 
   return (
-    <div className="container max-w-4xl py-6 lg:py-10">
+    <div className="container max-w-full py-6 lg:py-10">
       <div className="flex flex-col items-start gap-4 md:flex-row md:justify-between md:gap-8">
         <div className="flex-1 space-y-4">
           <h1 className="inline-block font-medium text-4xl lg:text-5xl">
@@ -31,39 +32,37 @@ export default async function ComponentPage() {
       </div>
       <hr className="my-8" />
       {posts?.length ? (
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4">
           {posts.map((post, index) => (
             <FadeIn key={post._id} delay={index * 0.1}>
               <article
                 key={post._id}
-                className="group relative flex grow flex-col overflow-hidden rounded-xl border hover:border-gray-300 dark:border-gray-800 dark:hover:border-gray-700 transition-all duration-300"
+                className="group relative flex flex-col overflow-hidden rounded-xl border hover:border-gray-300 dark:border-gray-800 dark:hover:border-gray-700 transition-all duration-300"
               >
                 {post.video && (
                   <div className="overflow-hidden">
-                    <video
-                      src={post.video}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="relative -bottom-1 aspect-video" // needed because random black line at bottom of video
+                    <iframe
+                      src={post.video} // Use the video URL as the iframe source
+                      className="w-full h-full object-cover"
+                      frameBorder="0"
+                      allowFullScreen
                     />
                   </div>
                 )}
-                <div className="flex grow flex-col p-3">
-                  <h2>{post.title}</h2>
-                  {post.date && (
-                    <p className="text-sm text-gray-500">
-                      {formatDate(post.date)}
-                    </p>
+                <div className="flex flex-col p-3">
+                  <h2 className="text-lg font-semibold">{post.title}</h2>
+                  {post.date && post.author && (
+                    <div className="flex space-x-4 text-sm text-gray-500">
+                      <p>{formatDate(post.date)}</p>
+                      <p>{post.author}</p>
+                    </div>
                   )}
                   {post.summary && (
-                    <p className="mb-2 text-sm text-muted-foreground">
+                    <p className="mt-2 text-sm text-muted-foreground">
                       {post.summary}
                     </p>
                   )}
                 </div>
-
                 <Link href={post.url} className="absolute inset-0">
                   <span className="sr-only">View Article</span>
                 </Link>
