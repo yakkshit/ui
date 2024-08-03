@@ -1,6 +1,6 @@
 // pages/components.tsx
 
-import Article from "@/components/ui/post";
+import Article from "@/components/ui/Article";
 import { constructMetadata, formatDate } from "@/lib/utils";
 import { FadeIn } from "@/registry/components/frontend/fade-in";
 import { allComponents } from "contentlayer/generated";

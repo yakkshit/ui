@@ -45,6 +45,7 @@ const components = {
   ComponentSource,
   ComponentPreview,
   VideoEmbed,
+  Link,
   SupportOverlay,
   table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
     <div className="w-full overflow-y-auto">

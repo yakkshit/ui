@@ -20,7 +20,7 @@ const ui: Registry = {
   "wait-list": {
     name: "wait-list",
     type: "components:ui",
-    files: ["registry/components/backend/toast/waitlist.tsx"],
+    files: ["registry/components/backend/waitlist/waitlist.tsx"],
   },
   "blob": {
     name: "blob",

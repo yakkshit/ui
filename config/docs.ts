@@ -74,11 +74,6 @@ const docsConfig: DocsConfig = {
           label: "3D",
         },
         {
-          title: "Slider",
-          href: `/components/slider`,
-          items: [],
-        },
-        {
           title: "Buttons",
           href: `/components/buttons`,
           items: [],
@@ -114,6 +109,22 @@ const docsConfig: DocsConfig = {
           href: `/components/github-heat-map`,
           items: [],
         },
+        {
+          title: "Testimonials Slider",
+          href: `/components/slider`,
+          items: [],
+        },
+      ],
+    },
+    {
+      title: "Sections/Pages",
+      items: [
+        {
+          title: "Hero",
+          href: `/components/wait-list`,
+          items: [],
+          label:"new"
+        },
       ],
     },
   ],
@@ -126,22 +137,23 @@ const sortDocsConfig = (docsConfig: DocsConfig): DocsConfig => {
   const gettingStartedSection = sidebarNav.find(section => section.title === "Getting Started");
   const otherSections = sidebarNav.filter(section => section.title !== "Getting Started");
 
-  const sortedOtherSections = otherSections.map(section => {
+  const sortedOtherSections: SidebarNavItem[] = otherSections.map(section => {
     const items = section.items || [];
 
     const sortedItems = items
       .filter(item => item.label !== 'new')
       .sort((a, b) => a.title.localeCompare(b.title));
-    
+  
     const newItems = items
       .filter(item => item.label === 'new')
       .sort((a, b) => a.title.localeCompare(b.title));
-    
+  
     return {
       ...section,
       items: [
         ...sortedItems,
         {
+          title: 'soon ...',
           items: newItems,
         }
       ]
@@ -149,7 +161,7 @@ const sortDocsConfig = (docsConfig: DocsConfig): DocsConfig => {
   }).sort((a, b) => a.title.localeCompare(b.title));
 
   // Ensure "Getting Started" section is always first
-  const sortedSidebarNav = [
+  const sortedSidebarNav: SidebarNavItem[] = [
     ...(gettingStartedSection ? [gettingStartedSection] : []),
     ...sortedOtherSections,
   ];

@@ -12,7 +12,27 @@ const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
 export const supabase = createClient(supabaseUrl!, supabaseKey!)
 
-export function Waitlist() {
+interface WaitlistProps {
+  emailPlaceholder?: string;
+  buttonText?: string;
+  successRedirectUrl?: string;
+  inputClassName?: string;
+  buttonClassName?: string;
+  formClassName?: string;
+  onSuccess?: () => void;
+  onError?: (error: any) => void;
+}
+
+export function Waitlist({
+  emailPlaceholder = "Email",
+  buttonText = "Subscribe",
+  successRedirectUrl = "https://www.cedzlabs.com",
+  inputClassName = "",
+  buttonClassName = "",
+  formClassName = "",
+  onSuccess,
+  onError,
+}: WaitlistProps) {
   const [email, setEmail] = useState('')
   const router = useRouter()
   const { toast } = useToast()
@@ -29,29 +49,31 @@ export function Waitlist() {
       toast({
         description: "Error subscribing: " + error.message,
       })
+      if (onError) onError(error)
     } else {
       toast({
-        description: "Successfully subscribed! Your added to waitlist.",
+        description: "Successfully subscribed! You're added to the waitlist.",
       })
       setEmail('')
-      router.push('https://www.cedzlabs.com') // Redirect after successful subscription
+      if (onSuccess) onSuccess()
+      router.push(successRedirectUrl) // Redirect after successful subscription
     }
   }
 
   return (
-    <form onSubmit={handleSubscribe} className='flex gap-2'>
+    <form onSubmit={handleSubscribe} className={`flex gap-2 ${formClassName}`}>
       <Input
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        placeholder="Email"
-        className="rounded-lg border border-neutral-800 focus:ring-2 focus:ring-teal-500 relative z-10 mt-4 bg-neutral-950 placeholder:text-neutral-700"
+        placeholder={emailPlaceholder}
+        className={`rounded-lg border border-neutral-800 focus:ring-2 focus:ring-teal-500 relative z-10 mt-4 bg-neutral-950 placeholder:text-neutral-700 ${inputClassName}`}
       />
       <Button
         type="submit"
-        className="rounded-lg border border-neutral-800 focus:ring-2 focus:ring-teal-500 relative z-10 mt-4 placeholder:text-neutral-700"
+        className={`rounded-lg border border-neutral-800 focus:ring-2 focus:ring-teal-500 relative z-10 mt-4 placeholder:text-neutral-700 ${buttonClassName}`}
       >
-        Subscribe
+        {buttonText}
       </Button>
     </form>
   )
