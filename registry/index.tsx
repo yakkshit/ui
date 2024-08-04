@@ -87,9 +87,17 @@ const example: Registry = {
   "wait-list-demo": {
     name: "wait-list-demo",
     type: "components:example",
-    files: ["registry/components/example/wait-list-demo.tsx"],
+    files: ["registry/components/example/wait-list/wait-list-demo.tsx"],
     component: React.lazy(
-      () => import("@/registry/components/example/wait-list-demo")
+      () => import("@/registry/components/example/wait-list/wait-list-demo")
+    ),
+  },
+  "wait-list-1-demo": {
+    name: "wait-list-1-demo",
+    type: "components:example",
+    files: ["registry/components/example/wait-list/wait-list-1-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/wait-list/wait-list-1-demo")
     ),
   },
   "blob-demo": {

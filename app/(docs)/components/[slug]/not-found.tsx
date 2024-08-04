@@ -1,4 +1,4 @@
-import WaitlistDemo from "@/registry/components/example/wait-list-demo";
+import WaitlistDemo from "@/registry/components/example/wait-list/wait-list-demo";
 
 export default async function NotFound() {
   return (

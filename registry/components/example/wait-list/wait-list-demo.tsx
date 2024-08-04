@@ -1,6 +1,6 @@
 "use client";
 import { useSession } from "next-auth/react";
-import Waitlist from "../backend/waitlist/waitlist";
+import Waitlist from "../../backend/waitlist/waitlist";
 
 export default function WaitlistDemo() {
   return (
