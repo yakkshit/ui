@@ -83,6 +83,11 @@ const docsConfig: DocsConfig = {
           href: `/components/text`,
           items: [],
         },
+        {
+          title: "Image Slider",
+          href: `/components/slider`,
+          items: [],
+        }
       ],
     },
     {
@@ -102,28 +107,11 @@ const docsConfig: DocsConfig = {
           title: "Testimonials",
           href: `/components/testimonials`,
           items: [],
-          label: "new",
         },
         {
           title: "Github Heat Map",
           href: `/components/github-heat-map`,
           items: [],
-        },
-        {
-          title: "Testimonials Slider",
-          href: `/components/slider`,
-          items: [],
-        },
-      ],
-    },
-    {
-      title: "Sections/Pages",
-      items: [
-        {
-          title: "Hero",
-          href: `/components/wait-list`,
-          items: [],
-          label:"new"
         },
       ],
     },
@@ -153,7 +141,7 @@ const sortDocsConfig = (docsConfig: DocsConfig): DocsConfig => {
       items: [
         ...sortedItems,
         {
-          title: 'soon ...',
+          title: '',
           items: newItems,
         }
       ]

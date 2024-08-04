@@ -49,6 +49,15 @@ components/magicui/magic-card.tsx
 
 </Steps>
 
+## example
+
+<ComponentPreview name="testimonials-1-demo" />
+
+## example 2
+
+<ComponentPreview name="testimonials-2-demo" />
+
+
 ## Props
 
 ### MagicContainer
@@ -58,20 +67,44 @@ components/magicui/magic-card.tsx
 | children  | ReactNode | -       | The children to render                  |
 | className | string    | -       | The className to apply to the container |
 
-### MagicCard
+### Form Feedback
+| Prop name           | Type     | Default                | Description                                                                 |
+| ------------------- | -------- | ---------------------- | --------------------------------------------------------------------------- |
+| initialName         | string   | ''                     | The initial value for the name input field.                                 |
+| initialFeedback     | string   | ''                     | The initial value for the feedback textarea.                                |
+| initialRating       | number   | 0                      | The initial value for the rating (number of stars).                         |
+| onSubmitSuccess     | function | undefined              | Callback function to be called on successful form submission.               |
+| onSubmitError       | function | undefined              | Callback function to be called on form submission error.                    |
+| redirectUrl         | string   | 'https://www.cedzlabs.com' | URL to redirect to after successful form submission.                        |
+| title               | string   | 'Testimonials'         | The title of the form.                                                      |
+| nameLabel           | string   | 'Name'                 | The label for the name input field.                                         |
+| feedbackLabel       | string   | 'Feedback'             | The label for the feedback textarea.                                        |
+| ratingLabel         | string   | 'Rating'               | The label for the rating section.                                           |
+| submitButtonText    | string   | 'Submit'               | The text to display on the submit button.       
 
-| Prop name      | Type      | Default                | Description                        |
-| -------------- | --------- | ---------------------- | ---------------------------------- |
-| children       | ReactNode | -                      | The children to render             |
-| className      | string    | -                      | The className to apply to the card |
-| maskSize       | number    | 200                    | The size of the spotlight mask     |
-| borderColor    | string    | #475569                | The color of the border            |
-| borderWidth    | number    | 1                      | The width of the border            |
-| borderRadius   | number    | 16                     | The radius of the border           |
-| spotlight      | boolean   | true                   | Whether to show the spotlight      |
-| spotlightColor | string    | rgba(255,255,255,0.03) | The color of the spotlight         |
-| isolated       | boolean   | true                   | Whether to isolate the card        |
-| background     | string    | rgba(255,255,255,0.1)  | The background of the card         |
+## marquee testominals
+
+| Prop name       | Type     | Default                | Description                                                                 |
+| --------------- | -------- | ---------------------- | --------------------------------------------------------------------------- |
+| duration        | number   | 20                     | Controls the duration of the marquee animation.                             |
+| ease            | string   | 'linear'               | Controls the easing function of the animation.                              |
+| repeat          | number   | Infinity               | Controls how many times the animation should repeat.                        |
+| bgColor         | string   | 'bg-white dark:bg-gray-800' | Controls the background color of the testimonial cards.                     |
+| textColor       | string   | 'text-gray-700 dark:text-gray-300' | Controls the text color of the feedback.                                    |
+| borderColor     | string   | 'border-gray-300 dark:border-gray-600' | Controls the border color of the testimonial cards.                         |
+| starColor       | string   | 'text-yellow-500'      | Controls the color of the filled stars.                                     |
+| starEmptyColor  | string   | 'text-gray-300'        | Controls the color of the empty stars.                                      |
+|
+
+
+## testimonial slider 
+| Prop name       | Type     | Default                | Description                                                                 |
+| --------------- | -------- | ---------------------- | --------------------------------------------------------------------------- |
+| bgColor         | string   | 'bg-white dark:bg-gray-800' | Background color classes for the testimonial cards.                         |
+| textColor       | string   | 'text-gray-700 dark:text-gray-300' | Text color classes for the testimonial feedback.                            |
+| borderColor     | string   | 'border-gray-300 dark:border-gray-600' | Border color classes for the testimonial cards.                             |
+| starColor       | string   | 'text-yellow-500'      | Color class for filled stars in the rating.                                 |
+| starEmptyColor  | string   | 'text-gray-300'        | Color class for empty stars in the rating.                                  |
 
 ## Credits
 

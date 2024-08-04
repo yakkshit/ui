@@ -57,6 +57,11 @@ const ui: Registry = {
     type: "components:ui",
     files: ["registry/components/backend/testimonials/Testimonials.tsx"],
   },
+  "auth": {
+    name: "auth",
+    type: "components:ui",
+    files: ["registry/components/backend/auth/AuthComponent.tsx"],
+  },
 };
 
 const example: Registry = {
@@ -151,9 +156,41 @@ const example: Registry = {
   "testimonials-demo": {
     name: "testimonials-demo",
     type: "components:example",
-    files: ["registry/components/example/testimonials-demo.tsx"],
+    files: ["registry/components/example/testimonials/testimonials-demo.tsx"],
     component: React.lazy(
-      () => import("@/registry/components/example/testimonials-demo")
+      () => import("@/registry/components/example/testimonials/testimonials-demo")
+    ),
+  },
+  "testimonials-1-demo": {
+    name: "testimonials-demo",
+    type: "components:example",
+    files: ["registry/components/example/testimonials/testimonials-1-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/testimonials/testimonials-1-demo")
+    ),
+  },
+  "testimonials-2-demo": {
+    name: "testimonials-demo",
+    type: "components:example",
+    files: ["registry/components/example/testimonials/testimonials-2-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/testimonials/testimonials-2-demo")
+    ),
+  },
+  "auth-demo": {
+    name: "auth-demo",
+    type: "components:example",
+    files: ["registry/components/example/auth/auth-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/auth/auth-demo")
+    ),
+  },
+  "auth-supabase-demo": {
+    name: "auth-supabase-demo",
+    type: "components:example",
+    files: ["registry/components/example/auth/supabase-auth-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/auth/supabase-auth-demo")
     ),
   },
 };

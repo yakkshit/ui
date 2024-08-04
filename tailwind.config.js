@@ -67,7 +67,9 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
         gradient: "gradient 8s linear infinite",
         showcontent: 'showcontent 1s ease-in-out forwards',
+        scroll: "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
         "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
+        marquee: "marquee 15s linear infinite",
       },
       keyframes: {
         "accordion-down": {
@@ -87,10 +89,19 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: 0 },
         },
+        scroll: {
+          to: {
+            transform: "translate(calc(-50% - 0.5rem))",
+          },
+        },
         gradient: {
           to: {
             backgroundPosition: "var(--bg-size) 0",
           },
+        },
+        marquee: {
+          from: { transform: "translateX(100%)" },
+          to: { transform: "translateX(-100%)" },
         },
       },
     },
