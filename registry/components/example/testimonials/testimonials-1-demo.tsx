@@ -4,7 +4,7 @@ import { TestimonialsSlider } from "../../backend/testimonials/Testimonials";
 
 export default function Testimonials1Demo() {
     return (
-      <div className="container mx-auto p-4 flex flex-col justify-center items-center">
+      <div className="container p-4 flex-col justify-center items-center">
         <h1 className="text-3xl font-bold mb-4">Testimonials</h1>
         <TestimonialsSlider 
           bgColor="bg-white dark:bg-gray-800"

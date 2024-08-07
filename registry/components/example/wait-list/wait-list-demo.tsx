@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import { useSession } from "next-auth/react";
 import Waitlist from "../../backend/waitlist/waitlist";
 

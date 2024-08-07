@@ -1,10 +1,10 @@
-// components/WaitlistSection.tsx
+'use client'
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Inter } from 'next/font/google';
 import Particles from 'react-tsparticles';
 import 'tailwindcss/tailwind.css';
 import Waitlist from '../../backend/waitlist/waitlist';
+import { Inter } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'] });
 

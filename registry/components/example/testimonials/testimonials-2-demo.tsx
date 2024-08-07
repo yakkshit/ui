@@ -4,7 +4,7 @@ import { MarqueeTestimonials } from "../../backend/testimonials/Testimonials";
 
 export default function Testimonials2Demo() {
     return (
-      <div className="container mx-auto p-4 flex flex-col justify-center items-center">
+      <div className="container p-4 justify-center items-center">
         <h1 className="text-3xl font-bold mb-4">Testimonials</h1>
         <MarqueeTestimonials
           duration={20}

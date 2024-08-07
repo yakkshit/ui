@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
 import { useEffect, useRef, useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import 'tailwindcss/tailwind.css';
-import { toast } from '@/components/ui/use-toast';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
+import { toast } from '@/components/ui/use-toast';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
@@ -176,11 +176,40 @@ const TestimonialsSlider: React.FC<TestimonialsSliderProps> = ({
 
   return (
     <div className="relative">
-      <div className="overflow-hidden whitespace-nowrap" ref={containerRef}>
+      <div className="flex overflow-hidden whitespace-nowrap" ref={containerRef}>
         <motion.div
           className="flex"
           animate={{ x: `-${currentIndex * 100}%` }}
-          transition={{ duration: transitionDuration, ease: transitionEase }}
+          transition={{ duration: transitionDuration, ease: transitionEase, }}
+          style={{ display: 'flex', whiteSpace: 'nowrap' }}
+        >
+          {testimonials.map((testimonial, index) => (
+            <motion.div
+              key={`${testimonial.id}-${index}`}
+              className={`${bgColor} ${borderColor} border rounded-lg shadow-lg p-4 m-2 w-80 flex-shrink-0`}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <h3 className="text-xl font-bold text-center">{testimonial.name}</h3>
+              <p className={`${textColor} mt-2 line-clamp-3`}>
+                {testimonial.feedback}
+              </p>
+              <div className="flex justify-center mt-4">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <Star
+                    key={star}
+                    className={`w-6 h-6 ${star <= testimonial.rating ? starColor : starEmptyColor}`}
+                    fill={star <= testimonial.rating ? 'currentColor' : 'none'}
+                  />
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+        <motion.div
+          className="flex"
+          animate={{ x: `-${currentIndex * 100}%` }}
+          transition={{ duration: transitionDuration, ease: transitionEase, }}
           style={{ display: 'flex', whiteSpace: 'nowrap' }}
         >
           {testimonials.map((testimonial, index) => (
@@ -266,13 +295,38 @@ const MarqueeTestimonials: React.FC<MarqueeTestimonialsProps> = ({
   }, []);
 
   return (
-    <div className="overflow-hidden whitespace-nowrap relative">
+    <div className="flex overflow-x-hidden whitespace-nowrap relative myGradient">
       <motion.div
         className="flex"
-        animate={{ x: ['0%', '-100%'] }}
+        animate={{ x: ['0','-100%'] }}
         transition={{ repeat, duration, ease }}
-        style={{ display: 'flex', whiteSpace: 'nowrap' }}
       >
+        {[...testimonials, ...testimonials].map((testimonial, index) => (
+          <div
+            key={`${testimonial.id}-${index}`}
+            className={`${bgColor} ${borderColor} border rounded-lg shadow-lg p-4 m-2 w-80 flex-shrink-0`}
+          >
+            <h3 className="text-xl font-bold text-center">{testimonial.name}</h3>
+            <p className={`${textColor} mt-2 line-clamp-3`}>
+              {testimonial.feedback}
+            </p>
+            <div className="flex justify-center mt-4">
+              {[1, 2, 3, 4, 5].map((star) => (
+                <Star
+                  key={star}
+                  className={`w-6 h-6 ${star <= testimonial.rating ? starColor : starEmptyColor}`}
+                  fill={star <= testimonial.rating ? 'currentColor' : 'none'}
+                />
+              ))}
+            </div>
+          </div>
+        ))}
+      </motion.div>
+      <motion.div
+        className="flex"
+        animate={{ x: ['0','-100%'] }}
+        transition={{ repeat, duration, ease }}
+              >
         {[...testimonials, ...testimonials].map((testimonial, index) => (
           <div
             key={`${testimonial.id}-${index}`}

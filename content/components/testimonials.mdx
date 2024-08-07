@@ -1,111 +1,222 @@
 ---
 title: Testimonials
-date: 2023-07-02
-summary: A spotlight effect that follows your mouse cursor and highlights borders on hover.
+date: 2024-08-07
+summary: Join our cutting-edge Testimonials component! This uses Shadcn for UI, Framer Motion for animations, and Supabase for the database. Sign up for early access and updates!
 author: yakkshit
 published: true
-video: https://cdn.magicuikit.com/magic-card.mp4
+video: https://youtu.be/c8bsrQ-2-lI
 ---
+
+<SupportOverlay
+  videoSrc="https://youtu.be/nXbXNB9E71o"
+  supportLink="https://cedzlabs.com/payments"
+/>
 
 <ComponentPreview name="testimonials-demo" />
 
-<Steps>
-
-<Step>
-
 ## Prerequisites
 
-```bash
-npm install -D tailwindcss tailwind-merge clsx
-```
+Before you start, ensure you have the following:
 
-</Step>
+<Steps>
+  <Step>
+    Install the Required Dependencies in your project:
+      - shadcn ui
+      - lucid react icons
+      - framer motion
+      ```npm
+        npm install framer-motion  && npm install lucide-react && npm shadcn-ui@latest add toast && npm install @supabase/supabase-js
+      ```
+  </Step>
 
-<Step>
+  <Step>
+    Create a new Project in superbse for reference check [superbase](https://supabase.com/docs/guides/api/creating-routes#api-url-and-keys)
+    check the video
+    <Accordion type="single" collapsible>
+      <AccordionItem value="item-1">
+        <AccordionTrigger>How to Get the API keys video tutorial </AccordionTrigger>
+        <AccordionContent>
+        <Steps>
+            <Step>
+             <h4>Step 1: Go to superbse and create a new project</h4>
+              <VideoEmbed src="https://youtu.be/SwkNoEtw9ow"  
+              text="
+                  ## Create a Table
+                    Let's create our first API route by creating a table called `todos` to store tasks. This creates a corresponding route `todos` which can accept GET, POST, PATCH, & DELETE requests.
+                    1. Go to the **Table editor** page in the Dashboard.
+                    2. Click **New Table** and create a table with the name `todos`.
+                    3. Click **Save**.
+                    4. Click **New Column** and create a column with the name `task` and type `text`.
+                    5. Click **Save**.
+                    "/>
+            </Step>
+            <Step>
+              <h4>Step 2: Get the API keys</h4>
+              <VideoEmbed src="https://youtu.be/i359YfsQRjU"  
+                text='
+                    ## API URL and Keys
+
+                      Every Supabase project has a unique API URL. Your API is secured behind an API gateway which requires an API Key for every request.
+
+                      1. Go to the [Settings](https://supabase.com/dashboard/project/_/settings/general) page in the Dashboard.
+                      2. Click API in the sidebar.
+                      3. Find your API URL, anon, and service_role keys on this page.
+
+                      The REST API is accessible through the URL `https://<project_ref>.supabase.co/rest/v1`. Both of these routes require the anon key to be passed through an `apikey` header.
+
+                      ### Environment Variables
+
+                      ```env
+                      NEXT_PUBLIC_SUPABASE_URL=REPLACE_WITH_YOUR_KEY
+                      NEXT_PUBLIC_SUPABASE_ANON_KEY=REPLACE_WITH_YOUR_KEY
+                      ```'/>
+            </Step>
+          </Steps>
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+    Get Your API keys `API URL`, `anon` from supabase.
+      ```env
+      NEXT_PUBLIC_SUPABASE_URL=REPLACE_WITH_YOUR_KEY
+      NEXT_PUBLIC_SUPABASE_ANON_KEY=REPLACE_WITH_YOUR_KEY
+      ```
+
+  </Step>
+  <Step>You&apos;re almost done just few Steps left.</Step>
+</Steps>
 
 ## Installation
 
-Copy and page the following code into your project.
+<Tabs defaultValue="code">
 
-```text
-components/magicui/magic-card.tsx
-```
+<TabsList>
+  <TabsTrigger value="code">Code</TabsTrigger>
+  <TabsTrigger value="video">Video</TabsTrigger>
+  <TabsTrigger value="files">Files</TabsTrigger>
+</TabsList>
 
-<ComponentSource name="testimonials" />
+<TabsContent value="code">
+<Steps>
+  <Step>
 
-</Step>
+    Create a file named `testimonial.tsx` and copy and paste the following code:
 
-<Step>
-  ``` SQL
-      CREATE TABLE testimonials (
-      id SERIAL PRIMARY KEY,
-      name VARCHAR(255) NOT NULL,
-      feedback TEXT NOT NULL,
-      rating INT CHECK (rating >= 0 AND rating <= 5) NOT NULL
-  );
+    <ComponentSource name="testimonial" />
 
-  ```
-</Step>
+  </Step>
+  
+  <Step>
+    Create the following `.env` variables:
+    ```env
+      NEXT_PUBLIC_SUPABASE_URL=REPLACE_WITH_YOUR_KEY
+      NEXT_PUBLIC_SUPABASE_ANON_KEY=REPLACE_WITH_YOUR_KEY
+      ```
 
+  </Step>
+  <Step>
+      Run the code in the SQLeditor in supabase.
+
+      ```SQL
+        CREATE TABLE testimonials (
+            id SERIAL PRIMARY KEY,
+            name VARCHAR(255) NOT NULL,
+            feedback TEXT NOT NULL,
+            rating INT CHECK (rating >= 0 AND rating <= 5) NOT NULL
+        );
+      ```
+
+  </Step>
+  <Step>Congrats! You have successfully created a Testimonials component for your project! 🎉</Step>
 </Steps>
 
-## example
+</TabsContent>
 
-<ComponentPreview name="testimonials-1-demo" />
+<TabsContent value="video">
 
-## example 2
+<Steps>
+  <Step>
+    Follow the instructions shown in the Video Tutorial.
+    <VideoEmbed
+      src="https://youtu.be/nXbXNB9E71o"
+      text="<ins>[For more tech videos, please visit our YT channel](https://youtube.com/@cedzlabs)</ins>
+  
+  We are workign Hard to Bring you the exiting Stuff.
+  Stay Tuned for more Tech Videos.
+  Please Support Us 🙂."
+    />
+  </Step>
+  <Step>Done!</Step>
+</Steps>
 
-<ComponentPreview name="testimonials-2-demo" />
+</TabsContent>
 
+<TabsContent value="files">
+  # Link Will be given soon..
+    <Link href=''><Button>Download zip</Button></Link>
+</TabsContent>
+</Tabs>
 
 ## Props
 
-### MagicContainer
-
-| Prop name | Type      | Default | Description                             |
-| --------- | --------- | ------- | --------------------------------------- |
-| children  | ReactNode | -       | The children to render                  |
-| className | string    | -       | The className to apply to the container |
-
 ### Form Feedback
-| Prop name           | Type     | Default                | Description                                                                 |
-| ------------------- | -------- | ---------------------- | --------------------------------------------------------------------------- |
-| initialName         | string   | ''                     | The initial value for the name input field.                                 |
-| initialFeedback     | string   | ''                     | The initial value for the feedback textarea.                                |
-| initialRating       | number   | 0                      | The initial value for the rating (number of stars).                         |
-| onSubmitSuccess     | function | undefined              | Callback function to be called on successful form submission.               |
-| onSubmitError       | function | undefined              | Callback function to be called on form submission error.                    |
-| redirectUrl         | string   | 'https://www.cedzlabs.com' | URL to redirect to after successful form submission.                        |
-| title               | string   | 'Testimonials'         | The title of the form.                                                      |
-| nameLabel           | string   | 'Name'                 | The label for the name input field.                                         |
-| feedbackLabel       | string   | 'Feedback'             | The label for the feedback textarea.                                        |
-| ratingLabel         | string   | 'Rating'               | The label for the rating section.                                           |
-| submitButtonText    | string   | 'Submit'               | The text to display on the submit button.       
 
-## marquee testominals
+| Prop name        | Type     | Default                    | Description                                                   |
+| ---------------- | -------- | -------------------------- | ------------------------------------------------------------- |
+| initialName      | string   | ''                         | The initial value for the name input field.                   |
+| initialFeedback  | string   | ''                         | The initial value for the feedback textarea.                  |
+| initialRating    | number   | 0                          | The initial value for the rating (number of stars).           |
+| onSubmitSuccess  | function | undefined                  | Callback function to be called on successful form submission. |
+| onSubmitError    | function | undefined                  | Callback function to be called on form submission error.      |
+| redirectUrl      | string   | 'https://www.cedzlabs.com' | URL to redirect to after successful form submission.          |
+| title            | string   | 'Testimonials'             | The title of the form.                                        |
+| nameLabel        | string   | 'Name'                     | The label for the name input field.                           |
+| feedbackLabel    | string   | 'Feedback'                 | The label for the feedback textarea.                          |
+| ratingLabel      | string   | 'Rating'                   | The label for the rating section.                             |
+| submitButtonText | string   | 'Submit'                   | The text to display on the submit button.                     |
 
-| Prop name       | Type     | Default                | Description                                                                 |
-| --------------- | -------- | ---------------------- | --------------------------------------------------------------------------- |
-| duration        | number   | 20                     | Controls the duration of the marquee animation.                             |
-| ease            | string   | 'linear'               | Controls the easing function of the animation.                              |
-| repeat          | number   | Infinity               | Controls how many times the animation should repeat.                        |
-| bgColor         | string   | 'bg-white dark:bg-gray-800' | Controls the background color of the testimonial cards.                     |
-| textColor       | string   | 'text-gray-700 dark:text-gray-300' | Controls the text color of the feedback.                                    |
-| borderColor     | string   | 'border-gray-300 dark:border-gray-600' | Controls the border color of the testimonial cards.                         |
-| starColor       | string   | 'text-yellow-500'      | Controls the color of the filled stars.                                     |
-| starEmptyColor  | string   | 'text-gray-300'        | Controls the color of the empty stars.                                      |
-|
+## Examples
 
+### Example 1: Marquee
 
-## testimonial slider 
-| Prop name       | Type     | Default                | Description                                                                 |
-| --------------- | -------- | ---------------------- | --------------------------------------------------------------------------- |
-| bgColor         | string   | 'bg-white dark:bg-gray-800' | Background color classes for the testimonial cards.                         |
-| textColor       | string   | 'text-gray-700 dark:text-gray-300' | Text color classes for the testimonial feedback.                            |
-| borderColor     | string   | 'border-gray-300 dark:border-gray-600' | Border color classes for the testimonial cards.                             |
-| starColor       | string   | 'text-yellow-500'      | Color class for filled stars in the rating.                                 |
-| starEmptyColor  | string   | 'text-gray-300'        | Color class for empty stars in the rating.                                  |
+<ComponentPreview name="testimonials-2-demo" />
+
+## Props for marquee testominals
+
+| Prop name      | Type   | Default                                | Description                                             |
+| -------------- | ------ | -------------------------------------- | ------------------------------------------------------- |
+| duration       | number | 20                                     | Controls the duration of the marquee animation.         |
+| ease           | string | 'linear'                               | Controls the easing function of the animation.          |
+| repeat         | number | Infinity                               | Controls how many times the animation should repeat.    |
+| bgColor        | string | 'bg-white dark:bg-gray-800'            | Controls the background color of the testimonial cards. |
+| textColor      | string | 'text-gray-700 dark:text-gray-300'     | Controls the text color of the feedback.                |
+| borderColor    | string | 'border-gray-300 dark:border-gray-600' | Controls the border color of the testimonial cards.     |
+| starColor      | string | 'text-yellow-500'                      | Controls the color of the filled stars.                 |
+| starEmptyColor | string | 'text-gray-300'                        | Controls the color of the empty stars.                  |
+
+### Example 2: slider
+
+<ComponentPreview name="testimonials-1-demo" />
+## Props for testimonial slider 
+| Prop name     | Type   | Default                          | Description                                      |
+| ------------- | ------ | -------------------------------- | ------------------------------------------------ |
+| bgColor       | string | 'bg-white dark:bg-gray-800'      | Background color classes for the testimonial cards. |
+| textColor     | string | 'text-gray-700 dark:text-gray-300' | Text color classes for the testimonial feedback.   |
+| borderColor   | string | 'border-gray-300 dark:border-gray-600' | Border color classes for the testimonial cards.    |
+| starColor     | string | 'text-yellow-500'                | Color class for filled stars in the rating.       |
+| starEmptyColor| string | 'text-gray-300'                  | Color class for empty stars in the rating.        |
+
 
 ## Credits
 
-This component is inspired by [Linear.app](https://linear.app/features)
+| Name      | Credit For          | Link                                               |
+| --------- | ------------------- | -------------------------------------------------- |
+| Yakkshit  | Component Developer | [yakkshit](https://x.com/yakkshit)                 |
+| Cedz Labs | Video Tutorial      | [Cedz Labs](https://www.cedzlabs.com)              |
+| snadcn ui | UI components       | [snadcn ui](https://ui.shadcn.com/docs/components) |
+| supabase  | DB, Documentation   | [supabase](https://supabase.com/)                  |
+
+## Suggestions Or Book
+
+| Name     | Credit For          | Link                                              |
+| -------- | ------------------- | ------------------------------------------------- |
+| Yakkshit | Component Developer | [<Button>Book</Button>](https://cal.com/yakkshit) |

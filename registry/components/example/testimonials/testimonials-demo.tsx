@@ -17,7 +17,7 @@ export default function Testimonials1Demo() {
         <TestimonialFeedbackForm
           initialName="John Doe"
           initialFeedback="Great service!"
-          initialRating={5}
+          initialRating={0}
           onSubmitSuccess={handleSuccess}
           onSubmitError={handleError}
           redirectUrl="https://www.cedzlabs.com"
