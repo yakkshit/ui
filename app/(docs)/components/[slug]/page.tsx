@@ -1,10 +1,9 @@
 import Facebook from "@/components/icons/facebook";
+import LinkedIn from "@/components/icons/linkedin";
 import { Mdx } from "@/components/mdx-components";
 import { DashboardTableOfContents } from "@/components/toc";
-import { ScrollArea } from "@/components/ui/scroll-area";
-// import { getCurrentUser } from "@/lib/session";
 import { getTableOfContents } from "@/lib/toc";
-import { absoluteUrl, cn, constructMetadata } from "@/lib/utils";
+import { cn, constructMetadata } from "@/lib/utils";
 import { allComponents } from "contentlayer/generated";
 import { ChevronRight } from "lucide-react";
 import type { Metadata } from "next";
@@ -100,46 +99,33 @@ export default async function Component({ params }: Props) {
           )}
         </div>
 
-        {/* <div className="mt-4 flex items-center justify-between"> */}
-          {/* <div className="flex items-center space-x-6">
-        <Link
-          href={`https://twitter.com/intent/tweet?text=${component.title}&url=https://magicuikit.com/components/${component.slugAsParams}&via=${component.author}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Twitter className="h-6 w-6" />
-        </Link>
-        <Link
-          href={`
-        http://www.linkedin.com/shareArticle?mini=true&url=https://magicuikit.com/components/${component.slugAsParams}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <LinkedIn className="h-6 w-6" />
-        </Link>
-        <Link
-          href={`https://www.facebook.com/sharer/sharer.php?u=https://magicuikit.com/components/${component.slugAsParams}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Facebook className="h-6 w-6" />
-        </Link>
-      </div> */}
-        {/* </div> */}
+        {/* <div className="mt-4 flex items-center justify-between">
+          <div className="flex items-center space-x-6">
+            <Link
+              href={`https://twitter.com/intent/tweet?text=${component.title}&url=https://magicuikit.com/components/${component.slugAsParams}&via=${component.author}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Twitter className="h-6 w-6" />
+            </Link>
+            <Link
+              href={`http://www.linkedin.com/shareArticle?mini=true&url=https://magicuikit.com/components/${component.slugAsParams}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LinkedIn className="h-6 w-6" />
+            </Link>
+            <Link
+              href={`https://www.facebook.com/sharer/sharer.php?u=https://magicuikit.com/components/${component.slugAsParams}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Facebook className="h-6 w-6" />
+            </Link>
+          </div>
+        </div> */}
 
         <div className="flex flex-col pt-8 gap-4 w-auto ">
-          {/* {component.video && (
-        <div className="flex md:hidden overflow-hidden relative rounded-xl border dark:border-slate-800 md:p-8 justify-center items-center flex-col max-w-[65ch]">
-          <video
-            src={component.video}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="relative -bottom-1 aspect-video" // needed because random black line at bottom of video
-          />
-        </div>
-      )} */}
           <Mdx code={component.body.code} />
         </div>
       </div>
