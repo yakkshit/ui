@@ -1,5 +1,5 @@
 ---
-title: Wait List
+title: Github Heat Map
 date: 2023-07-12
 summary: A guide for integrating a waitlist component into your project.
 author: yakkshit
@@ -67,10 +67,43 @@ video: https://cdn.magicuikit.com/magic-card.mp4
 
 </Tabs>
 
+## Example 1
+
+<ComponentPreview name="github-heat-map-1-demo" />
+
+## Props
+
+| Prop name            | Type                                      | Default   | Description                                                                 |
+| -------------------- | ----------------------------------------- | --------- | --------------------------------------------------------------------------- |
+| `username`           | `string`                                  |           | GitHub username to fetch the activity data for.                             |
+| `year`               | `number \| 'last'`                        | `'last'`  | The year to display the activity for.                                       |
+| `blockMargin`        | `number`                                  | `4`       | Margin between each block in the heatmap.                                   |
+| `blockRadius`        | `number`                                  | `2`       | Radius of each block in the heatmap.                                        |
+| `blockSize`          | `number`                                  | `12`      | Size of each block in the heatmap.                                          |
+| `colorScheme`        | `'light' \| 'dark'`                       |           | Color scheme for the heatmap.                                               |
+| `errorMessage`       | `string`                                  |           | Error message to display if data fetching fails.                            |
+| `eventHandlers`      | `EventHandlerMap`                         |           | Event handlers for the heatmap blocks.                                      |
+| `fontSize`           | `number`                                  | `14`      | Font size for the text in the heatmap.                                      |
+| `hideColorLegend`    | `boolean`                                 | `false`   | Whether to hide the color legend.                                           |
+| `hideMonthLabels`    | `boolean`                                 | `false`   | Whether to hide the month labels.                                           |
+| `hideTotalCount`     | `boolean`                                 | `false`   | Whether to hide the total count of contributions.                           |
+| `labels`             | `any`                                     |           | Custom labels for the heatmap.                                              |
+| `loading`            | `boolean`                                 | `false`   | Whether the heatmap is in a loading state.                                  |
+| `ref`                | `React.RefObject<HTMLElement>`            |           | Ref object for the heatmap container.                                       |
+| `renderBlock`        | `(block: any, activity: any) => React.ReactElement` |           | Custom render function for each block.                                      |
+| `showWeekdayLabels`  | `boolean`                                 | `false`   | Whether to show the weekday labels.                                         |
+| `style`              | `React.CSSProperties`                     |           | Custom styles for the heatmap container.                                    |
+| `theme`              | `any`                                     |           | Custom theme for the heatmap.                                               |
+| `throwOnError`       | `boolean`                                 | `false`   | Whether to throw an error if data fetching fails.                           |
+| `totalCount`         | `number`                                  |           | Total count of contributions.                                               |
+| `transformData`      | `(data: any[]) => any[]`                  |           | Function to transform the fetched data.                                     |
+| `transformTotalCount`| `boolean`                                 | `true`    | Whether to transform the total count of contributions.                      |
+| `weekStart`          | `Day`                                     | `0`       | The day to start the week on (0 = Sunday, 1 = Monday, etc.).                |
+
+
 ## Credits
 
 | name      | Description                             | Reference Link      |
 | --------- | --------------------------------------- |---------------------|
 | Schadcn ui| (snadcn)[https://ui.shadcn.com]         |                     |
 | className | The className to apply to the container |                     |
-

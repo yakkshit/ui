@@ -129,21 +129,12 @@ const sortDocsConfig = (docsConfig: DocsConfig): DocsConfig => {
     const items = section.items || [];
 
     const sortedItems = items
-      .filter(item => item.label !== 'new')
-      .sort((a, b) => a.title.localeCompare(b.title));
-  
-    const newItems = items
-      .filter(item => item.label === 'new')
       .sort((a, b) => a.title.localeCompare(b.title));
   
     return {
       ...section,
       items: [
         ...sortedItems,
-        {
-          title: '',
-          items: newItems,
-        }
       ]
     };
   }).sort((a, b) => a.title.localeCompare(b.title));

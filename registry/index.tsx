@@ -50,7 +50,7 @@ const ui: Registry = {
   "github-heat-map": {
     name: "github-heat-map",
     type: "components:ui",
-    files: ["registry/components/frontend/github-heat-map.tsx"],
+    files: ["registry/components/backend/GitHubHeatMap/GitHubHeatMap.tsx"],
   },
   "testimonials": {
     name: "testimonials",
@@ -148,9 +148,17 @@ const example: Registry = {
   "github-heat-map-demo": {
     name: "github-heat-map-demo",
     type: "components:example",
-    files: ["registry/components/example/github-heat-map-demo.tsx"],
+    files: ["registry/components/example/GitHubHeatMap/GitHubHeatMap-demo.tsx"],
     component: React.lazy(
-      () => import("@/registry/components/example/github-heat-map-demo")
+      () => import("@/registry/components/example/GitHubHeatMap/GitHubHeatMap-demo")
+    ),
+  },
+  "github-heat-map-1-demo": {
+    name: "github-heat-map-1-demo",
+    type: "components:example",
+    files: ["registry/components/example/GitHubHeatMap/GitHubHeatMap-1-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/GitHubHeatMap/GitHubHeatMap-1-demo")
     ),
   },
   "testimonials-demo": {

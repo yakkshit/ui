@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -68,8 +67,6 @@
     --ring: var(--muted);
   }
 }
-
-
 
 @layer base {
   * {
@@ -140,4 +137,7 @@
     rgba(0, 0, 0, 1) 80%,
     rgba(0, 0, 0, 0)
   );
+}
+.github {
+  @apply bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100;
 }
