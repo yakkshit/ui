@@ -141,3 +141,39 @@
 .github {
   @apply bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100;
 }
+.gradient-background {
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  height: 50vh; /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.body {
+  background-color: #2E3537;
+  font-family: 'Arial', sans-serif;
+}
+
+.card-body {
+  box-sizing: border-box;
+  padding: 30px;
+  border-radius: 60px;
+  box-shadow: 0 0 30px 0 rgba(0,0,0,0.3);
+  height: 57vh;
+  display: flex;
+  justify-content: start;
+  transition: all 0.5s;
+}
+
+.h2 {
+  font-size: 2.5em;
+}
+.glassmorphic {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 20px; /* Adjust padding as needed */
+}

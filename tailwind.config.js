@@ -24,6 +24,13 @@ module.exports = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        'gradient-start': '#ff7e5f',
+        'gradient-end': '#feb47b',
+        gray: {
+          900: '#1a202c', //weather card
+          700: '#2d3748',
+          300: '#e2e8f0',
+        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -31,6 +38,7 @@ module.exports = {
         boxShadow: {
           'white-glow': '0 0 15px 5px rgba(255, 255, 255, 0.5)',
           'grey-glow': '0 0 15px 5px rgba(128, 128, 128, 0.5)',
+          glow: '0 0 15px 10px rgba(255, 255, 255, 0.3)',
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -70,16 +78,27 @@ module.exports = {
         scroll: "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
         "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
         marquee: "marquee 15s linear infinite",
+        rotateGlow: 'rotateGlow 3s linear infinite', //weather card
+        'gradient-x': 'gradient-x 3s ease infinite',
       },
       keyframes: {
         "accordion-down": {
           from: { height: 0 },
           to: { height: "var(--radix-accordion-content-height)" },
         },
+        'gradient-x': {
+          '0%, 100%': { 'background-position': '0% 50%' },
+          '50%': { 'background-position': '100% 50%' },
+        },
         "border-beam": {
           "100%": {
             "offset-distance": "100%",
           },
+        },
+        rotateGlow: {
+          '0%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+          '100%': { backgroundPosition: '0% 50%' },
         },
         showcontent: {
           '0%': { opacity: 0, transform: 'translate(0, 100px)', filter: 'blur(33px)' },
@@ -106,5 +125,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography"), require('tailwindcss-filters')],
 };

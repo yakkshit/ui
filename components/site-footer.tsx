@@ -74,7 +74,7 @@ export function SiteFooter() {
                 </li>
                 <li>
                   <a
-                    href="https://discord.gg/4eeurUVvTy"
+                    href="https://discord.gg/NXYJ9ZK5ME"
                     className="hover:underline"
                   >
                     Discord
@@ -112,7 +112,7 @@ export function SiteFooter() {
           </span>
           <div className="flex mt-4 sm:justify-center sm:mt-0">
             <a
-              href="https://groups.cedzlabs.com"
+              href="https://discord.gg/NXYJ9ZK5ME"
               className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
             >
               <svg

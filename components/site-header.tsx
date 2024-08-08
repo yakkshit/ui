@@ -8,6 +8,7 @@ import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { User } from "next-auth";
 import Link from "next/link";
+import { DiscordLogoIcon } from '@radix-ui/react-icons'
 
 interface SiteHeaderProps {
   user?: User;
@@ -25,7 +26,7 @@ export function SiteHeader({ user }: SiteHeaderProps) {
           </div>
           <nav className="flex items-center gap-2">
             <Link
-              href={siteConfig.links.twitter}
+              href={siteConfig.links.github}
               target="_blank"
               rel="noreferrer"
             >
@@ -38,7 +39,7 @@ export function SiteHeader({ user }: SiteHeaderProps) {
                 )}
               >
                 <Icons.gitHub className="h-4 w-4" />
-                <span className="sr-only">Twitter</span>
+                <span className="sr-only">Github</span>
               </div>
             </Link>
             <Link
@@ -56,6 +57,23 @@ export function SiteHeader({ user }: SiteHeaderProps) {
               >
                 <Icons.twitter className="h-4 w-4 fill-current" />
                 <span className="sr-only">Twitter</span>
+              </div>
+            </Link>
+            <Link
+              href={siteConfig.links.discord}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <div
+                className={cn(
+                  buttonVariants({
+                    variant: "ghost",
+                  }),
+                  "w-9 px-0"
+                )}
+              >
+                <DiscordLogoIcon />
+                <span className="sr-only">Discord</span>
               </div>
             </Link>
             <ModeToggle />

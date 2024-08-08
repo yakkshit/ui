@@ -6,6 +6,8 @@ export const siteConfig = {
     "Beautifully designed landing page components built with React & Tailwind CSS.",
   links: {
     twitter: "https://twitter.com/@yakkshit",
+    github: "https://github.com/yakkshit/ui",
+    discord: "https://discord.gg/NXYJ9ZK5ME",
   },
   keywords: [
     "React",

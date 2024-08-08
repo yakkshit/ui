@@ -62,6 +62,11 @@ const ui: Registry = {
     type: "components:ui",
     files: ["registry/components/backend/auth/AuthComponent.tsx"],
   },
+  "weather":{
+    name: "weather",
+    type: "components:ui",
+    files: ["registry/components/backend/WeatherCard/WeatherCard.tsx"],
+  }
 };
 
 const example: Registry = {
@@ -199,6 +204,14 @@ const example: Registry = {
     files: ["registry/components/example/auth/supabase-auth-demo.tsx"],
     component: React.lazy(
       () => import("@/registry/components/example/auth/supabase-auth-demo")
+    ),
+  },
+  "WeatherCard-demo": {
+    name: "WeatherCard-demo",
+    type: "components:example",
+    files: ["registry/components/example/WeatherCard/WeatherCard-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/WeatherCard/WeatherCard-demo")
     ),
   },
 };

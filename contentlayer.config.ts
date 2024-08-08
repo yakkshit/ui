@@ -1,4 +1,3 @@
-// contentlayer.config.ts
 import { defineDocumentType, defineNestedType, makeSource } from "contentlayer/source-files";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrettyCode from "rehype-pretty-code";
@@ -7,6 +6,7 @@ import remarkGfm from "remark-gfm";
 import { BlogPosting, WithContext } from "schema-dts";
 import { visit } from "unist-util-visit";
 import { rehypeComponent } from "./lib/rehype-component";
+import { rehypeNpmCommand } from "./lib/rehype-npm-command";
 
 /** @type {import('contentlayer/source-files').ComputedFields} */
 const computedFields = {
@@ -225,11 +225,11 @@ export default makeSource({
       [
         rehypePrettyCode,
         {
-          theme: "material-theme-palenight",
-          //   light: "material-theme-lighter",
+          theme: "github-dark-default",
+          // light: "material-theme-lighter",
           // },
           onVisitLine(node: any) {
-            // Prevent lines from collapsing in `display: grid` mode, and allow empty
+            // Prevent lines from collapsing in display: grid mode, and allow empty
             // lines to be copy/pasted
             if (node.children.length === 0) {
               node.children = [{ type: "text", value: " " }];
@@ -274,6 +274,7 @@ export default makeSource({
           }
         });
       },
+      rehypeNpmCommand,
       [
         rehypeAutolinkHeadings,
         {

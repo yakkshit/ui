@@ -99,6 +99,11 @@ const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: "Weather",
+          href: `/components/weather`,
+          items: [],
+        },
+        {
           title: "Maps Location",
           href: `/components/map-location`,
           items: [],
