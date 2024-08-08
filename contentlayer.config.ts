@@ -225,7 +225,7 @@ export default makeSource({
       [
         rehypePrettyCode,
         {
-          theme: "github-dark-default",
+          theme: "slack-dark",
           // light: "material-theme-lighter",
           // },
           onVisitLine(node: any) {
