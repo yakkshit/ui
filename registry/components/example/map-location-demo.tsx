@@ -1,3 +1,5 @@
+"use client";
+
 import MapLocation from "../backend/map/map";
 
 const MapLocationDemo: React.FC = () => {

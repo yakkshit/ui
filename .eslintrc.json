@@ -9,7 +9,7 @@
   ],
   "plugins": ["tailwindcss"],
   "rules": {
-    "tailwindcss/no-contradicting-classname":"off",
+    "tailwindcss/no-contradicting-classname": "off",
     "react/no-unescaped-entities": "off",
     "@next/next/no-page-custom-font": "off",
     "@next/next/no-html-link-for-pages": "off",
@@ -23,10 +23,10 @@
     ],
     "semi": "error",
     "no-var": "error"
-    // "react/display-name": [false, {
+     // "react/display-name": [false, {
     //   "ignoreTranspilerName": false, "checkContextObjects": false
     // }]
-  },
+    },
   "settings": {
     "tailwindcss": {
       "callees": ["cn", "cva"],

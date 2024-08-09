@@ -7,10 +7,16 @@ import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import { toast } from '@/components/ui/use-toast';
+import clsx, { ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
 
 interface TestimonialFeedbackFormProps {
   initialName?: string;
@@ -76,7 +82,7 @@ const TestimonialFeedbackForm: React.FC<TestimonialFeedbackFormProps> = ({
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300"
+            className={cn("mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300")}
             required
           />
         </div>
@@ -85,7 +91,7 @@ const TestimonialFeedbackForm: React.FC<TestimonialFeedbackFormProps> = ({
           <textarea
             value={feedback}
             onChange={(e) => setFeedback(e.target.value)}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300"
+            className={cn("mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300")}
             required
           />
         </div>
@@ -101,7 +107,7 @@ const TestimonialFeedbackForm: React.FC<TestimonialFeedbackFormProps> = ({
                 className="cursor-pointer"
               >
                 <Star
-                  className={`w-8 h-8 ${star <= rating ? 'text-yellow-500' : 'text-gray-300'}`}
+                  className={cn("w-8 h-8", star <= rating ? 'text-yellow-500' : 'text-gray-300')}
                   fill={star <= rating ? 'currentColor' : 'none'}
                 />
               </motion.div>
@@ -110,7 +116,7 @@ const TestimonialFeedbackForm: React.FC<TestimonialFeedbackFormProps> = ({
         </div>
         <button
           type="submit"
-          className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          className={cn("inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500")}
         >
           {submitButtonText}
         </button>
@@ -180,54 +186,25 @@ const TestimonialsSlider: React.FC<TestimonialsSliderProps> = ({
         <motion.div
           className="flex"
           animate={{ x: `-${currentIndex * 100}%` }}
-          transition={{ duration: transitionDuration, ease: transitionEase, }}
+          transition={{ duration: transitionDuration, ease: transitionEase }}
           style={{ display: 'flex', whiteSpace: 'nowrap' }}
         >
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={`${testimonial.id}-${index}`}
-              className={`${bgColor} ${borderColor} border rounded-lg shadow-lg p-4 m-2 w-80 flex-shrink-0`}
+              className={cn(bgColor, borderColor, "border rounded-lg shadow-lg p-4 m-2 w-80 flex-shrink-0")}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               <h3 className="text-xl font-bold text-center">{testimonial.name}</h3>
-              <p className={`${textColor} mt-2 line-clamp-3`}>
+              <p className={cn(textColor, "mt-2 line-clamp-3")}>
                 {testimonial.feedback}
               </p>
               <div className="flex justify-center mt-4">
                 {[1, 2, 3, 4, 5].map((star) => (
                   <Star
                     key={star}
-                    className={`w-6 h-6 ${star <= testimonial.rating ? starColor : starEmptyColor}`}
-                    fill={star <= testimonial.rating ? 'currentColor' : 'none'}
-                  />
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-        <motion.div
-          className="flex"
-          animate={{ x: `-${currentIndex * 100}%` }}
-          transition={{ duration: transitionDuration, ease: transitionEase, }}
-          style={{ display: 'flex', whiteSpace: 'nowrap' }}
-        >
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={`${testimonial.id}-${index}`}
-              className={`${bgColor} ${borderColor} border rounded-lg shadow-lg p-4 m-2 w-80 flex-shrink-0`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <h3 className="text-xl font-bold text-center">{testimonial.name}</h3>
-              <p className={`${textColor} mt-2 line-clamp-3`}>
-                {testimonial.feedback}
-              </p>
-              <div className="flex justify-center mt-4">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <Star
-                    key={star}
-                    className={`w-6 h-6 ${star <= testimonial.rating ? starColor : starEmptyColor}`}
+                    className={cn("w-6 h-6", star <= testimonial.rating ? starColor : starEmptyColor)}
                     fill={star <= testimonial.rating ? 'currentColor' : 'none'}
                   />
                 ))}
@@ -239,7 +216,7 @@ const TestimonialsSlider: React.FC<TestimonialsSliderProps> = ({
       <div className="flex justify-center mt-4 space-x-4">
         <motion.button
           onClick={handlePrev}
-          className={`p-2 ${buttonBgColor} rounded-full`}
+          className={cn("p-2", buttonBgColor, "rounded-full")}
           whileHover={{ backgroundColor: buttonHoverColor }}
           whileTap={{ scale: 0.9 }}
         >
@@ -247,7 +224,7 @@ const TestimonialsSlider: React.FC<TestimonialsSliderProps> = ({
         </motion.button>
         <motion.button
           onClick={handleNext}
-          className={`p-2 ${buttonBgColor} rounded-full`}
+          className={cn("p-2", buttonBgColor, "rounded-full")}
           whileHover={{ backgroundColor: buttonHoverColor }}
           whileTap={{ scale: 0.9 }}
         >
@@ -304,43 +281,17 @@ const MarqueeTestimonials: React.FC<MarqueeTestimonialsProps> = ({
         {[...testimonials, ...testimonials].map((testimonial, index) => (
           <div
             key={`${testimonial.id}-${index}`}
-            className={`${bgColor} ${borderColor} border rounded-lg shadow-lg p-4 m-2 w-80 flex-shrink-0`}
+            className={cn(bgColor, borderColor, "border rounded-lg shadow-lg p-4 m-2 w-80 flex-shrink-0")}
           >
             <h3 className="text-xl font-bold text-center">{testimonial.name}</h3>
-            <p className={`${textColor} mt-2 line-clamp-3`}>
+            <p className={cn(textColor, "mt-2 line-clamp-3")}>
               {testimonial.feedback}
             </p>
             <div className="flex justify-center mt-4">
               {[1, 2, 3, 4, 5].map((star) => (
                 <Star
                   key={star}
-                  className={`w-6 h-6 ${star <= testimonial.rating ? starColor : starEmptyColor}`}
-                  fill={star <= testimonial.rating ? 'currentColor' : 'none'}
-                />
-              ))}
-            </div>
-          </div>
-        ))}
-      </motion.div>
-      <motion.div
-        className="flex"
-        animate={{ x: ['0','-100%'] }}
-        transition={{ repeat, duration, ease }}
-              >
-        {[...testimonials, ...testimonials].map((testimonial, index) => (
-          <div
-            key={`${testimonial.id}-${index}`}
-            className={`${bgColor} ${borderColor} border rounded-lg shadow-lg p-4 m-2 w-80 flex-shrink-0`}
-          >
-            <h3 className="text-xl font-bold text-center">{testimonial.name}</h3>
-            <p className={`${textColor} mt-2 line-clamp-3`}>
-              {testimonial.feedback}
-            </p>
-            <div className="flex justify-center mt-4">
-              {[1, 2, 3, 4, 5].map((star) => (
-                <Star
-                  key={star}
-                  className={`w-6 h-6 ${star <= testimonial.rating ? starColor : starEmptyColor}`}
+                  className={cn("w-6 h-6", star <= testimonial.rating ? starColor : starEmptyColor)}
                   fill={star <= testimonial.rating ? 'currentColor' : 'none'}
                 />
               ))}
@@ -352,4 +303,4 @@ const MarqueeTestimonials: React.FC<MarqueeTestimonialsProps> = ({
   );
 };
 
-export { TestimonialFeedbackForm, TestimonialsSlider,  MarqueeTestimonials};
+export { TestimonialFeedbackForm, TestimonialsSlider, MarqueeTestimonials };

@@ -62,8 +62,8 @@ const ui: Registry = {
     type: "components:ui",
     files: ["registry/components/backend/auth/AuthComponent.tsx"],
   },
-  "weather":{
-    name: "weather",
+  "weathercard":{
+    name: "weathercard",
     type: "components:ui",
     files: ["registry/components/backend/WeatherCard/WeatherCard.tsx"],
   }

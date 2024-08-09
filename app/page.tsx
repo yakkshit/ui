@@ -9,7 +9,6 @@ export const metadata: Metadata = constructMetadata({
   title: "Lingo UI",
   description:
     "Beautiful API Connected UI components and templates to make your landing page look stunning.",
-  image: "logo.png",
 });
 
 export default function Home() {

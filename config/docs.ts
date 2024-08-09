@@ -100,7 +100,7 @@ const docsConfig: DocsConfig = {
         },
         {
           title: "Weather",
-          href: `/components/weather`,
+          href: `/components/weathercard`,
           items: [],
         },
         {

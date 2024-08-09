@@ -1,12 +1,16 @@
-// components/GitHubHeatMap.tsx
 'use client';
 
-import React from 'react';
+import clsx, { ClassValue } from "clsx";
+import { useEffect, useState } from "react";
+import { twMerge } from "tailwind-merge";
 import GitHubCalendar from 'react-github-calendar';
 import { motion } from 'framer-motion';
-import { Github } from 'lucide-react'; // Ensure this is correct
+import { Github } from 'lucide-react';
 import { EventHandlerMap } from 'react-activity-calendar';
-import Day from "react-activity-calendar";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
 
 interface GitHubHeatMapProps {
   username: string;
@@ -59,47 +63,72 @@ const GitHubHeatMap: React.FC<GitHubHeatMapProps> = ({
   totalCount,
   transformData,
   transformTotalCount = true,
-  weekStart = 0 as Day, // Ensure this is a valid Day value
+  weekStart = 0 as Day,
 }) => {
+  const [data, setData] = useState<any[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`https://api.github.com/users/${username}/events`);
+        const result = await response.json();
+        setData(result);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [username]);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <motion.div
-      className="p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md"
+      className={cn("p-4", "bg-white", "dark:bg-gray-800", "rounded-lg", "shadow-md")}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
       style={style}
     >
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">
+        <h2 className={cn("text-xl", "font-bold", "text-gray-900", "dark:text-gray-100")}>
           GitHub Activity
         </h2>
-        <Github name="github" size={24} className="text-gray-900 dark:text-gray-100" />
+        <Github name="github" size={24} className={cn("text-gray-900", "dark:text-gray-100")} />
       </div>
-      <GitHubCalendar
-        username={username}
-        year={year}
-        blockMargin={blockMargin}
-        blockRadius={blockRadius}
-        blockSize={blockSize}
-        colorScheme={colorScheme}
-        errorMessage={errorMessage}
-        eventHandlers={eventHandlers}
-        fontSize={fontSize}
-        hideColorLegend={hideColorLegend}
-        hideMonthLabels={hideMonthLabels}
-        hideTotalCount={hideTotalCount}
-        labels={labels}
-        loading={loading}
-        ref={ref}
-        renderBlock={renderBlock}
-        showWeekdayLabels={showWeekdayLabels}
-        theme={theme}
-        throwOnError={throwOnError}
-        totalCount={totalCount}
-        transformData={transformData}
-        transformTotalCount={transformTotalCount}
-        weekStart={weekStart}
-      />
+      <div className="overflow-x-auto">
+        <GitHubCalendar
+          username={username}
+          year={year}
+          blockMargin={blockMargin}
+          blockRadius={blockRadius}
+          blockSize={blockSize}
+          colorScheme={colorScheme}
+          errorMessage={errorMessage}
+          eventHandlers={eventHandlers}
+          fontSize={fontSize}
+          hideColorLegend={hideColorLegend}
+          hideMonthLabels={hideMonthLabels}
+          hideTotalCount={hideTotalCount}
+          labels={labels}
+          loading={loading}
+          ref={ref}
+          renderBlock={renderBlock}
+          showWeekdayLabels={showWeekdayLabels}
+          theme={theme}
+          throwOnError={throwOnError}
+          totalCount={totalCount}
+          transformData={transformData}
+          transformTotalCount={transformTotalCount}
+          weekStart={weekStart}
+        />
+      </div>
     </motion.div>
   );
 };

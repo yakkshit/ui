@@ -1,5 +1,4 @@
-// pages/index.tsx
-'use client'
+'use client';
 
 import React from 'react';
 import GitHubHeatMap from '../../backend/GitHubHeatMap/GitHubHeatMap';
@@ -32,7 +31,7 @@ const GitHubHeatMap1Demo: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center overflow-x-hidden">
       <GitHubHeatMap
         username="cedzlabs"
         year={2023}

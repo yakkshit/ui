@@ -1,3 +1,5 @@
+"use client";
+
 import RadialGradient from "@/registry/components/frontend/radial-gradient";
 
 export default function RadialGradientDemo() {

@@ -1,3 +1,5 @@
+"use client";
+
 import LinearGradient from "@/registry/components/frontend/linear-gradient";
 
 export default function LinearGradientDemo() {

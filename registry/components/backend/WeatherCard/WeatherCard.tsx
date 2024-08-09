@@ -1,7 +1,15 @@
+"use client";
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { motion } from 'framer-motion';
 import { Cloud, Sun, CloudLightning, CloudRain, CloudSnow, Wind, Droplet, MapPin, Search } from 'lucide-react';
+import clsx, { ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
 
 interface WeatherCardProps {
   city: string;
@@ -92,14 +100,21 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ city }) => {
       <div className="absolute -top-10 right-0 transform translate-y-[-2px] z-10">
         {!searchOpen ? (
           <button
-            className="bg-white bg-opacity-30 dark:bg-gray-700 dark:bg-opacity-50 backdrop-filter backdrop-blur-lg rounded-full p-2 shadow-lg text-black dark:text-yellow-300 hover:text-blue-500 dark:hover:text-yellow-500"
+            className={cn(
+              "bg-white bg-opacity-30 dark:bg-gray-700 dark:bg-opacity-50",
+              "backdrop-filter backdrop-blur-lg rounded-full p-2 shadow-lg",
+              "text-black dark:text-yellow-300 hover:text-blue-500 dark:hover:text-yellow-500"
+            )}
             onClick={() => setSearchOpen(true)}
           >
             <Search className="w-6 h-6" />
           </button>
         ) : (
           <form
-            className="flex items-center bg-white bg-opacity-70 dark:bg-gray-700 dark:bg-opacity-50 backdrop-filter backdrop-blur-lg rounded-full p-2 shadow-lg"
+            className={cn(
+              "flex items-center bg-white bg-opacity-70 dark:bg-gray-700 dark:bg-opacity-50",
+              "backdrop-filter backdrop-blur-lg rounded-full p-2 shadow-lg"
+            )}
             onSubmit={handleSearch}
           >
             <input
@@ -116,7 +131,12 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ city }) => {
       </div>
 
       <motion.div
-        className="relative p-6 bg-white bg-opacity-10 dark:bg-gray-800 dark:bg-opacity-20 backdrop-filter backdrop-blur-lg rounded-3xl shadow-lg hover:shadow-[0_0_15px_10px_rgba(255,255,255,0.3)] dark:hover:shadow-[0_0_15px_10px_rgba(255,255,255,0.1)] transition-shadow duration-300 animate-rotateGlow"
+        className={cn(
+          "relative p-6 bg-white bg-opacity-10 dark:bg-gray-800 dark:bg-opacity-20",
+          "backdrop-filter backdrop-blur-lg rounded-3xl shadow-lg",
+          "hover:shadow-[0_0_15px_10px_rgba(255,255,255,0.3)] dark:hover:shadow-[0_0_15px_10px_rgba(255,255,255,0.1)]",
+          "transition-shadow duration-300 animate-rotateGlow"
+        )}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         whileHover={{ scale: 1.05 }}

@@ -1,15 +1,18 @@
 "use client";
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { useRouter } from 'next/navigation'
-import React, { useState } from 'react'
-import { createClient } from '@supabase/supabase-js'
-import { useToast } from "@/components/ui/use-toast"
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { useRouter } from 'next/navigation';
+import React, { useState } from 'react';
+import { createClient } from '@supabase/supabase-js';
+import { useToast } from "@/components/ui/use-toast";
+import clsx, { ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 
-export const supabase = createClient(supabaseUrl!, supabaseKey!)
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+
+export const supabase = createClient(supabaseUrl, supabaseKey);
 
 interface WaitlistProps {
   emailPlaceholder?: string;
@@ -22,6 +25,10 @@ interface WaitlistProps {
   onError?: (error: any) => void;
 }
 
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+
 export function Waitlist({
   emailPlaceholder = "Email",
   buttonText = "Subscribe",
@@ -32,50 +39,50 @@ export function Waitlist({
   onSuccess,
   onError,
 }: WaitlistProps) {
-  const [email, setEmail] = useState('')
-  const router = useRouter()
-  const { toast } = useToast()
+  const [email, setEmail] = useState('');
+  const router = useRouter();
+  const { toast } = useToast();
 
   const handleSubscribe = async (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
 
     const { error } = await supabase
       .from('waitlist')
-      .insert([{ email }])
+      .insert([{ email }]);
 
     if (error) {
-      console.error('Error subscribing:', error)
+      console.error('Error subscribing:', error);
       toast({
         description: "Error subscribing: " + error.message,
-      })
-      if (onError) onError(error)
+      });
+      if (onError) onError(error);
     } else {
       toast({
         description: "Successfully subscribed! You're added to the waitlist.",
-      })
-      setEmail('')
-      if (onSuccess) onSuccess()
-      router.push(successRedirectUrl) // Redirect after successful subscription
+      });
+      setEmail('');
+      if (onSuccess) onSuccess();
+      router.push(successRedirectUrl); // Redirect after successful subscription
     }
-  }
+  };
 
   return (
-    <form onSubmit={handleSubscribe} className={`flex gap-2 ${formClassName}`}>
+    <form onSubmit={handleSubscribe} className={cn("flex gap-2", formClassName)}>
       <Input
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder={emailPlaceholder}
-        className={`rounded-lg border border-neutral-800 focus:ring-2 focus:ring-teal-500 relative z-10 mt-4 bg-neutral-950 placeholder:text-neutral-700 ${inputClassName}`}
+        className={cn("rounded-lg border border-neutral-800 focus:ring-2 focus:ring-teal-500 relative z-10 mt-4 bg-neutral-950 placeholder:text-neutral-700", inputClassName)}
       />
       <Button
         type="submit"
-        className={`rounded-lg border border-neutral-800 focus:ring-2 focus:ring-teal-500 relative z-10 mt-4 placeholder:text-neutral-700 ${buttonClassName}`}
+        className={cn("rounded-lg border border-neutral-800 focus:ring-2 focus:ring-teal-500 relative z-10 mt-4 placeholder:text-neutral-700", buttonClassName)}
       >
         {buttonText}
       </Button>
     </form>
-  )
+  );
 }
 
 export default Waitlist;

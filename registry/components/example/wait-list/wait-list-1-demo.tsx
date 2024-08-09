@@ -1,12 +1,12 @@
-'use client'
+'use client';
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import Particles from 'react-tsparticles';
 import 'tailwindcss/tailwind.css';
 import Waitlist from '../../backend/waitlist/waitlist';
-import { Inter } from 'next/font/google';
+import { fontSans } from '@/lib/fonts';
 
-const inter = Inter({ subsets: ['latin'] });
 
 const particlesOptions = {
   particles: {
@@ -36,7 +36,7 @@ const Waitlist1Demo: React.FC = () => {
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <h1 className={`text-4xl font-bold mb-4 ${inter.className} dark:text-white`}>
+        <h1 className={`text-4xl font-bold mb-4 ${fontSans.className} dark:text-white`}>
           Join Our Waitlist
         </h1>
         <p className="mb-6 text-lg dark:text-gray-300">
