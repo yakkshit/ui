@@ -71,6 +71,11 @@ const ui: Registry = {
     name: "img-caption",
     type: "components:ui",
     files: ["registry/components/backend/img_caption/ImgCaption.tsx"],
+  },
+  "quote-card":{
+    name: "quote-card",
+    type: "components:ui",
+    files: ["registry/components/backend/quotecard/quotecard.tsx"],
   }
 };
 
@@ -225,6 +230,14 @@ const example: Registry = {
     files: ["registry/components/example/Imgcaption/img-caption-demo.tsx"],
     component: React.lazy(
       () => import("@/registry/components/example/Imgcaption/img-caption-demo")
+    ),
+  },
+  "quote-card-demo": {
+    name: "quote-card-demo",
+    type: "components:example",
+    files: ["registry/components/example/quotecard/quote-card-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/quotecard/quote-card-demo")
     ),
   },
 };

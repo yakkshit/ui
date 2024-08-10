@@ -124,6 +124,11 @@ const docsConfig: DocsConfig = {
           items: [],
           label:'AI'
         },
+        {
+          title: "Quote card",
+          href: `/components/quote-card`,
+          items: [],
+        },
       ],
     },
   ],

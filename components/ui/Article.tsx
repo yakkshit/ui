@@ -8,6 +8,7 @@ import Link from "next/link";
 import { formatDate } from "@/lib/utils";
 import { BorderBeam } from "./borderbeam";
 import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
@@ -30,14 +31,14 @@ const Article: React.FC<ArticleProps> = ({ post, index }) => {
       <Link href={post.url} passHref>
         <motion.article
           key={post._id}
-          className="group relative flex flex-col overflow-visible w-55 h-64 perspective-1000 shadow-lg rounded-md "
+          className="group relative flex flex-col overflow-hidden w-55 h-64 perspective-1000 shadow-lg rounded-lg "
           whileHover={{
             scale: 1.05,
             boxShadow: "0 0 15px 10px rgba(255,255,255,0.3)",
           }}
           transition={{ duration: 0.3 }}
         >
-          <div className="content w-full h-full  duration-300 shadow-lg rounded-lg group-hover:rotate-y-180 rotate-animation">
+          <div className="content w-full h-full duration-300 shadow-lg rounded-lg group-hover:rotate-y-180 rotate-animation">
             {post.video && (
               <div className="absolute rounded-lg top-0 left-0 w-full h-full hidden group-hover:block">
                 <ReactPlayer
@@ -50,6 +51,17 @@ const Article: React.FC<ArticleProps> = ({ post, index }) => {
                   height="100%"
                   className="object-cover w-full h-full rounded-lg"
                 />
+                {/* Overlay Button */}
+                <motion.div
+                  className="absolute flex bottom-4 left-4 bg-indigot bg-opacity-70 rounded-full p-2 cursor-pointer"
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={() => window.location.href = post.url}
+                >
+                  <span>View</span>
+                  <ArrowUpRight className="h-6 w-6 text-black" />
+                  <BorderBeam/>
+                </motion.div>
               </div>
             )}
             {/* on hover to visible with glassmorphic background */}
@@ -78,6 +90,7 @@ const Article: React.FC<ArticleProps> = ({ post, index }) => {
 };
 
 export default Article;
+
 
 //{
 /* <article

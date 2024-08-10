@@ -1,0 +1,205 @@
+---
+title: Quote Card
+date: 2024-08-11
+summary: Join our cutting-edge Waitlist component! This uses Shadcn for UI, Framer Motion for animations, and Supabase for the database. Sign up for early access and updates!
+author: yakkshit
+published: true
+video: https://youtu.be/C1B4NdIFpdE
+---
+
+<SupportOverlay
+  videoSrc="https://youtu.be/nXbXNB9E71o"
+  supportLink="https://cedzlabs.com/payments"
+/>
+
+<ComponentPreview name="quote-card-demo" />
+
+## Prerequisites
+
+Before you start, ensure you have the following:
+
+<Steps>
+  <Step>
+    Install the Required Dependencies in your project:
+      - shadcn ui
+      - radix ui
+      - framer motion
+      ```npm
+      npm shadcn-ui@latest add button && npm shadcn-ui@latest add input && npm shadcn-ui@latest add toast && npm install @supabase/supabase-js
+      ```
+  </Step>
+
+  <Step>
+    Create a new Project in superbse for reference check [superbase](https://supabase.com/docs/guides/api/creating-routes#api-url-and-keys)
+    check the video
+    <Accordion type="single" collapsible>
+      <AccordionItem value="item-1">
+        <AccordionTrigger>How to Get the API keys video tutorial </AccordionTrigger>
+        <AccordionContent>
+        <Steps>
+            <Step>
+             <h4>Step 1: Go to superbse and create a new project</h4>
+              <VideoEmbed src="https://youtu.be/SwkNoEtw9ow"  
+              text="
+                  ## Create a Table
+                    Let's create our first API route by creating a table called `todos` to store tasks. This creates a corresponding route `todos` which can accept GET, POST, PATCH, & DELETE requests.
+                    1. Go to the **Table editor** page in the Dashboard.
+                    2. Click **New Table** and create a table with the name `todos`.
+                    3. Click **Save**.
+                    4. Click **New Column** and create a column with the name `task` and type `text`.
+                    5. Click **Save**.
+                    "/>
+            </Step>
+            <Step>
+              <h4>Step 2: Get the API keys</h4>
+              <VideoEmbed src="https://youtu.be/i359YfsQRjU"  
+                text='
+                    ## API URL and Keys
+
+                      Every Supabase project has a unique API URL. Your API is secured behind an API gateway which requires an API Key for every request.
+
+                      1. Go to the [Settings](https://supabase.com/dashboard/project/_/settings/general) page in the Dashboard.
+                      2. Click API in the sidebar.
+                      3. Find your API URL, anon, and service_role keys on this page.
+
+                      The REST API is accessible through the URL `https://<project_ref>.supabase.co/rest/v1`. Both of these routes require the anon key to be passed through an `apikey` header.
+
+                      ### Environment Variables
+
+                      ```env
+                      NEXT_PUBLIC_SUPABASE_URL=REPLACE_WITH_YOUR_KEY
+                      NEXT_PUBLIC_SUPABASE_ANON_KEY=REPLACE_WITH_YOUR_KEY
+                      ```'/>
+            </Step>
+          </Steps>
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+    Get Your API keys `API URL`, `anon` from supabase.
+      ```env
+      NEXT_PUBLIC_SUPABASE_URL=REPLACE_WITH_YOUR_KEY
+      NEXT_PUBLIC_SUPABASE_ANON_KEY=REPLACE_WITH_YOUR_KEY
+      ```
+
+  </Step>
+  <Step>You&apos;re almost done just few Steps left.</Step>
+</Steps>
+
+## Installation
+
+<Tabs defaultValue="code">
+
+<TabsList>
+  <TabsTrigger value="code">Code</TabsTrigger>
+  <TabsTrigger value="video">Video</TabsTrigger>
+  <TabsTrigger value="files">Files</TabsTrigger>
+</TabsList>
+
+<TabsContent value="code">
+<Steps>
+  <Step>
+
+    Create a file named `quotecard.tsx` and copy and paste the following code:
+
+    <ComponentSource name="quote-card" />
+
+  </Step>
+  
+  <Step>
+    Create the following `tailwind.config.js` variables:
+    ```js
+      extend: {
+      backdropFilter: { //quote card
+        'none': 'none',
+        'blur': 'blur(20px)',
+        ...
+    variants: {
+    extend: {
+      boxShadow: ['hover', 'group-hover'], 
+      backdropFilter: ['responsive'], // quote card
+    },
+  },
+        plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography"), require('tailwindcss-filters')],
+      ```
+
+  </Step>
+  <Step>
+      Run the code in the SQLeditor in supabase.
+
+      ```SQL
+        ALTER TABLE waitlist ENABLE ROW LEVEL SECURITY;
+
+        -- Drop existing policy if it exists to avoid conflicts
+        DROP POLICY IF EXISTS "Allow all users to insert" ON waitlist;
+
+        -- Create a new policy to allow inserts
+        CREATE POLICY "Allow all users to insert"
+        ON waitlist
+        FOR INSERT
+        WITH CHECK (true);
+      ```
+
+  </Step>
+  <Step>Congrats! You have successfully created a Waitlist component for your project! 🎉</Step>
+</Steps>
+
+</TabsContent>
+
+<TabsContent value="video">
+
+<Steps>
+  <Step>
+    Follow the instructions shown in the Video Tutorial.
+    <VideoEmbed
+      src="https://youtu.be/nXbXNB9E71o"
+      text="<ins>[For more tech videos, please visit our YT channel](https://youtube.com/@cedzlabs)</ins>
+  
+  We are workign Hard to Bring you the exiting Stuff.
+  Stay Tuned for more Tech Videos.
+  Please Support Us 🙂."
+    />
+  </Step>
+  <Step>Done!</Step>
+</Steps>
+
+</TabsContent>
+
+<TabsContent value="files">
+  # Link Will be given soon..
+  
+    <Link href=''><Button>Download zip</Button></Link>
+</TabsContent>
+</Tabs>
+
+## Examples
+
+comming soon ...
+
+<ComponentPreview name="wait-list-1-demo" />
+
+## Props
+
+| Prop name          | Type     | Default                    | Description                                                    |
+| ------------------ | -------- | -------------------------- | -------------------------------------------------------------- |
+| emailPlaceholder   | string   | "Email"                    | Customize the placeholder text for the email input             |
+| buttonText         | string   | "Subscribe"                | Customize the text of the subscribe button                     |
+| successRedirectUrl | string   | "https://www.cedzlabs.com" | URL to redirect to after a successful subscription             |
+| inputClassName     | string   | ""                         | Additional classes for the input element                       |
+| buttonClassName    | string   | ""                         | Additional classes for the button element                      |
+| formClassName      | string   | ""                         | Additional classes for the form element                        |
+| onSuccess          | function | -                          | Callback function to be called after a successful subscription |
+
+## Credits
+
+| Name      | Credit For          | Link                                               |
+| --------- | ------------------- | -------------------------------------------------- |
+| Yakkshit  | Component Developer | [yakkshit](https://x.com/yakkshit)                 |
+| Cedz Labs | Video Tutorial      | [Cedz Labs](https://www.cedzlabs.com)              |
+| snadcn ui | UI components       | [snadcn ui](https://ui.shadcn.com/docs/components) |
+| supabase  | DB, Documentation   | [supabase](https://supabase.com/)                  |
+
+## Suggestions Or Book
+
+| Name     | Credit For          | Link                                              |
+| -------- | ------------------- | ------------------------------------------------- |
+| Yakkshit | Component Developer | [<Button>Book</Button>](https://cal.com/yakkshit) |

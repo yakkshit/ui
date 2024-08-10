@@ -76,7 +76,7 @@ export default function Home() {
         </div>
         <hr className="my-10" />
         {posts?.length ? (
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 ">
+          <div className="grid m-4 grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 ">
             {posts.map((post, index) => (
               <Article key={post._id} post={post} index={index} />
             ))}

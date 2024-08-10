@@ -72,6 +72,10 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      backdropFilter: { //quote card
+        'none': 'none',
+        'blur': 'blur(20px)',
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -141,7 +145,8 @@ module.exports = {
   },
   variants: {
     extend: {
-      boxShadow: ['hover', 'group-hover'],
+      boxShadow: ['hover', 'group-hover'], 
+      backdropFilter: ['responsive'], // quote card
     },
   },
   plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography"), require('tailwindcss-filters')],
