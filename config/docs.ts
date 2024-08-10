@@ -118,6 +118,12 @@ const docsConfig: DocsConfig = {
           href: `/components/github-heat-map`,
           items: [],
         },
+        {
+          title: "Image Caption",
+          href: `/components/img-caption`,
+          items: [],
+          label:'AI'
+        },
       ],
     },
   ],

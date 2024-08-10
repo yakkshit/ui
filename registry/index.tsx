@@ -66,6 +66,11 @@ const ui: Registry = {
     name: "weathercard",
     type: "components:ui",
     files: ["registry/components/backend/WeatherCard/WeatherCard.tsx"],
+  },
+  "img-caption":{
+    name: "img-caption",
+    type: "components:ui",
+    files: ["registry/components/backend/img_caption/ImgCaption.tsx"],
   }
 };
 
@@ -212,6 +217,14 @@ const example: Registry = {
     files: ["registry/components/example/WeatherCard/WeatherCard-demo.tsx"],
     component: React.lazy(
       () => import("@/registry/components/example/WeatherCard/WeatherCard-demo")
+    ),
+  },
+  "img-caption-demo": {
+    name: "img-caption-demo",
+    type: "components:example",
+    files: ["registry/components/example/Imgcaption/img-caption-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/Imgcaption/img-caption-demo")
     ),
   },
 };
