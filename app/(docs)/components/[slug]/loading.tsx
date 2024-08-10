@@ -22,7 +22,7 @@ const Loading = () => {
 
   return (
     <motion.div
-      className="flex flex-col items-center justify-center min-h-screen min-w-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300"
+      className="flex flex-col items-center justify-center min-h-screen min-w-screen  text-gray-900 dark:text-gray-100 transition-colors duration-300"
       initial={{ y: "100vh" }}
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 50 }}

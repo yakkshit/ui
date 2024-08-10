@@ -26,6 +26,11 @@ module.exports = {
         foreground: "hsl(var(--foreground))",
         'gradient-start': '#ff7e5f',
         'gradient-end': '#feb47b',
+        'gray-900': '#151515',
+        'gray-800': '#1f1f1f',
+        'gray-700': '#2a2a2a',
+        'sky':'#38bdf8',
+        'indigot':'#4f46e5',
         gray: {
           900: '#1a202c', //weather card
           700: '#2d3748',
@@ -39,6 +44,8 @@ module.exports = {
           'white-glow': '0 0 15px 5px rgba(255, 255, 255, 0.5)',
           'grey-glow': '0 0 15px 5px rgba(128, 128, 128, 0.5)',
           glow: '0 0 15px 10px rgba(255, 255, 255, 0.3)',
+          'dark-glow': '0 0 15px 10px rgba(255, 255, 255, 0.1)',
+          'lg': '0px 0px 10px 1px #000000ee',
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -66,8 +73,8 @@ module.exports = {
         },
       },
       borderRadius: {
-        lg: `var(--radius)`,
-        md: `calc(var(--radius) - 2px)`,
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
       animation: {
@@ -123,6 +130,18 @@ module.exports = {
           to: { transform: "translateX(-100%)" },
         },
       },
+      transformStyle: ['hover', 'focus'],
+      transitionProperty: {
+        'transform': 'transform',
+      },
+      transitionDuration: {
+        '300': '300ms',
+      },
+    },
+  },
+  variants: {
+    extend: {
+      boxShadow: ['hover', 'group-hover'],
     },
   },
   plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography"), require('tailwindcss-filters')],

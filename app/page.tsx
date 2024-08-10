@@ -1,9 +1,12 @@
 import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
-import { cn, constructMetadata } from "@/lib/utils";
+import { cn, constructMetadata, formatDate } from "@/lib/utils";
 import { FadeIn } from "@/registry/components/frontend/fade-in";
 import { Metadata } from "next";
 import Link from "next/link";
+import Article from "@/components/ui/Article";
+import { allComponents } from "contentlayer/generated";
+import { compareDesc } from "date-fns";
 
 export const metadata: Metadata = constructMetadata({
   title: "Lingo UI",
@@ -12,9 +15,14 @@ export const metadata: Metadata = constructMetadata({
 });
 
 export default function Home() {
+  const posts = allComponents
+    .filter((post) => post.date && post.published)
+    .sort((a, b) => {
+      return compareDesc(new Date(a.date), new Date(b.date));
+    });
   return (
     <>
-      <section className="space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-32">
+      <section className="space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-32 custom-background overflow-x-hidden">
         <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center">
           <FadeIn className="z-10 flex flex-col items-center justify-center w-full h-full">
             <Link
@@ -66,6 +74,16 @@ export default function Home() {
             </div>
           </FadeIn>
         </div>
+        <hr className="my-10" />
+        {posts?.length ? (
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 ">
+            {posts.map((post, index) => (
+              <Article key={post._id} post={post} index={index} />
+            ))}
+          </div>
+        ) : (
+          <p>No components yet.</p>
+        )}
       </section>
     </>
   );
