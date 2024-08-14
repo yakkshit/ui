@@ -1,4 +1,5 @@
 import WaitlistDemo from "@/registry/components/example/wait-list/wait-list-demo";
+import Loading from "./loading";
 
 export default async function NotFound() {
   return (
@@ -13,6 +14,7 @@ export default async function NotFound() {
         Join Our Waitlist
     </p>
     <WaitlistDemo/>
+    <Loading/>
 </div>
   );
 }

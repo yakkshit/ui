@@ -152,6 +152,7 @@
 .body {
   background-color: #2E3537;
   font-family: 'Arial', sans-serif;
+  font-family: 'Nunito', sans-serif;
 }
 
 .card-body {
@@ -164,6 +165,8 @@
   justify-content: start;
   transition: all 0.5s;
 }
+
+
 
 .h2 {
   font-size: 2.5em;
@@ -354,3 +357,20 @@
   animation: 50s para infinite linear;
 }
 
+/* testomials slider */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900;1000&display=swap');
+
+
+@keyframes rotateGradient {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.group-hover:animate-rotateGradient {
+  animation: rotateGradient 2s linear infinite;
+}

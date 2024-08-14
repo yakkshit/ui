@@ -1,64 +1,38 @@
-'use client';
+// components/GlassmorphicCard.js
+import { motion } from "framer-motion";
+import { useState } from "react";
+import GitHubHeatMap from "../../backend/GitHubHeatMap/GitHubHeatMap";
 
-import React from 'react';
-import GitHubHeatMap from '../../backend/GitHubHeatMap/GitHubHeatMap';
-import { EventHandlerMap, Activity } from 'react-activity-calendar';
+const GitHubHeatMap1Demo = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
-const GitHubHeatMap1Demo: React.FC = () => {
-  const eventHandlers: EventHandlerMap = {
-    onClick: (event: React.SyntheticEvent<SVGRectElement>) => (activity: Activity) => {
-      console.log('Clicked:', activity);
-    },
-    onMouseOver: (event: React.SyntheticEvent<SVGRectElement>) => (activity: Activity) => {
-      console.log('Mouse Over:', activity);
-    },
-    onMouseOut: (event: React.SyntheticEvent<SVGRectElement>) => (activity: Activity) => {
-      console.log('Mouse Out:', activity);
-    },
-  };
-
-  const renderBlock = (block: any, activity: any) => (
-    <div style={{ backgroundColor: activity.color, width: '100%', height: '100%' }}>
-      {activity.count}
-    </div>
-  );
-
-  const transformData = (data: any[]) => {
-    return data.map(item => ({
-      ...item,
-      count: item.count * 2, // Example transformation
-    }));
+  const handleMouseMove = (e:any) => {
+    const { clientX, clientY } = e;
+    setMousePosition({ x: clientX, y: clientY });
   };
 
   return (
-    <div className="flex items-center justify-center overflow-x-hidden">
-      <GitHubHeatMap
-        username="cedzlabs"
-        year={2023}
-        blockMargin={5}
-        blockRadius={3}
-        blockSize={15}
-        colorScheme="dark"
-        errorMessage="Error loading data"
-        eventHandlers={eventHandlers}
-        fontSize={16}
-        hideColorLegend={true}
-        hideMonthLabels={false}
-        hideTotalCount={false}
-        labels={{ months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] }}
-        loading={false}
-        ref={React.createRef<HTMLElement>()}
-        renderBlock={renderBlock}
-        showWeekdayLabels={true}
-        style={{ border: '1px solid #ccc' }}
-        theme={{ light: ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127'], dark: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'] }}
-        throwOnError={true}
-        totalCount={100}
-        transformData={transformData}
-        transformTotalCount={false}
-        weekStart={0 as Day}
-      />
-    </div>
+    <motion.div
+      className="flex items-center justify-center"
+      onMouseMove={handleMouseMove}
+    >
+      <div className="relative inline-flex group">
+        <div
+          className="absolute transition-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"
+        ></div>
+        <div className="relative inline-flex items-center justify-center text-lg font-bold dark:text-white text-black transition-all duration-200 dark:bg-gray-900 bg-white font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900">
+          <GitHubHeatMap
+            username="yakkshit"
+            colorScheme="dark"
+            theme={{
+              light: ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127'],
+              dark: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353']
+            }}
+            style={{ border: 'bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg ' }}
+          />
+        </div>
+      </div>
+    </motion.div>
   );
 };
 

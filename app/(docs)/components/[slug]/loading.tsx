@@ -4,25 +4,9 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const Loading = () => {
-  const [quote, setQuote] = useState("");
-
-  useEffect(() => {
-    const fetchQuote = async () => {
-      try {
-        const response = await fetch("https://zenquotes.io/api/random");
-        const data = await response.json();
-        setQuote(data[0].q + " - " + data[0].a);
-      } catch (error) {
-        console.error("Error fetching quote:", error);
-      }
-    };
-
-    fetchQuote();
-  }, []);
-
   return (
     <motion.div
-      className="flex flex-col items-center justify-center min-h-screen min-w-screen  text-gray-900 dark:text-gray-100 transition-colors duration-300"
+      className="flex flex-col items-center justify-center min-h-screen min-w-screen text-gray-900 dark:text-gray-100 transition-colors duration-300"
       initial={{ y: "100vh" }}
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 50 }}
@@ -36,9 +20,16 @@ const Loading = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
+        <defs>
+          <linearGradient id="bikeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style={{ stopColor: "#6366F1", stopOpacity: 1 }} />
+            <stop offset="50%" style={{ stopColor: "#8B5CF6", stopOpacity: 1 }} />
+            <stop offset="100%" style={{ stopColor: "#EC4899", stopOpacity: 1 }} />
+          </linearGradient>
+        </defs>
         <g
           fill="none"
-          stroke="currentColor"
+          stroke="url(#bikeGradient)"
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth="1"
@@ -118,14 +109,6 @@ const Loading = () => {
           />
         </g>
       </motion.svg>
-      <motion.div
-        className="mt-4 text-center px-4"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1 }}
-      >
-        {quote}
-      </motion.div>
     </motion.div>
   );
 };

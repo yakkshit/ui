@@ -1,12 +1,16 @@
 'use client';
-
-import clsx, { ClassValue } from "clsx";
-import { useEffect, useState } from "react";
-import { twMerge } from "tailwind-merge";
+import React, { useEffect, useState } from 'react';
+import clsx, { ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
 import GitHubCalendar from 'react-github-calendar';
 import { motion } from 'framer-motion';
 import { Github } from 'lucide-react';
 import { EventHandlerMap } from 'react-activity-calendar';
+
+// Inject the styles into the document head
+const styleSheet = document.createElement("style");
+styleSheet.type = "text/css";
+document.head.appendChild(styleSheet);
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -90,7 +94,7 @@ const GitHubHeatMap: React.FC<GitHubHeatMapProps> = ({
 
   return (
     <motion.div
-      className={cn("p-4", "bg-white", "dark:bg-gray-800", "rounded-lg", "shadow-md")}
+      className={cn("p-4", "rounded-lg", "shadow-md")}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}

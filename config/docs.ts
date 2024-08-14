@@ -119,8 +119,8 @@ const docsConfig: DocsConfig = {
           items: [],
         },
         {
-          title: "Image Caption",
-          href: `/components/img-caption`,
+          title: "Recipes",
+          href: `/components/recipes`,
           items: [],
           label:'AI'
         },

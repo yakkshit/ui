@@ -67,10 +67,10 @@ const ui: Registry = {
     type: "components:ui",
     files: ["registry/components/backend/WeatherCard/WeatherCard.tsx"],
   },
-  "img-caption":{
-    name: "img-caption",
+  "recipes":{
+    name: "recipes",
     type: "components:ui",
-    files: ["registry/components/backend/img_caption/ImgCaption.tsx"],
+    files: ["registry/components/backend/Recipes/Recipes.tsx"],
   },
   "quote-card":{
     name: "quote-card",
@@ -80,6 +80,14 @@ const ui: Registry = {
 };
 
 const example: Registry = {
+  "beta-demo": {
+    name: "beta-demo",
+    type: "components:example",
+    files: ["registry/components/beta/beta-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/beta/beta-demo")
+    ),
+  },
   "magic-card-demo": {
     name: "magic-card-demo",
     type: "components:example",
@@ -176,6 +184,14 @@ const example: Registry = {
       () => import("@/registry/components/example/GitHubHeatMap/GitHubHeatMap-1-demo")
     ),
   },
+  "github-heat-map-2-demo": {
+    name: "github-heat-map-2-demo",
+    type: "components:example",
+    files: ["registry/components/example/GitHubHeatMap/GitHubHeatMap-2-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/GitHubHeatMap/GitHubHeatMap-2-demo")
+    ),
+  },
   "testimonials-demo": {
     name: "testimonials-demo",
     type: "components:example",
@@ -224,12 +240,12 @@ const example: Registry = {
       () => import("@/registry/components/example/WeatherCard/WeatherCard-demo")
     ),
   },
-  "img-caption-demo": {
-    name: "img-caption-demo",
+  "recipes-demo": {
+    name: "recipes-demo",
     type: "components:example",
-    files: ["registry/components/example/Imgcaption/img-caption-demo.tsx"],
+    files: ["registry/components/example/Recipes/recipes-demo.tsx"],
     component: React.lazy(
-      () => import("@/registry/components/example/Imgcaption/img-caption-demo")
+      () => import("@/registry/components/example/Recipes/recipes-demo")
     ),
   },
   "quote-card-demo": {

@@ -1,14 +1,11 @@
 ---
 title: Github Heat Map
-date: 2023-07-12
-summary: A guide for integrating a waitlist component into your project.
+date: 2023-08-14
+summary: Join our cutting-edge Github Calander component! This uses lucid icons, Framer Motion for animations.
 author: yakkshit
 published: true
-video: https://cdn.magicuikit.com/magic-card.mp4
+video: https://youtu.be/whsFG7pf8Vc&amp;controls=0
 ---
-
-<SupportOverlay videoSrc="https://www.youtube.com/embed/uAOx1611_iw?si=EaKMn3bknh8yWJ0G&amp;controls=0" supportLink="https://www.cedzlabs.com/payments" />
-
 <ComponentPreview name="github-heat-map-demo" />
 
 ## Installation
@@ -16,8 +13,9 @@ video: https://cdn.magicuikit.com/magic-card.mp4
 <Tabs defaultValue="doc">
 
 <TabsList>
-  <TabsTrigger value="doc">Doc</TabsTrigger>
+  <TabsTrigger value="doc">Manual</TabsTrigger>
   <TabsTrigger value="video">Video</TabsTrigger>
+  <TabsTrigger value="zip">Zip</TabsTrigger>
 </TabsList>
 
 <TabsContent value="doc">
@@ -25,29 +23,24 @@ video: https://cdn.magicuikit.com/magic-card.mp4
 <Steps>
   <Step>
   Install the Required Dependencies in your project:
-    - shadcn ui Button
-    - radix ui
+    - lucid react icons
+    - Tailwindcss
+    - Framer motion
 
-    ```bash
-    npx shadcn-ui@latest add button && npx shadcn-ui@latest add input && npx shadcn-ui@latest add toast
+    ```npm
+      npx install react-github-calendar framer-motion lucide-react clsx tailwind-merge
     ```
   </Step>
   
   <Step>
-    Create a file named `waitlist.tsx` and copy and paste the following code:
+    Create a file named `github.tsx` and copy and paste the following code:
 
     <ComponentSource name="github-heat-map" />
 
   </Step>
-  
-  <Step>
-  Create the following `.env` variables:
 
-    ```env
-    NEXT_PUBLIC_MAGIC_API_KEY=YOUR_MAGIC_API_KEY
-    NEXT_PUBLIC_MAGIC_PROJECT_ID=YOUR_MAGIC_PROJECT_ID
-    ```
-  </Step>
+  <Step>Now You&apos;re Ready to use the component.</Step>
+  
 </Steps>
 
 </TabsContent>
@@ -57,19 +50,51 @@ video: https://cdn.magicuikit.com/magic-card.mp4
 <Steps>
   <Step>
   Follow the instructions shown in the Video Tutorial.
-  <VideoEmbed src="https://cdn.magicuikit.com/magic-card.mp4" text="
-  ## New Text to be done "/>
+  <VideoEmbed src="https://youtu.be/4VsnyWePnpI?si=2g2VB0EDebI-8GR0" text="
+  <ins>[For more tech videos, please visit our YT channel](https://youtube.com/@cedzlabs)</ins>
+  
+  We are workign Hard to Bring you the exiting Stuff.
+  Stay Tuned for more Tech Videos.
+  Please Support Us 🙂."/>
   </Step>
   <Step>Done.</Step>
 </Steps>
 
 </TabsContent>
 
+<TabsContent value="zip"> 
+  # Link Will be given soon..
+  <Link href=''><Button>Download zip</Button></Link>
+</TabsContent>
+
 </Tabs>
 
-## Example 1
 
-<ComponentPreview name="github-heat-map-1-demo" />
+## Here are Few other ui Examples 
+
+<Accordion type="single" collapsible>
+  <AccordionItem value="item-1">
+    <AccordionTrigger> ## Example 1 </AccordionTrigger>
+    <AccordionContent>
+      
+
+      <ComponentPreview name="github-heat-map-1-demo" />
+    </AccordionContent>
+    </AccordionItem>
+  <AccordionItem value="item-2">
+    <AccordionTrigger> ## Example 2 </AccordionTrigger>
+    <AccordionContent>
+      <ComponentPreview name="github-heat-map-2-demo" />
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="item-3">
+    <AccordionTrigger> ## Example 3 </AccordionTrigger>
+    <AccordionContent>
+      <ComponentPreview name="github-heat-map-2-demo" />
+    </AccordionContent>
+  </AccordionItem>
+  </Accordion>
+
 
 ## Props
 
@@ -103,7 +128,18 @@ video: https://cdn.magicuikit.com/magic-card.mp4
 
 ## Credits
 
-| name      | Description                             | Reference Link      |
-| --------- | --------------------------------------- |---------------------|
-| Schadcn ui| (snadcn)[https://ui.shadcn.com]         |                     |
-| className | The className to apply to the container |                     |
+| Name          | Credit For          | Link                                                         |
+| ------------- | ------------------- | ------------------------------------------------------------ |
+| Yakkshit      | Component Developer | [yakkshit](https://x.com/yakkshit)                           |
+| Cedz Labs     | Video Tutorial      | [Cedz Labs](https://www.cedzlabs.com)                        |
+| snadcn ui     | UI components       | [snadcn ui](https://ui.shadcn.com/docs/components)           |
+| GitHub        | API                 | [GitHub API](https://docs.github.com/en/rest)                |
+
+## Suggestions Or Book
+
+| Name          | Credit For          | Link                                                         |
+| ------------- | ------------------- | ------------------------------------------------------------ |
+| Yakkshit      | Component Developer | [<Button>Book</Button>](https://cal.com/yakkshit)                           |
+
+
+<SupportOverlay videoSrc="https://youtu.be/4VsnyWePnpI?si=2g2VB0EDebI-8GR0&amp;controls=0" supportLink="https://www.cedzlabs.com/payments" />

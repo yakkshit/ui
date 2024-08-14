@@ -9,7 +9,7 @@ const Loading = () => {
   useEffect(() => {
     const fetchQuote = async () => {
       try {
-        const response = await fetch("https://zenquotes.io/api/random");
+        const response = await fetch("https://dummyjson.com/quotes/random");
         const data = await response.json();
         setQuote(data[0].q + " - " + data[0].a);
       } catch (error) {
