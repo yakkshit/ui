@@ -4,9 +4,11 @@ import { cn, constructMetadata, formatDate } from "@/lib/utils";
 import { FadeIn } from "@/registry/components/frontend/fade-in";
 import { Metadata } from "next";
 import Link from "next/link";
-import Article from "@/components/ui/Article";
 import { allComponents } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
+import CardsSection from "@/registry/components/frontend/cards/cardstack";
+import Price from "@/registry/components/frontend/price";
+import Section2 from "@/components/ui/section2";
 
 export const metadata: Metadata = constructMetadata({
   title: "Lingo UI",
@@ -74,16 +76,21 @@ export default function Home() {
             </div>
           </FadeIn>
         </div>
-        <hr className="my-10" />
-        {posts?.length ? (
-          <div className="grid m-4 grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 ">
+        {/* <hr className="my-10" /> */}
+        {/* {posts?.length ? (
+          <div className="flex">
             {posts.map((post, index) => (
               <Article key={post._id} post={post} index={index} />
             ))}
+            <Section2/>
           </div>
         ) : (
           <p>No components yet.</p>
-        )}
+        )} */}
+        <div className="flex flex-col">
+          <Section2 />
+          <Price/>
+        </div>
       </section>
     </>
   );
