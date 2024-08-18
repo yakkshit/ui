@@ -24,8 +24,8 @@ export default function Home() {
     });
   return (
     <>
-      <section className="space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-32 custom-background overflow-x-hidden">
-        <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center">
+      <section className="custom-background space-y-2 pb-2 pt-6 md:pb-12 md:pt-10 lg:py-32 overflow-x-hidden">
+        <div className="container flex w-screen flex-col items-center gap-4 text-center">
           <FadeIn className="z-10 flex flex-col items-center justify-center w-full h-full">
             <Link
               href={siteConfig.links.twitter}
@@ -87,7 +87,9 @@ export default function Home() {
         ) : (
           <p>No components yet.</p>
         )} */}
-        <div className="flex flex-col">
+      </section>
+      <section className="pb-8 overflow-x-hidden">
+      <div className="flex flex-col">
           <Section2 />
           <Price/>
         </div>

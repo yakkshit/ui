@@ -1,16 +1,14 @@
 "use client";
 
-
 import { motion, useTransform, useViewportScroll } from 'framer-motion';
 import React from 'react';
 
 const Price = () => {
     const { scrollYProgress } = useViewportScroll();
-    const scale = useTransform(scrollYProgress, [0, 1], [0.1, 1]);
-
+    const scale = useTransform(scrollYProgress, [0.2, 1], [0.2, 1]);
   return (
     <motion.div 
-    className="mx-auto max-w-screen-xl bg-black rounded-lg lg:px-6 lg:py-16"
+    className="mx-auto max-w-screen lg:px-6 lg:py-16"
     style={{ scale }}
     >
         <div className="mx-auto mb-8 max-w-screen-md  lg:mb-12 text-center">
@@ -20,13 +18,11 @@ const Price = () => {
             {/* <!-- Pricing Card --> */}
             <div
                 className="mx-auto flex max-w-lg space-y-8 items-start flex-col rounded-3xl border border-gray-200 bg-white p-6 text-gray-900 xl:p-8">
-
                 <h3 className="text-lg font-normal ">Basic</h3>
                 <div className="my-8 flex items-baseline justify-center ">
                     <span className="mr-2 text-5xl font-extrabold">$29</span>
-                    <span className="text-gray-600">/month</span>
+                    <span className="text-gray-600">month</span>
                 </div>
-
                 <p className="font-light text-gray-600 sm:text-sm">Best option for personal use & for your next project.</p>
                 <a
                     className="cursor-pointer bg-gray-900 w-full rounded-md  p-3 text-center text-sm font-semibold text-white shadow-sm  hover:-translate-y-1">Get
@@ -84,18 +80,15 @@ const Price = () => {
                         <span>Lifetime updates</span>
                     </li>
                 </ul>
-
             </div>
             {/* <!-- Pricing Card 2--> */}
             <div
                 className="mx-auto flex max-w-lg space-y-8 items-start flex-col rounded-3xl  bg-[#D8FA6D] p-6 text-gray-900 xl:p-8">
-
                 <h3 className="text-lg font-normal ">Essential</h3>
                 <div className="my-8 flex items-baseline justify-center ">
                     <span className="mr-2 text-5xl font-extrabold">$29</span>
                     <span className="text-gray-600">/month</span>
                 </div>
-
                 <p className="font-light text-gray-600 sm:text-sm">Best option for personal use & for your next project.</p>
                 <a
                     className="cursor-pointer bg-gray-900 w-full rounded-md  p-3 text-center text-sm font-semibold text-white shadow-sm  hover:-translate-y-1">Get
@@ -153,18 +146,15 @@ const Price = () => {
                         <span>Lifetime updates</span>
                     </li>
                 </ul>
-
             </div>
             {/* <!-- Pricing Card 3--> */}
             <div
                 className="mx-auto flex max-w-lg space-y-8 items-start flex-col rounded-3xl  bg-[#DCA6F3] p-6 text-center text-gray-900 xl:p-8">
-
                 <h3 className="text-lg font-normal ">Growth</h3>
                 <div className="my-8 flex items-baseline justify-center ">
                     <span className="mr-2 text-5xl font-extrabold">$29</span>
                     <span className="text-gray-600">/month</span>
                 </div>
-
                 <p className="font-light text-gray-600 sm:text-sm">Best option for personal use & for your next project.</p>
                 <a
                     className="cursor-pointer bg-gray-900 w-full rounded-md  p-3  text-sm font-semibold text-white shadow-sm  hover:-translate-y-1">Get
@@ -222,7 +212,6 @@ const Price = () => {
                         <span>Lifetime updates</span>
                     </li>
                 </ul>
-
             </div>
         </div>
     </motion.div>

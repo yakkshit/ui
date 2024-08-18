@@ -262,3 +262,15 @@ export const registry: Registry = {
   ...ui,
   ...example,
 };
+
+const resolvedExamples = Object.entries(example).map(([key, value]) => ({
+  ...value,
+  component: () => void 0,
+}));
+const updatedExample: Registry = resolvedExamples.reduce(
+  (acc, curr) => ({ ...acc, [curr.name]: curr }),
+  {},
+);
+export const downloadRegistry: Registry = { ...ui, ...updatedExample };
+
+export type ComponentName = keyof (typeof ui & typeof example);
