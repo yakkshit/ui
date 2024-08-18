@@ -1,24 +1,24 @@
 ---
-title: Map Location
+title: Map Location (Fix needed)
 date: 2023-07-12
-summary: A guide for integrating a Maps location component into your project. Using Google maps API.
+summary: A guide for integrating a Maps location component into your project. Using Google maps API, MapBox API, OLA Maps.
 author: yakkshit
 published: true
-video: https://cdn.magicuikit.com/magic-card.mp4
+video: https://youtu.be/7-vhDhx3lAU?si=4FrCGEnvMp-9VSwM
 ---
 
 <ComponentPreview name="map-location-demo" />
 
 ## Installation
 
-<Tabs defaultValue="doc">
+<Tabs defaultValue="manual">
 
 <TabsList>
-  <TabsTrigger value="doc">Doc</TabsTrigger>
+  <TabsTrigger value="manual">manual</TabsTrigger>
   <TabsTrigger value="video">Video</TabsTrigger>
 </TabsList>
 
-<TabsContent value="doc">
+<TabsContent value="manual">
 
 <Steps>
   <Step>
@@ -27,12 +27,12 @@ video: https://cdn.magicuikit.com/magic-card.mp4
     - radix ui
 
     ```npm
-    npx shadcn-ui@latest add button && npx shadcn-ui@latest add input && npx shadcn-ui@latest add toast
+      npx install framer-motion clsx tailwind-merge
     ```
   </Step>
   
   <Step>
-    Create a file named `waitlist.tsx` and copy and paste the following code:
+    Create a file named `map-location.tsx` and copy and paste the following code:
 
     <ComponentSource name="map-location" />
 
@@ -55,7 +55,7 @@ video: https://cdn.magicuikit.com/magic-card.mp4
 <Steps>
   <Step>
   Follow the instructions shown in the Video Tutorial.
-  <VideoEmbed src="https://cdn.magicuikit.com/magic-card.mp4" />
+  <VideoEmbed src="https://youtu.be/7-vhDhx3lAU?si=4FrCGEnvMp-9VSwM" />
   </Step>
   <Step>Done.</Step>
 </Steps>
@@ -64,11 +64,34 @@ video: https://cdn.magicuikit.com/magic-card.mp4
 
 </Tabs>
 
+## Here are Few other ui Examples 
+
+<Accordion type="single" collapsible>
+  <AccordionItem value="item-1">
+    <AccordionTrigger> ## Example 1 </AccordionTrigger>
+    <AccordionContent>
+      <ComponentPreview name="beta-1-demo" />
+    </AccordionContent>
+    </AccordionItem>
+</Accordion>
+
 ## Credits
 
-| name      | Description                             | Reference Link      |
-| --------- | --------------------------------------- |---------------------|
-| Schadcn ui| (snadcn)[https://ui.shadcn.com]         |                     |
-| className | The className to apply to the container |                     |
+| Name      | Credit For          | Link                                               |
+| --------- | ------------------- | -------------------------------------------------- |
+| Yakkshit  | Component Developer | [yakkshit](https://x.com/yakkshit)                 |
+| Cedz Labs | Video Tutorial      | [Cedz Labs](https://www.cedzlabs.com)              |
+| Magic ui  | Code                | [Magic ui](https://magicui.design)                 |
+| Linear.app| component is inspired| [Linear.app](https://linear.app/features)                 |
 
-<SupportOverlay videoSrc="https://www.youtube.com/embed/uAOx1611_iw?si=EaKMn3bknh8yWJ0G&amp;controls=0" supportLink="https://cedzlabs.com/payments" />
+
+## Suggestions Or Book
+
+| Name     | Credit For          | Contact                                           |
+| -------- | ------------------- | ------------------------------------------------- |
+| Yakkshit | Component Developer | [<Button>Book</Button>](https://cal.com/yakkshit) |
+
+<SupportOverlay
+  videoSrc="https://youtu.be/7-vhDhx3lAU?si=4FrCGEnvMp-9VSwM"
+  supportLink="https://cedzlabs.com/payments"
+/>

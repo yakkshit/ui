@@ -12,10 +12,10 @@ const ui: Registry = {
     type: "components:ui",
     files: ["registry/components/frontend/linear-gradient.tsx"],
   },
-  "radial-gradient": {
-    name: "radial-gradient",
+  "gradient": {
+    name: "gradient",
     type: "components:ui",
-    files: ["registry/components/frontend/radial-gradient.tsx"],
+    files: ["registry/components/frontend/gradient.tsx"],
   },
   "wait-list": {
     name: "wait-list",
@@ -91,25 +91,57 @@ const example: Registry = {
   "magic-card-demo": {
     name: "magic-card-demo",
     type: "components:example",
-    files: ["registry/components/example/magic-card-demo.tsx"],
+    files: ["registry/components/example/magic-card/magic-card-demo.tsx"],
     component: React.lazy(
-      () => import("@/registry/components/example/magic-card-demo")
+      () => import("@/registry/components/example/magic-card/magic-card-demo")
     ),
   },
-  "linear-gradient-demo": {
-    name: "linear-gradient-demo",
+  "magic-card-1-demo": {
+    name: "magic-card-1-demo",
     type: "components:example",
-    files: ["registry/components/example/linear-gradient-demo.tsx"],
+    files: ["registry/components/example/magic-card/magic-card-1-demo.tsx"],
     component: React.lazy(
-      () => import("@/registry/components/example/linear-gradient-demo")
+      () => import("@/registry/components/example/magic-card/magic-card-1-demo")
     ),
   },
-  "radial-gradient-demo": {
-    name: "radial-gradient-demo",
+  "magic-card-2-demo": {
+    name: "magic-card-1-demo",
     type: "components:example",
-    files: ["registry/components/example/radial-gradient-demo.tsx"],
+    files: ["registry/components/example/magic-card/magic-card-2-demo.tsx"],
     component: React.lazy(
-      () => import("@/registry/components/example/radial-gradient-demo")
+      () => import("@/registry/components/example/magic-card/magic-card-2-demo")
+    ),
+  },
+  "magic-card-3-demo": {
+    name: "magic-card-1-demo",
+    type: "components:example",
+    files: ["registry/components/example/magic-card/magic-card-3-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/magic-card/magic-card-3-demo")
+    ),
+  },
+  "magic-card-4-demo": {
+    name: "magic-card-4-demo",
+    type: "components:example",
+    files: ["registry/components/example/magic-card/magic-card-4-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/magic-card/magic-card-4-demo")
+    ),
+  },
+  "gradient-demo": {
+    name: "gradient-demo",
+    type: "components:example",
+    files: ["registry/components/example/gradient/gradient-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/gradient/gradient-demo")
+    ),
+  },
+  "gradient-1-demo": {
+    name: "gradient-1-demo",
+    type: "components:example",
+    files: ["registry/components/example/gradient/gradient-1-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/gradient/gradient-1-demo")
     ),
   },
   "wait-list-demo": {
@@ -254,6 +286,22 @@ const example: Registry = {
     files: ["registry/components/example/quotecard/quote-card-demo.tsx"],
     component: React.lazy(
       () => import("@/registry/components/example/quotecard/quote-card-demo")
+    ),
+  },
+  "quote-marquee-demo": {
+    name: "quote-marquee-demo",
+    type: "components:example",
+    files: ["registry/components/example/quotecard/quote-marquee-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/quotecard/quote-marquee-demo")
+    ),
+  },
+  "quote-marquee-1-demo": {
+    name: "quote-marquee-demo",
+    type: "components:example",
+    files: ["registry/components/example/quotecard/quote-marquee-1-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/quotecard/quote-marquee-1-demo")
     ),
   },
 };

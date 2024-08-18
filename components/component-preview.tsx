@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { RotateCcw } from "lucide-react";
+import { RepeatIcon, RotateCcw } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -78,10 +78,10 @@ export function ComponentPreview({
           <ComponentWrapper>
             <Button
               onClick={() => setKey((prev) => prev + 1)}
-              className="absolute right-0 top-0 z-10 ml-4 flex items-center rounded-lg px-3 py-1"
+              className="absolute right-3 top-3 p-2 z-10 ml-4 flex items-center rounded-lg px-3 py-1"
               variant="ghost"
             >
-              <RotateCcw size={16} />
+              <RepeatIcon size={12} />
             </Button>
             <React.Suspense
               fallback={

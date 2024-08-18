@@ -9,6 +9,11 @@ import { compareDesc } from "date-fns";
 import CardsSection from "@/registry/components/frontend/cards/cardstack";
 import Price from "@/registry/components/frontend/price";
 import Section2 from "@/components/ui/section2";
+import React from "@/components/icons/react";
+import Tailwind from "@/components/icons/tailwind";
+import Framer from "@/components/icons/framer";
+import { Plus } from "lucide-react";
+import Article from "@/components/ui/Article";
 
 export const metadata: Metadata = constructMetadata({
   title: "Lingo UI",
@@ -49,8 +54,15 @@ export default function Home() {
           >
             <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
               Lingo UI is a curated collection of beautiful landing page
-              components built using React + Tailwind CSS + Framer Motion
+              components built using
             </p>
+            <div className="flex space-x-4 justify-center items-center mt-4">
+              <React size={55} />
+              <Plus />
+              <Tailwind size={55} />
+              <Plus />
+              <Framer size={47} />
+            </div>
           </FadeIn>
           <FadeIn
             className="z-10 flex flex-col items-center justify-center w-full h-full"
@@ -76,22 +88,23 @@ export default function Home() {
             </div>
           </FadeIn>
         </div>
-        {/* <hr className="my-10" /> */}
-        {/* {posts?.length ? (
-          <div className="flex">
-            {posts.map((post, index) => (
-              <Article key={post._id} post={post} index={index} />
-            ))}
-            <Section2/>
-          </div>
-        ) : (
-          <p>No components yet.</p>
-        )} */}
-      </section>
-      <section className="pb-8 overflow-x-hidden">
-      <div className="flex flex-col">
+        </section>
+        <hr className="my-10" />
+        <section className="overflow-x-hidden">
+          {posts?.length ? (
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4">
+              {posts.map((post, index) => (
+                <Article key={post._id} post={post} index={index} />
+              ))}
+            </div>
+          ) : (
+            <p>No components yet.</p>
+          )}
+        </section>
+      <section className="overflow-x-hidden">
+        <div className="flex flex-col">
           <Section2 />
-          <Price/>
+          <Price />
         </div>
       </section>
     </>

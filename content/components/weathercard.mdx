@@ -9,43 +9,108 @@ video: https://cdn.magicuikit.com/magic-card.mp4
 
 <ComponentPreview name="WeatherCard-demo" />
 
-## Installation
+## Prerequisites
 
-<Tabs defaultValue="doc">
-
-<TabsList>
-  <TabsTrigger value="doc">Doc</TabsTrigger>
-  <TabsTrigger value="video">Video</TabsTrigger>
-</TabsList>
-
-<TabsContent value="doc">
 
 <Steps>
   <Step>
   Install the Required Dependencies in your project:
-    - shadcn ui Button
-    - radix ui
+    - lucid react for icons
+    - framer-motion
+    - axios
 
     ```npm
-    npx shadcn-ui@latest add button && npx shadcn-ui@latest add input && npx shadcn-ui@latest add toast
+    npx install framer-motion lucide-react axios
     ```
   </Step>
-  
-  <Step>
-    Create a file named `waitlist.tsx` and copy and paste the following code:
 
-    <ComponentSource name="weathercard" />
+  <Step>
+    Create a new Project in superbse for reference check [Openweather](https://openweathermap.org/api)
+    check the video
+    <Accordion type="single" collapsible>
+      <AccordionItem value="item-1">
+        <AccordionTrigger>How to Get the API keys video tutorial </AccordionTrigger>
+        <AccordionContent>
+        <Steps>
+            <Step>
+             <h4>Step 1: Go to superbse and create a new project</h4>
+              <VideoEmbed src="https://youtu.be/tPlD-CmH7H4?si=LQsSpkz9ZHCa6aDy"  
+              text="
+                  ## How to Obtain an OpenWeather API Key
+
+                  To obtain an OpenWeather API key, you need to sign up for an account on the OpenWeather website. Here’s a step-by-step process:
+
+                  1. **Visit OpenWeather’s Website**: Go to [OpenWeather's website](https://openweathermap.org/).
+                  2. **Create an Account**: Click on the &apos;Sign Up&apos; button. Fill in your details to create a free account.
+                  3. **Confirm Your Email**: Check your email for a confirmation link from OpenWeather and click on it to verify your account.
+                  4. **Obtain Your API Key**: Once your account is verified, log in to your account. Navigate to the &apos;API keys&apos; section of your account dashboard. You will find your default API key there, or you can create a new one
+                  5. **Use the API Key**: Copy this key and use it in your applications to access OpenWeather API services.
+
+                  As for YouTube, there are many tutorial videos available that walk you through getting an OpenWeather API key. You can search for phrases like &apos;How to get OpenWeather API key&apos; on YouTube.
+
+                  ### Helpful Links
+                  - [OpenWeatherMap Official API Documentation](https://openweathermap.org/api)
+                  - [OpenWeatherMap Sign Up](https://home.openweathermap.org/users/sign_up)
+                  - [YouTube Search for OpenWeather API Key Tutorial](https://www.youtube.com/results?search_query=How+to+get+OpenWeather+API+key)
+              "/>
+
+            </Step>
+          </Steps>
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+    </Step>
+    <Step>
+    Get Your API keys `NEXT_PUBLIC_OPENWEATHER_API_KEY` from OpenWeatherMap.
+      ```env
+      NEXT_PUBLIC_OPENWEATHER_API_KEY=REPLACE_WITH_YOUR_KEY
+      ```
+  </Step>
+  <Step>You&apos;re almost done just few Steps left.</Step>
+</Steps>
+
+## Installation
+
+<Tabs defaultValue="code">
+
+<TabsList>
+  <TabsTrigger value="code">Code</TabsTrigger>
+  <TabsTrigger value="video">Video</TabsTrigger>
+  <TabsTrigger value="files">Files</TabsTrigger>
+</TabsList>
+
+<TabsContent value="code">
+
+<Steps>
+  <Step>
+        Create a file named `testimonials.tsx` and copy and paste the following code:
+        <ComponentSource name='weathercard'/>
+  </Step>
+  <Step>
+    Add Following lines in  `tailwind.config.js` for glow effect.
+      ```js title="tailwind.config.js" {4-10}
+      /** @type {import('tailwindcss').Config} */
+      module.exports = {
+      extend: {
+        colors: {
+          gray: {
+            900: '#1a202c', //weather card
+            700: '#2d3748',
+            300: '#e2e8f0',
+          },
+        boxShadow: {
+            glow: '0 0 15px 10px rgba(255, 255, 255, 0.3)',
+          },
+        }
+        ....
+        plugins: [ 
+          require('tailwindcss-filters')], 
+      };
+
+      ```
 
   </Step>
-  
-  <Step>
-  Create the following `.env` variables:
-
-    ```env
-    NEXT_PUBLIC_MAGIC_API_KEY=YOUR_MAGIC_API_KEY
-    NEXT_PUBLIC_MAGIC_PROJECT_ID=YOUR_MAGIC_PROJECT_ID
-    ```
-  </Step>
+  <Step>Done!</Step>
 </Steps>
 
 </TabsContent>
@@ -54,22 +119,72 @@ video: https://cdn.magicuikit.com/magic-card.mp4
 
 <Steps>
   <Step>
-  Follow the instructions shown in the Video Tutorial.
-  <VideoEmbed src="https://cdn.magicuikit.com/magic-card.mp4" />
+    Follow the instructions shown in the Video Tutorial.
+    <VideoEmbed
+      src="https://youtu.be/nXbXNB9E71o"
+      text="<ins>[For more tech videos, please visit our YT channel](https://youtube.com/@cedzlabs)</ins>
+  
+  We are workign Hard to Bring you the exiting Stuff.
+  Stay Tuned for more Tech Videos.
+  Please Support Us 🙂."
+    />
   </Step>
-  <Step>Done.</Step>
+  <Step>Done!</Step>
 </Steps>
 
 </TabsContent>
 
+<TabsContent value="files">
+  # Link Will be given soon..
+  <Link href=''><Button>Download zip</Button></Link>
+  <Steps>
+  <Step>
+    After Downloading the File Follow the instructions shown in the Video Tutorial. How to use the zip file.  
+    <VideoEmbed
+      src="https://youtu.be/nXbXNB9E71o"
+      text="<ins>[For more tech videos, please visit our YT channel](https://youtube.com/@cedzlabs)</ins>
+  We are workign Hard to Bring you the exiting Stuff.
+  Stay Tuned for more Tech Videos.
+  Please Support Us 🙂.
+  " />
+  </Step>
+  <Step>Done!</Step>
+</Steps>
+</TabsContent>
+
 </Tabs>
+
+## Props
+
+| Prop name | Type   | Default | Description                   |
+| --------- | ------ | ------- | ----------------------------- |
+| city      | string | None    | The name of the city to fetch weather data for |
+
+
+## Here are Few other ui Examples 
+
+<Accordion type="single" collapsible>
+  <AccordionItem value="item-1">
+    <AccordionTrigger> ## Example 1 </AccordionTrigger>
+    <AccordionContent>
+      <ComponentPreview name="beta-demo" />
+    </AccordionContent>
+    </AccordionItem>
+</Accordion>
+
 
 ## Credits
 
-| name      | Description                             | Reference Link      |
-| --------- | --------------------------------------- |---------------------|
-| Schadcn ui| (snadcn)[https://ui.shadcn.com]         |                     |
-| className | The className to apply to the container |                     |
+| Name      | Credit For          | Link                                               |
+| --------- | ------------------- | -------------------------------------------------- |
+| Yakkshit  | Component Developer | [yakkshit](https://x.com/yakkshit)                 |
+| Cedz Labs | Video Tutorial      | [Cedz Labs](https://www.cedzlabs.com)              |
+| OpenWeatherMap | Api       | [OpenWeatherMap](https://openweathermap.org/api) |
 
+## Suggestions Or Book
+
+| Name     | Credit For          | Contact                                           |
+| -------- | ------------------- | ------------------------------------------------- |
+| Yakkshit | Component Developer | [<Button>Book Appointment</Button>](https://cal.com/yakkshit) |
 
 <SupportOverlay videoSrc="https://www.youtube.com/embed/uAOx1611_iw?si=EaKMn3bknh8yWJ0G&amp;controls=0" supportLink="https://cedzlabs.com/payments" />

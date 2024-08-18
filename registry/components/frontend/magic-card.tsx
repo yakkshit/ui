@@ -1,7 +1,8 @@
 "use client";
 
 import clsx, { ClassValue } from "clsx";
-import { CSSProperties, ReactNode, useEffect, useRef, useState } from "react";
+import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
+import { CSSProperties, ReactNode, useCallback, useEffect, useRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
@@ -134,12 +135,12 @@ interface MagicCardProps {
   size?: number;
 
   /**
-   * ]@default "#475569"
-   * @type string
+   * @default ["#475569"]
+   * @type string[]
    * @description
-   * The border color of the card
+   * The border colors of the card
    */
-  borderColor?: string;
+  borderColor?: string[];
 
   /**
    * @default 1
@@ -166,12 +167,12 @@ interface MagicCardProps {
   spotlight?: boolean;
 
   /**
-   * @default "rgba(255,255,255,0.03)"
-   * @type string
+   * @default ["rgba(255,255,255,0.03)"]
+   * @type string[]
    * @description
-   * The color of the spotlight
+   * The colors of the spotlight
    * */
-  spotlightColor?: string;
+  spotlightColor?: string[];
 
   /**
    * @default true
@@ -182,26 +183,38 @@ interface MagicCardProps {
   isolated?: boolean;
 
   /**
-   * @default "rgba(255,255,255,0.03)"
-   * @type string
+   * @default ["rgba(255,255,255,0.03)"]
+   * @type string[]
    * @description
    * The background of the card
    * */
-  background?: string;
+  background?: string[];
+
+  /**
+   * @type CSSProperties
+   * @description
+   * Additional styles for the card
+   * */
+  style?: CSSProperties;
 }
 
 const MagicCard = ({
   className,
   children,
   size = 600,
-  borderColor = "rgba(120,119,198)",
+  borderColor = ["rgba(120,119,198,0.8)"],
   borderWidth = 1,
   borderRadius = 16,
   spotlight = true,
-  spotlightColor = "rgba(120,119,198,0.08)",
+  spotlightColor = ["rgba(120,119,198,0.08)"],
   isolated = true,
-  background = `rgba(120,119,198, 0.2)`,
+  background = ["rgba(120,119,198, 0.2)"],
+  style,
 }: MagicCardProps) => {
+  const combinedBorderColor = borderColor.join(", ");
+  const combinedBackground = background.join(", ");
+  const combinedSpotlightColor = spotlightColor.join(", ");
+
   const spotlightStyles =
     "before:pointer-events-none before:absolute before:w-full before:h-full before:rounded-[var(--border-radius)] before:top-0 before:left-0 before:duration-500 before:transition-opacity before:bg-[radial-gradient(var(--mask-size)_circle_at_var(--mouse-x)_var(--mouse-y),var(--spotlight-color),transparent_40%)] before:z-[3] before:blur-xs";
 
@@ -210,16 +223,15 @@ const MagicCard = ({
 
   return (
     <div
-      style={
-        {
-          "--border-radius": `${borderRadius}px`,
-          "--border-width": `${borderWidth}px`,
-          "--border-color": `${borderColor}`,
-          "--mask-size": `${size}px`,
-          "--spotlight-color": `${spotlightColor}`,
-          background,
-        } as CSSProperties
-      }
+      style={{
+        "--border-radius": `${borderRadius}px`,
+        "--border-width": `${borderWidth}px`,
+        "--border-color": combinedBorderColor,
+        "--mask-size": `${size}px`,
+        "--spotlight-color": combinedSpotlightColor,
+        background: combinedBackground,
+        ...style,
+      } as React.CSSProperties}
       className={cn(
         "relative rounded-[var(--border-radius)] overflow-hidden",
         isolated && [borderStyles, "after:opacity-0 after:hover:opacity-100"],
@@ -245,4 +257,65 @@ const MagicCard = ({
   );
 };
 
-export { MagicCard, MagicContainer };
+export default MagicCard;
+
+
+interface MagicCardSpotProps extends React.HTMLAttributes<HTMLDivElement> {
+  gradientSize?: number;
+  gradientColor?: string;
+  gradientOpacity?: number;
+}
+ 
+const MagicCardSpot = ({
+  children,
+  className,
+  gradientSize = 200,
+  gradientColor = "#262626",
+  gradientOpacity = 0.8,
+}: MagicCardSpotProps) => {
+  const mouseX = useMotionValue(-gradientSize);
+  const mouseY = useMotionValue(-gradientSize);
+ 
+  const handleMouseMove = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      const { left, top } = e.currentTarget.getBoundingClientRect();
+      mouseX.set(e.clientX - left);
+      mouseY.set(e.clientY - top);
+    },
+    [mouseX, mouseY],
+  );
+ 
+  const handleMouseLeave = useCallback(() => {
+    mouseX.set(-gradientSize);
+    mouseY.set(-gradientSize);
+  }, [mouseX, mouseY, gradientSize]);
+ 
+  useEffect(() => {
+    mouseX.set(-gradientSize);
+    mouseY.set(-gradientSize);
+  }, [mouseX, mouseY, gradientSize]);
+ 
+  return (
+    <div
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className={cn(
+        "group relative flex size-full overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-900 border text-black dark:text-white",
+        className,
+      )}
+    >
+      <div className="relative z-10">{children}</div>
+      <motion.div
+        className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        style={{
+          background: useMotionTemplate`
+            radial-gradient(${gradientSize}px circle at ${mouseX}px ${mouseY}px, ${gradientColor}, transparent 100%)
+          `,
+          opacity: gradientOpacity,
+        }}
+      />
+    </div>
+  );
+}
+
+export { MagicCard, MagicContainer, MagicCardSpot };

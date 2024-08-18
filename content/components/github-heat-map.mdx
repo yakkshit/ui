@@ -6,6 +6,7 @@ author: yakkshit
 published: true
 video: https://youtu.be/whsFG7pf8Vc&amp;controls=0
 ---
+
 <ComponentPreview name="github-heat-map-demo" />
 
 ## Installation
@@ -15,7 +16,7 @@ video: https://youtu.be/whsFG7pf8Vc&amp;controls=0
 <TabsList>
   <TabsTrigger value="doc">Manual</TabsTrigger>
   <TabsTrigger value="video">Video</TabsTrigger>
-  <TabsTrigger value="zip">Zip</TabsTrigger>
+  <TabsTrigger value="files">File</TabsTrigger>
 </TabsList>
 
 <TabsContent value="doc">
@@ -26,14 +27,15 @@ video: https://youtu.be/whsFG7pf8Vc&amp;controls=0
     - lucid react icons
     - Tailwindcss
     - Framer motion
+    - react-github-calendar
 
-    ```npm
+    ```bash
       npx install react-github-calendar framer-motion lucide-react clsx tailwind-merge
     ```
   </Step>
   
   <Step>
-    Create a file named `github.tsx` and copy and paste the following code:
+    Create a file named `github-heatmap.tsx` Component and copy and paste the following code:
 
     <ComponentSource name="github-heat-map" />
 
@@ -62,39 +64,25 @@ video: https://youtu.be/whsFG7pf8Vc&amp;controls=0
 
 </TabsContent>
 
-<TabsContent value="zip"> 
+<TabsContent value="files">
   # Link Will be given soon..
   <Link href=''><Button>Download zip</Button></Link>
+  <Steps>
+  <Step>
+    After Downloading the File Follow the instructions shown in the Video Tutorial. How to use the zip file.  
+    <VideoEmbed
+      src="https://youtu.be/nXbXNB9E71o"
+      text="<ins>[For more tech videos, please visit our YT channel](https://youtube.com/@cedzlabs)</ins>
+  We are workign Hard to Bring you the exiting Stuff.
+  Stay Tuned for more Tech Videos.
+  Please Support Us 🙂.
+  " />
+  </Step>
+  <Step>Done!</Step>
+</Steps>
 </TabsContent>
 
 </Tabs>
-
-
-## Here are Few other ui Examples 
-
-<Accordion type="single" collapsible>
-  <AccordionItem value="item-1">
-    <AccordionTrigger> ## Example 1 </AccordionTrigger>
-    <AccordionContent>
-      
-
-      <ComponentPreview name="github-heat-map-1-demo" />
-    </AccordionContent>
-    </AccordionItem>
-  <AccordionItem value="item-2">
-    <AccordionTrigger> ## Example 2 </AccordionTrigger>
-    <AccordionContent>
-      <ComponentPreview name="github-heat-map-2-demo" />
-    </AccordionContent>
-  </AccordionItem>
-  <AccordionItem value="item-3">
-    <AccordionTrigger> ## Example 3 </AccordionTrigger>
-    <AccordionContent>
-      <ComponentPreview name="github-heat-map-2-demo" />
-    </AccordionContent>
-  </AccordionItem>
-  </Accordion>
-
 
 ## Props
 
@@ -126,13 +114,29 @@ video: https://youtu.be/whsFG7pf8Vc&amp;controls=0
 | `weekStart`          | `Day`                                     | `0`       | The day to start the week on (0 = Sunday, 1 = Monday, etc.).                |
 
 
+## Here are Few other ui Examples 
+
+<Accordion type="single" collapsible>
+  <AccordionItem value="item-1">
+    <AccordionTrigger> ## Example 1 </AccordionTrigger>
+    <AccordionContent>
+      <ComponentPreview name="github-heat-map-1-demo" />
+    </AccordionContent>
+    </AccordionItem>
+  <AccordionItem value="item-2">
+    <AccordionTrigger> ## Example 2 </AccordionTrigger>
+    <AccordionContent>
+      <ComponentPreview name="github-heat-map-2-demo" />
+    </AccordionContent>
+  </AccordionItem>
+</Accordion>
+
 ## Credits
 
 | Name          | Credit For          | Link                                                         |
 | ------------- | ------------------- | ------------------------------------------------------------ |
 | Yakkshit      | Component Developer | [yakkshit](https://x.com/yakkshit)                           |
 | Cedz Labs     | Video Tutorial      | [Cedz Labs](https://www.cedzlabs.com)                        |
-| snadcn ui     | UI components       | [snadcn ui](https://ui.shadcn.com/docs/components)           |
 | GitHub        | API                 | [GitHub API](https://docs.github.com/en/rest)                |
 
 ## Suggestions Or Book

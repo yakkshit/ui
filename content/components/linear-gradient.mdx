@@ -7,53 +7,32 @@ published: true
 video: https://cdn.magicuikit.com/linear-gradient.mp4
 ---
 
-<SupportOverlay videoSrc="https://music.youtube.com/watch?v=mCkBsSEG440&si=mRWZD-iTPriGzA1i" supportLink="https://stripe.com/support" />
-
-
-<ComponentPreview name="linear-gradient-demo" />
-
-<Steps>
-
-<Step>
+<ComponentPreview name="gradient-demo" />
 
 ## Installation
 
-Copy and page the following code into your project.
-
-```text
-components/magicui/linear-gradient.tsx
-```
-
-<ComponentSource name="linear-gradient" >
-
-</ComponentSource>
-
-</Step>
-
-</Steps>
-
-<Tabs defaultValue="cli">
+<Tabs defaultValue="manual">
 
 <TabsList>
-  <TabsTrigger value="cli">CLI</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="files">Files</TabsTrigger>
 </TabsList>
-
-<TabsContent value="cli">
-
-```bash
-npx magicui-cli add magic-card
-```
-
-</TabsContent>
 
 <TabsContent value="manual">
 
 <Steps>
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>
+ ## Install the Required Dependencies in your project:
+    ```npm
+    npm install clsx tailwind-merge
+    ```
+</Step>
 
-<ComponentSource name="magic-card" />
+<Step> 
+Create a file named `gradient.tsx` Component and copy and paste the following code:
+  <ComponentSource name="gradient" />
+</Step>
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -61,7 +40,26 @@ npx magicui-cli add magic-card
 
 </TabsContent>
 
+<TabsContent value="files">
+  # Link Will be given soon..
+  <Link href=''><Button>Download zip</Button></Link>
+  <Steps>
+  <Step>
+    After Downloading the File Follow the instructions shown in the Video Tutorial. How to use the zip file.  
+    <VideoEmbed
+      src="https://youtu.be/nXbXNB9E71o"
+      text="<ins>[For more tech videos, please visit our YT channel](https://youtube.com/@cedzlabs)</ins>
+  We are workign Hard to Bring you the exiting Stuff.
+  Stay Tuned for more Tech Videos.
+  Please Support Us 🙂.
+  " />
+  </Step>
+  <Step>Done!</Step>
+</Steps>
+</TabsContent>
+
 </Tabs>
+
 
 ## Props
 
@@ -76,3 +74,31 @@ npx magicui-cli add magic-card
 | transitionPoint | string | The point at which the gradient transitions from the starting color to the ending color | 50%       |
 | direction       | string | The direction of the gradient                                                           | bottom    |
 | className       | string | The class name of the component                                                         | ""        |
+
+## Here are Few other ui Examples 
+
+<Accordion type="single" collapsible>
+  <AccordionItem value="item-1">
+    <AccordionTrigger> Example 1 </AccordionTrigger>
+    <AccordionContent>
+      <ComponentPreview name="gradient-1-demo" />
+    </AccordionContent>
+    </AccordionItem>
+</Accordion>
+
+## Credits
+
+| Name          | Credit For          | Link                                                         |
+| ------------- | ------------------- | ------------------------------------------------------------ |
+| dillionverma      | Component Developer | [yakkshit](https://x.com/yakkshit)                           |
+| Cedz Labs     | Video Tutorial      | [Cedz Labs](https://www.cedzlabs.com)                        |
+| Magic ui  | Code                | [Magic ui](https://magicui.design)                 |
+
+## Suggestions Or Book
+
+| Name          | Credit For          | Link                                                         |
+| ------------- | ------------------- | ------------------------------------------------------------ |
+| dillionverma      | Component Developer | [<Button>Book</Button>](https://cal.com/yakkshit)                           |
+
+
+<SupportOverlay videoSrc="https://youtu.be/7-vhDhx3lAU?si=4FrCGEnvMp-9VSwM&amp;controls=0" supportLink="https://www.cedzlabs.com/payments" />

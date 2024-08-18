@@ -1,5 +1,5 @@
 ---
-title: Slider
+title: Glowy Hover Card
 date: 2023-07-02
 summary: A spotlight effect that follows your mouse cursor and highlights borders on hover.
 author: yakkshit
@@ -7,30 +7,28 @@ published: true
 video: https://cdn.magicuikit.com/magic-card.mp4
 ---
 
-<SupportOverlay videoSrc="https://music.youtube.com/watch?v=Eo-KmOd3i7s&si=qKt8Z7qLzDndw9kT" supportLink="https://www.cedzlabs.com/payments" />
-
-
 <ComponentPreview name="magic-card-demo" />
 
 ## Installation
 
-<Tabs defaultValue="cli">
+<Tabs defaultValue="manual">
 
 <TabsList>
-  <TabsTrigger value="cli">CLI</TabsTrigger>
   <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="files">Files</TabsTrigger>
 </TabsList>
-<TabsContent value="cli">
-
-```bash
-CLI will be coming soon ...
-```
-
-</TabsContent>
 
 <TabsContent value="manual">
 
 <Steps>
+
+<Step>
+ ## Install the Required Dependencies in your project:
+    ```npm
+    npm install clsx tailwind-merge
+    ```
+</Step>
+
 
 <Step>Copy and paste the following code into your project.</Step>
 
@@ -40,6 +38,24 @@ CLI will be coming soon ...
 
 </Steps>
 
+</TabsContent>
+
+<TabsContent value="files">
+  # Link Will be given soon..
+  <Link href=''><Button>Download zip</Button></Link>
+  <Steps>
+  <Step>
+    After Downloading the File Follow the instructions shown in the Video Tutorial. How to use the zip file.  
+    <VideoEmbed
+      src="https://youtu.be/7-vhDhx3lAU?si=4FrCGEnvMp-9VSwM"
+      text="<ins>[For more tech videos, please visit our YT channel](https://youtube.com/@cedzlabs)</ins>
+  We are workign Hard to Bring you the exiting Stuff.
+  Stay Tuned for more Tech Videos.
+  Please Support Us 🙂.
+  " />
+  </Step>
+  <Step>Done!</Step>
+</Steps>
 </TabsContent>
 
 </Tabs>
@@ -57,6 +73,52 @@ CLI will be coming soon ...
 | gradientOpacity      | number          | -         | Opacity of the gradient effect              |
 | gradientTransparency | number          | 80        | Transparency level of the gradient effect   |
 
+## Here are Few other ui Examples 
+
+<Accordion type="single" collapsible>
+  <AccordionItem value="item-1">
+    <AccordionTrigger> Example 1 </AccordionTrigger>
+    <AccordionContent>
+      <ComponentPreview name="magic-card-1-demo" />
+    </AccordionContent>
+    </AccordionItem>
+    <AccordionItem value="item-2">
+    <AccordionTrigger> Example 2 </AccordionTrigger>
+    <AccordionContent>
+      <ComponentPreview name="magic-card-2-demo" />
+    </AccordionContent>
+    </AccordionItem>
+    <AccordionItem value="item-3">
+    <AccordionTrigger> Example 3 </AccordionTrigger>
+    <AccordionContent>
+      <ComponentPreview name="magic-card-3-demo" />
+    </AccordionContent>
+    </AccordionItem>
+    <AccordionItem value="item-4">
+    <AccordionTrigger> Example 4 </AccordionTrigger>
+    <AccordionContent>
+      <ComponentPreview name="magic-card-4-demo" />
+    </AccordionContent>
+    </AccordionItem>
+</Accordion>
+
 ## Credits
 
-This component is inspired by [Linear.app](https://linear.app/features)
+| Name      | Credit For          | Link                                               |
+| --------- | ------------------- | -------------------------------------------------- |
+| Yakkshit  | Component Developer | [yakkshit](https://x.com/yakkshit)                 |
+| Cedz Labs | Video Tutorial      | [Cedz Labs](https://www.cedzlabs.com)              |
+| Magic ui  | Code                | [Magic ui](https://magicui.design)                 |
+| Linear.app| component is inspired| [Linear.app](https://linear.app/features)                 |
+
+
+## Suggestions Or Book
+
+| Name     | Credit For          | Contact                                           |
+| -------- | ------------------- | ------------------------------------------------- |
+| Yakkshit | Component Developer | [<Button>Book</Button>](https://cal.com/yakkshit) |
+
+<SupportOverlay
+  videoSrc="https://youtu.be/7-vhDhx3lAU?si=4FrCGEnvMp-9VSwM"
+  supportLink="https://cedzlabs.com/payments"
+/>

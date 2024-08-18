@@ -67,19 +67,6 @@ const QuoteCard: React.FC = () => {
         ) : (
           <p className="text-gray-900 dark:text-gray-300">Loading...</p>
         )}
-        <motion.button
-          onClick={fetchQuote}
-          whileHover={{ scale: 1.1, boxShadow: '0 0 15px 5px rgba(255, 255, 255, 0.5)' }}
-          whileTap={{ scale: 0.9 }}
-          className="mt-4 flex items-center justify-center bg-gradient-to-r from-indigo-500 to-sky-500 text-white px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
-        >
-          <motion.div
-            animate={{ rotateY: isFlipped ? 180 : 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <RefreshCw className="mr-2" />
-          </motion.div>
-        </motion.button>
       </motion.div>
     </div>
   );

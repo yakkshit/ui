@@ -49,7 +49,7 @@ export function Contribute() {
               rel="noopener noreferrer"
               className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
-              <link.icon className="mr-2 size-2" />
+              <link.icon className="mr-2 size-4" />
               {link.text}
             </Link>
           </li>

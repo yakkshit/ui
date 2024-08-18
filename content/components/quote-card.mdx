@@ -1,16 +1,11 @@
 ---
 title: Quote Card
 date: 2024-08-11
-summary: Join our cutting-edge Waitlist component! This uses Shadcn for UI, Framer Motion for animations, and Supabase for the database. Sign up for early access and updates!
+summary: Enhance your website with dynamic quote displays using our Quotation Demo and Quotation Marquee components, featuring inspiring quotes and smooth animations with Framer motion.
 author: yakkshit
 published: true
 video: https://youtu.be/C1B4NdIFpdE
 ---
-
-<SupportOverlay
-  videoSrc="https://youtu.be/nXbXNB9E71o"
-  supportLink="https://cedzlabs.com/payments"
-/>
 
 <ComponentPreview name="quote-card-demo" />
 
@@ -21,67 +16,12 @@ Before you start, ensure you have the following:
 <Steps>
   <Step>
     Install the Required Dependencies in your project:
-      - shadcn ui
-      - radix ui
       - framer motion
-      ```npm
-      npm shadcn-ui@latest add button && npm shadcn-ui@latest add input && npm shadcn-ui@latest add toast && npm install @supabase/supabase-js
+      ```bash
+      npm install framer-motion
       ```
   </Step>
 
-  <Step>
-    Create a new Project in superbse for reference check [superbase](https://supabase.com/docs/guides/api/creating-routes#api-url-and-keys)
-    check the video
-    <Accordion type="single" collapsible>
-      <AccordionItem value="item-1">
-        <AccordionTrigger>How to Get the API keys video tutorial </AccordionTrigger>
-        <AccordionContent>
-        <Steps>
-            <Step>
-             <h4>Step 1: Go to superbse and create a new project</h4>
-              <VideoEmbed src="https://youtu.be/SwkNoEtw9ow"  
-              text="
-                  ## Create a Table
-                    Let's create our first API route by creating a table called `todos` to store tasks. This creates a corresponding route `todos` which can accept GET, POST, PATCH, & DELETE requests.
-                    1. Go to the **Table editor** page in the Dashboard.
-                    2. Click **New Table** and create a table with the name `todos`.
-                    3. Click **Save**.
-                    4. Click **New Column** and create a column with the name `task` and type `text`.
-                    5. Click **Save**.
-                    "/>
-            </Step>
-            <Step>
-              <h4>Step 2: Get the API keys</h4>
-              <VideoEmbed src="https://youtu.be/i359YfsQRjU"  
-                text='
-                    ## API URL and Keys
-
-                      Every Supabase project has a unique API URL. Your API is secured behind an API gateway which requires an API Key for every request.
-
-                      1. Go to the [Settings](https://supabase.com/dashboard/project/_/settings/general) page in the Dashboard.
-                      2. Click API in the sidebar.
-                      3. Find your API URL, anon, and service_role keys on this page.
-
-                      The REST API is accessible through the URL `https://<project_ref>.supabase.co/rest/v1`. Both of these routes require the anon key to be passed through an `apikey` header.
-
-                      ### Environment Variables
-
-                      ```env
-                      NEXT_PUBLIC_SUPABASE_URL=REPLACE_WITH_YOUR_KEY
-                      NEXT_PUBLIC_SUPABASE_ANON_KEY=REPLACE_WITH_YOUR_KEY
-                      ```'/>
-            </Step>
-          </Steps>
-        </AccordionContent>
-      </AccordionItem>
-    </Accordion>
-    Get Your API keys `API URL`, `anon` from supabase.
-      ```env
-      NEXT_PUBLIC_SUPABASE_URL=REPLACE_WITH_YOUR_KEY
-      NEXT_PUBLIC_SUPABASE_ANON_KEY=REPLACE_WITH_YOUR_KEY
-      ```
-
-  </Step>
   <Step>You&apos;re almost done just few Steps left.</Step>
 </Steps>
 
@@ -94,53 +34,14 @@ Before you start, ensure you have the following:
   <TabsTrigger value="video">Video</TabsTrigger>
   <TabsTrigger value="files">Files</TabsTrigger>
 </TabsList>
-
 <TabsContent value="code">
+
 <Steps>
   <Step>
-
-    Create a file named `quotecard.tsx` and copy and paste the following code:
-
-    <ComponentSource name="quote-card" />
-
+    After the installation of Framer Motion.
+    Copy and Past the component `quote.tsx` Code from the Preview Examples.
   </Step>
-  
-  <Step>
-    Create the following `tailwind.config.js` variables:
-    ```js
-      extend: {
-      backdropFilter: { //quote card
-        'none': 'none',
-        'blur': 'blur(20px)',
-        ...
-    variants: {
-    extend: {
-      boxShadow: ['hover', 'group-hover'], 
-      backdropFilter: ['responsive'], // quote card
-    },
-  },
-        plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography"), require('tailwindcss-filters')],
-      ```
-
-  </Step>
-  <Step>
-      Run the code in the SQLeditor in supabase.
-
-      ```SQL
-        ALTER TABLE waitlist ENABLE ROW LEVEL SECURITY;
-
-        -- Drop existing policy if it exists to avoid conflicts
-        DROP POLICY IF EXISTS "Allow all users to insert" ON waitlist;
-
-        -- Create a new policy to allow inserts
-        CREATE POLICY "Allow all users to insert"
-        ON waitlist
-        FOR INSERT
-        WITH CHECK (true);
-      ```
-
-  </Step>
-  <Step>Congrats! You have successfully created a Waitlist component for your project! 🎉</Step>
+  <Step>Done!</Step>
 </Steps>
 
 </TabsContent>
@@ -166,28 +67,57 @@ Before you start, ensure you have the following:
 
 <TabsContent value="files">
   # Link Will be given soon..
-  
-    <Link href=''><Button>Download zip</Button></Link>
+  <Link href=''><Button>Download zip</Button></Link> 
+  <Steps>
+  <Step>
+    After Downloading the File Follow the instructions shown in the Video Tutorial. How to use the zip file.  
+    <VideoEmbed
+      src="https://youtu.be/nXbXNB9E71o"
+      text="<ins>[For more tech videos, please visit our YT channel](https://youtube.com/@cedzlabs)</ins>
+  We are workign Hard to Bring you the exiting Stuff.
+  Stay Tuned for more Tech Videos.
+  Please Support Us 🙂.
+  "/>
+  </Step>
+  <Step>Done!</Step>
+</Steps>
 </TabsContent>
 </Tabs>
 
-## Examples
+## Here are Few other ui Examples 
 
-comming soon ...
+<Accordion type="single" collapsible>
+  <AccordionItem value="item-1">
+    <AccordionTrigger> Example 1 </AccordionTrigger>
+    <AccordionContent>
+      <ComponentPreview name="quote-marquee-demo" />
 
-<ComponentPreview name="wait-list-1-demo" />
+      ## props
 
-## Props
+      | Prop name         | Type                                      | Default   | Description                                                                 |
+      | ----------------- | ----------------------------------------- | --------- | --------------------------------------------------------------------------- |
+      | default_velocity  | number                                    | 0.5       | The default velocity for the marquee effect.                                |
+      | className         | string                                    | `font-display text-center text-9xl font-bold tracking-[-0.02em] text-black drop-shadow-sm dark:text-white md:text-7xl md:leading-[5rem]` | CSS class names to apply to the component.                                   |
+      | gradientColors    | `{ light: string[], dark: string[] }`       | `{ light: ["#000000", "#000000"], dark: ["#ffffff", "#ffffff"] }` | Colors for the gradient effect in light and dark modes.                     |
+      | gradientType      | "linear" \| "radial"                      | `linear`  | Type of gradient to use (linear or radial).                                 |
+      | parallax          | boolean                                   | true      | Whether to enable the parallax effect.                                      |
+      | numQuotes         | number                                    | 3         | Number of quotes to fetch and display.                                      |
+      | marqueeType       | `"marqueeleft" \| "marqueeright" \| "scrollmarquee" \| "nomarquee"` | `"scrollmarquee"`| Type of marquee effect to use.                                              |
+      | updateInterval    | number                                    | 10        | Interval in seconds to fetch new quotes.                                    |
+      | font              | `{ family: string; style: string }`         | `{ family: "Roboto", style: "normal" }` | Font family and style for the text.                                         |
+      | textSize          | string                                    | `text-9xl` | CSS class for adjusting the text size.                                      |
 
-| Prop name          | Type     | Default                    | Description                                                    |
-| ------------------ | -------- | -------------------------- | -------------------------------------------------------------- |
-| emailPlaceholder   | string   | "Email"                    | Customize the placeholder text for the email input             |
-| buttonText         | string   | "Subscribe"                | Customize the text of the subscribe button                     |
-| successRedirectUrl | string   | "https://www.cedzlabs.com" | URL to redirect to after a successful subscription             |
-| inputClassName     | string   | ""                         | Additional classes for the input element                       |
-| buttonClassName    | string   | ""                         | Additional classes for the button element                      |
-| formClassName      | string   | ""                         | Additional classes for the form element                        |
-| onSuccess          | function | -                          | Callback function to be called after a successful subscription |
+    </AccordionContent>
+    </AccordionItem>
+    <AccordionItem value="item-2">
+    <AccordionTrigger> Example 2 (Install the Example 1 component we have imported the Example 1) </AccordionTrigger>
+    <AccordionContent>
+      ## Make sure you have `quote-marquee-demo` Example 1 component.
+      <ComponentPreview name="quote-marquee-1-demo" />
+    </AccordionContent>
+    </AccordionItem>
+</Accordion>
+
 
 ## Credits
 
@@ -195,11 +125,15 @@ comming soon ...
 | --------- | ------------------- | -------------------------------------------------- |
 | Yakkshit  | Component Developer | [yakkshit](https://x.com/yakkshit)                 |
 | Cedz Labs | Video Tutorial      | [Cedz Labs](https://www.cedzlabs.com)              |
-| snadcn ui | UI components       | [snadcn ui](https://ui.shadcn.com/docs/components) |
-| supabase  | DB, Documentation   | [supabase](https://supabase.com/)                  |
+| Magic ui  | Marquee             | [Magic ui](https://magicui.design)                 |
 
 ## Suggestions Or Book
 
-| Name     | Credit For          | Link                                              |
+| Name     | Credit For          | Contact                                           |
 | -------- | ------------------- | ------------------------------------------------- |
-| Yakkshit | Component Developer | [<Button>Book</Button>](https://cal.com/yakkshit) |
+| Yakkshit | Component Developer | [<Button>Book Appointment</Button>](https://cal.com/yakkshit) |
+
+<SupportOverlay
+  videoSrc="https://youtu.be/nXbXNB9E71o"
+  supportLink="https://cedzlabs.com/payments"
+/>

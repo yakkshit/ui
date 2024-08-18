@@ -62,6 +62,11 @@ const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: "Radial Gradient",
+          href: `/components/radial-gradient`,
+          items: [],
+        },
+        {
           title: "Magic-card",
           href: `/components/magic-card`,
           items: [],
@@ -76,11 +81,6 @@ const docsConfig: DocsConfig = {
         {
           title: "Buttons",
           href: `/components/buttons`,
-          items: [],
-        },
-        {
-          title: "Text Effects",
-          href: `/components/text`,
           items: [],
         },
         {
