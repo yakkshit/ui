@@ -76,6 +76,7 @@
     "eslint-config-next": "13.4.7",
     "eslint-plugin-tailwindcss": "^3.17.4",
     "framer-motion": "^11.3.21",
+    "googleapis": "^142.0.0",
     "gray-matter": "^4.0.3",
     "leva": "^0.9.35",
     "lucide-react": "^0.248.0",
