@@ -357,20 +357,32 @@
   animation: 50s para infinite linear;
 }
 
+.summary {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
 /* testomials slider */
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900;1000&display=swap');
 
 
-@keyframes rotateGradient {
-  from {
-    transform: rotate(0deg);
+@keyframes rotate-gradient {
+  0% {
+    background-position: 0% 50%;
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 
-.group-hover:animate-rotateGradient {
-  animation: rotateGradient 2s linear infinite;
+.rotate-animation {
+  animation: rotate-gradient 5s linear infinite;
 }

@@ -60,17 +60,14 @@ const docsConfig: DocsConfig = {
           title: "Linear Gradient",
           href: `/components/linear-gradient`,
           items: [],
-        },
-        {
-          title: "Radial Gradient",
-          href: `/components/radial-gradient`,
-          items: [],
+          tags: ['background', 'gradient', 'CSS', 'design', 'UI']
         },
         {
           title: "Magic-card",
           href: `/components/magic-card`,
           items: [],
           label: "new",
+          tags: ['hover effect', 'spotlight', 'UI', 'magic card', 'hover cards']
         },
         {
           title: "Blob",
@@ -97,11 +94,13 @@ const docsConfig: DocsConfig = {
           title: "Wait list",
           href: `/components/wait-list`,
           items: [],
+          tags: ['Shadcn', 'Framer Motion', 'Supabase', 'Waitlist']
         },
         {
           title: "Weather",
           href: `/components/weathercard`,
           items: [],
+          tags:["WeatherCard","OpenWeatherAPI","NextJS","FramerMotion","TailwindCSS","LucideReact","Axios","LingoUI","CedzLabs","WebDevelopment","JavaScript","ReactJS","FrontendDevelopment","UIComponents","OpenSource","CodingTutorial","WebDesign","APIs","Programming","TechTutorial"]
         },
         {
           title: "Maps Location",
@@ -112,11 +111,13 @@ const docsConfig: DocsConfig = {
           title: "Testimonials",
           href: `/components/testimonials`,
           items: [],
+          tags: ['Shadcn', 'Framer Motion', 'Supabase', 'Testimonials', 'marquee']
         },
         {
           title: "Github Heat Map",
           href: `/components/github-heat-map`,
           items: [],
+          tags: ['lucid icons', 'Framer Motion', 'Github Calendar']
         },
         {
           title: "Recipes",
@@ -128,6 +129,7 @@ const docsConfig: DocsConfig = {
           title: "Quote card",
           href: `/components/quote-card`,
           items: [],
+          tags: ['dummyjson','framer motion', 'Quote']
         },
       ],
     },

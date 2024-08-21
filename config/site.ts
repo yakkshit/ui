@@ -3,7 +3,7 @@ export const siteConfig = {
   url: "https://ui.cedzlabs.com.com",
   ogImage: "https://lingo.cedzlabs.com/",
   description:
-    "Beautifully designed landing page components built with React & Tailwind CSS.",
+    "Beautifully designed Api&apos;s connected components built with React, Framer & Tailwind CSS.",
   links: {
     twitter: "https://twitter.com/@yakkshit",
     github: "https://github.com/yakkshit/ui",

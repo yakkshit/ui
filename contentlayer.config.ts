@@ -111,20 +111,24 @@ export const Showcase = defineDocumentType(() => ({
 
 export const Component = defineDocumentType(() => ({
   name: "Component",
-  filePathPattern: `components/**/*.mdx`,
+  filePathPattern: "components/**/*.mdx",
   contentType: "mdx",
   fields: {
     title: { type: "string", required: true },
     date: { type: "date", required: true },
     video: { type: "string", required: false },
+    previewimg: { type: "string", required: false},
+    image: { type: "string", required: false },
     summary: { type: "string", required: true },
     author: { type: "string", required: true },
     published: { type: "boolean", required: false, default: true },
     toc: { type: "boolean", default: true, required: false },
+    tags: { type: "list", of: { type: "string" }, required: false }, // Added tags field
   },
   // @ts-ignore
   computedFields,
 }));
+
 
 const LinksProperties = defineNestedType(() => ({
   name: "LinksProperties",
@@ -168,6 +172,9 @@ export const Doc = defineDocumentType(() => ({
     toc: { type: "boolean", default: true, required: false },
     author: { type: "string", required: false },
     video: { type: "string", required: false },
+    previewimg: {type: "string", required: false},
+    image: { type: "string", required: false },
+    tags: { type: "list", of: { type: "string" }, required: false }, // Added tags field
   },
   // @ts-ignore
   computedFields,

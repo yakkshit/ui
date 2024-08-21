@@ -1,12 +1,12 @@
 // pages/index.tsx
+"use client";
 
-import QuotationDemo from "@/registry/components/example/quotecard/quote-card-demo";
-
+import QuoteMarqueeDemo from "@/registry/components/example/quotecard/quote-marquee-demo";
 
 const Beta: React.FC = () => {
   return (
-    <div className="container mx-auto p-4">
-      <QuotationDemo />
+    <div className="flex justify-center items-center h-screen mx-auto p-4">
+      <QuoteMarqueeDemo />
     </div>
   );
 };

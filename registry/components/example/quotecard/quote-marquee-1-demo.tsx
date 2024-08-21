@@ -18,11 +18,12 @@ const QuoteMarquee1Demo = () => {
         gradientColors={{ light: ["#0000ff", "#800080"], dark: ["#0000ff", "#800080"] }} // Blue to Purple
         default_velocity={0.5}
         className="font-display text-center text-9xl font-bold tracking-[-0.02em] text-black drop-shadow-sm dark:text-white md:text-7xl md:leading-[5rem]"
+        // change the text size in class name
         parallax={true}
         numQuotes={3}
         marqueeType="marqueeleft"
         updateInterval={10}
-        font={{ family: "Arial", style: "bold" }}
+        font={{ family: "Matemasie", style: "italic" }}
       />
       <QuoteMarqueeDemo
         gradientColors={{ light: ["#00ff00", "#0000ff"], dark: ["#00ff00", "#0000ff"] }} // Green to Blue

@@ -91,11 +91,17 @@ module.exports = {
         marquee: "marquee 15s linear infinite",
         rotateGlow: 'rotateGlow 3s linear infinite', //weather card
         'gradient-x': 'gradient-x 3s ease infinite',
+        'rotate-y-180': 'rotateY 0.5s ease-in-out', //articles
+        'rotate-gradient': 'rotate-gradient 5s linear infinite',
       },
       keyframes: {
         "accordion-down": {
           from: { height: 0 },
           to: { height: "var(--radix-accordion-content-height)" },
+        },
+        rotateY: {
+          '0%': { transform: 'rotateY(0deg)' },
+          '100%': { transform: 'rotateY(180deg)' }, //articles
         },
         'gradient-x': {
           '0%, 100%': { 'background-position': '0% 50%' },
@@ -105,6 +111,11 @@ module.exports = {
           "100%": {
             "offset-distance": "100%",
           },
+        },
+        'rotate-gradient': {
+          '0%': { 'background-position': '0% 50%' },
+          '50%': { 'background-position': '100% 50%' },
+          '100%': { 'background-position': '0% 50%' },
         },
         rotateGlow: {
           '0%': { backgroundPosition: '0% 50%' },
@@ -147,6 +158,7 @@ module.exports = {
     extend: {
       boxShadow: ['hover', 'group-hover'], 
       backdropFilter: ['responsive'], // quote card
+      animation: ['group-hover'], // articles
     },
   },
   plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography"), require('tailwindcss-filters')],

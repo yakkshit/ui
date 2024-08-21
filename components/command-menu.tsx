@@ -62,11 +62,11 @@ export function CommandMenu({ ...props }: DialogProps) {
           <CommandEmpty>No results found.</CommandEmpty>
           <CommandGroup heading="Links">
             {docsConfig.mainNav
-              .filter((navitem) => !navitem.external)
+              .filter((navItem) => !navItem.external)
               .map((navItem) => (
                 <CommandItem
                   key={navItem.href}
-                  value={navItem.title}
+                  value={`${navItem.title} ${navItem.tags?.join(' ')}`}
                   onSelect={() => {
                     runCommand(() => router.push(navItem.href as string));
                   }}
@@ -81,7 +81,7 @@ export function CommandMenu({ ...props }: DialogProps) {
               {group.items?.map((navItem) => (
                 <CommandItem
                   key={navItem.href}
-                  value={navItem.title}
+                  value={`${navItem.title} ${navItem.tags?.join(' ')}`}
                   onSelect={() => {
                     runCommand(() => router.push(navItem.href as string));
                   }}
