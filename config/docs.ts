@@ -71,9 +71,9 @@ const docsConfig: DocsConfig = {
         },
         {
           title: "Blob",
-          href: `/components/blob`,
+          href: `/beta`,
           items: [],
-          label: "3D",
+          label: "beta",
         },
         {
           title: "Buttons",
@@ -88,7 +88,7 @@ const docsConfig: DocsConfig = {
       ],
     },
     {
-      title: "Backend",
+      title: "API Connected",
       items: [
         {
           title: "Wait list",
@@ -130,6 +130,12 @@ const docsConfig: DocsConfig = {
           href: `/components/quote-card`,
           items: [],
           tags: ['dummyjson','framer motion', 'Quote']
+        },
+        {
+          title: "Price Templates",
+          href: `/components/price`,
+          items: [],
+          tags: ['fixer','framer motion', 'Quote', 'currency update', 'price', 'React', 'Currency', 'Pricing', 'API', 'Component', 'Fixer Api', 'Real time Currency Converter']
         },
       ],
     },

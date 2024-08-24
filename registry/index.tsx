@@ -88,6 +88,14 @@ const example: Registry = {
       () => import("@/registry/components/beta/beta-demo")
     ),
   },
+  "price-demo": {
+    name: "price-demo",
+    type: "components:example",
+    files: ["registry/components/example/price/price-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/price/price-demo")
+    ),
+  },
   "magic-card-demo": {
     name: "magic-card-demo",
     type: "components:example",
