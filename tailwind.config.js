@@ -18,6 +18,12 @@ module.exports = {
       },
     },
     extend: {
+      maxWidth: {
+        '1440px': '1440px',
+      },
+      maxHeight: {
+        '3200px': '3200px',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -161,5 +167,5 @@ module.exports = {
       animation: ['group-hover'], // articles
     },
   },
-  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography"), require('tailwindcss-filters')],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography"), require('tailwindcss-filters'), ],
 };

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useTransform, useViewportScroll } from "framer-motion";
+import { motion } from "framer-motion";
 import React, { useState, useEffect } from "react";
 
 interface Currency {
@@ -55,6 +55,7 @@ const PriceDemo = () => {
   const [currencies, setCurrencies] = useState<Currency[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [isErrorPopupVisible, setIsErrorPopupVisible] = useState(false);
 
   const defaultPrices = {
     pricec1: 20,
@@ -138,6 +139,7 @@ const PriceDemo = () => {
         setCurrencies([defaultCurrency]);
         setSelectedCurrency(defaultCurrency);
         setError("Error fetching currency rates, defaulting to Euro prices");
+        setIsErrorPopupVisible(true);
         setIsLoading(false);
       }
     };
@@ -158,7 +160,6 @@ const PriceDemo = () => {
   };
 
   if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>{error}</div>;
 
   return (
     <motion.div
@@ -167,6 +168,20 @@ const PriceDemo = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
+      {isErrorPopupVisible && (
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg">
+            <h2 className="text-xl font-bold mb-4">Error</h2>
+            <p>{error}</p>
+            <button
+              className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
+              onClick={() => setIsErrorPopupVisible(false)}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
       <div className="mx-auto mb-8 max-w-screen-md  lg:mb-12 text-center">
         <h2 className="mb-10 text-4xl font-bold tracking-tight text-white">
           Pay once, use forever
@@ -179,7 +194,6 @@ const PriceDemo = () => {
           <div className="my-8 flex items-baseline justify-center relative">
             {selectedCurrency && (
               <span className="mr-2 text-5xl font-extrabold">
-                {/* {selectedCurrency.symbol} */}
                 {formatCurrency(selectedCurrency.pricec1, selectedCurrency)}
               </span>
             )}
@@ -234,9 +248,9 @@ const PriceDemo = () => {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clip-rule="evenodd"
+                  clipRule="evenodd"
                 ></path>
               </svg>
               <span>10,000 visitors</span>
@@ -250,9 +264,9 @@ const PriceDemo = () => {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clip-rule="evenodd"
+                  clipRule="evenodd"
                 ></path>
               </svg>
               <span>Unlimited widgets</span>
@@ -266,9 +280,9 @@ const PriceDemo = () => {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clip-rule="evenodd"
+                  clipRule="evenodd"
                 ></path>
               </svg>
               <span>All analytics features</span>
@@ -282,9 +296,9 @@ const PriceDemo = () => {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clip-rule="evenodd"
+                  clipRule="evenodd"
                 ></path>
               </svg>
               <span>Priority support</span>
@@ -298,9 +312,9 @@ const PriceDemo = () => {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clip-rule="evenodd"
+                  clipRule="evenodd"
                 ></path>
               </svg>
               <span>Lifetime updates</span>
@@ -314,7 +328,7 @@ const PriceDemo = () => {
             {selectedCurrency && (
               <span className="mr-2 text-3xl sm:text-5xl font-extrabold">
                 {/* {selectedCurrency.symbol} */}
-                {formatCurrency(selectedCurrency.pricec3, selectedCurrency)}
+                {formatCurrency(selectedCurrency.pricec2, selectedCurrency)}
               </span>
             )}
             <span className="text-gray-600">/month</span>

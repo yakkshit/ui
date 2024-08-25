@@ -89,24 +89,13 @@ export default function Home() {
           </FadeIn>
         </div>
         </section>
-        <hr className="my-10" />
-        <section className="overflow-x-hidden">
-          {posts?.length ? (
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4">
-              {posts.map((post, index) => (
-                <Article key={post._id} post={post} index={index} />
-              ))}
-            </div>
-          ) : (
-            <p>No components yet.</p>
-          )}
-        </section>
-      <section className="overflow-x-hidden">
+        {/* <hr className="my-10" /> */}
+      {/* <section className="overflow-x-hidden">
         <div className="flex flex-col">
           <Section2 />
           <Price />
         </div>
-      </section>
+      </section> */}
     </>
   );
 }

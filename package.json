@@ -108,6 +108,7 @@
     "react-wrap-balancer": "^1.0.0",
     "resend": "^0.16.0",
     "schema-dts": "^1.1.2",
+    "simple-parallax-js": "^6.0.1",
     "stripe": "^12.10.0",
     "swiper": "^11.1.9",
     "tailwind-merge": "^1.13.2",

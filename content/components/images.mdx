@@ -1,0 +1,177 @@
+---
+title: Image Search Demo
+date: 2024-08-26
+summary: Enhance your website with a dynamic image search feature using our Image Search Demo component, featuring smooth animations with Framer Motion and seamless integration with the Unsplash API.
+author: yakkshit
+published: true
+video: https://www.youtube.com/embed/Hm--pQwF-6A;controls=0
+image: https://github.com/yakkshit/canonical-assignmnet/blob/main/lingo%20ui/image-search.gif?raw=true
+tags: ['unsplash', 'framer motion', 'image search']
+previewimg: https://ui.cedzlabs.com/components/images
+---
+
+<ComponentPreview name="image-search-demo" />
+
+## Prerequisites
+
+Before you start, ensure you have the following:
+
+<Steps>
+  <Step>
+    Install the Required Dependencies in your project:
+      - lucid react for icons
+      - framer motion
+      ```npm
+      npm framer-motion lucid-react
+      ```
+  </Step>
+
+  <Step>
+    Create a new Project on Unsplash and obtain your API keys. For reference, check [Unsplash Documentation](https://unsplash.com/documentation#public-authentication).
+    Watch the video tutorial below:
+    <Accordion type="single" collapsible>
+      <AccordionItem value="item-1">
+        <AccordionTrigger>How to Get the API Keys - Video Tutorial</AccordionTrigger>
+        <AccordionContent>
+        <Steps>
+            <Step>
+             <h4>Step 1: Sign up on Unsplash and create a new application</h4>
+              <VideoEmbed src="https://youtu.be/KJOGmNiuGUY?si=dMYd7fV-gu4Mk0HD"  
+              text="
+                  ## Create a New Application
+                    To access Unsplash's API, you need to create a new application on their platform.
+                    1. Go to the [Unsplash Developer Dashboard](https://unsplash.com/oauth/applications).
+                    2. Click on **New Application** and fill in the required details.
+                    3. Agree to the terms and click **Create Application**.
+                    4. Once your application is created, you'll find your `Access Key` and `Secret Key` on the application page.
+                    "/>
+            </Step>
+            <Step>
+              <h4>Step 2: Get your Unsplash API keys</h4>
+              <VideoEmbed src="https://youtu.be/KJOGmNiuGUY?si=Gvwj3fWlhcxfj4r2&t=14"  
+                text='
+                    ## API Keys
+
+                      After creating your application, Unsplash will provide you with an API URL, `Access Key` required for making API requests.
+
+                      1. Go to the [Unsplash Developer Dashboard](https://unsplash.com/oauth/applications).
+                      2. Click on your application to view your `Access Key`.
+
+                      Use these keys in your application to authenticate your API requests.
+
+                      ### Environment Variables
+
+                      ```env
+                        NEXT_PUBLIC_UNSPLASH_ACCESS_KEY=REPLACE_WITH_YOUR_ACCESS_KEY
+                      ```
+                      '/>
+            </Step>
+          </Steps>
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+    Get Your API keys `Access Key` from Unsplash.
+      ```env
+        NEXT_PUBLIC_UNSPLASH_ACCESS_KEY=REPLACE_WITH_YOUR_ACCESS_KEY
+      ```
+  </Step>
+  <Step>You&apos;re almost done, just a few steps left.</Step>
+</Steps>
+
+
+## Installation
+
+<Tabs defaultValue="code">
+
+<TabsList>
+  <TabsTrigger value="code">Code</TabsTrigger>
+  <TabsTrigger value="video">Video</TabsTrigger>
+  <TabsTrigger value="files">Files</TabsTrigger>
+</TabsList>
+<TabsContent value="code">
+
+<Steps>
+  <Step>
+    After the installation of Framer Motion.
+    Copy and Past the component `ImageSearch.tsx` Code from the Preview Examples.
+  </Step>
+  <Step>Done!</Step>
+</Steps>
+
+</TabsContent>
+
+<TabsContent value="video">
+
+<Steps>
+  <Step>
+    Follow the instructions shown in the Video Tutorial.
+    <VideoEmbed
+      src="https://youtu.be/nXbXNB9E71o"
+      text="<ins>[For more tech videos, please visit our YT channel](https://youtube.com/@cedzlabs)</ins>
+  
+  We are workign Hard to Bring you the exiting Stuff.
+  Stay Tuned for more Tech Videos.
+  Please Support Us 🙂."
+    />
+  </Step>
+  <Step>Done!</Step>
+</Steps>
+
+</TabsContent>
+
+<TabsContent value="files">
+  # Link Will be given soon..
+  <Link href=''><Button>Download zip</Button></Link> 
+  <Steps>
+  <Step>
+    After Downloading the File Follow the instructions shown in the Video Tutorial. How to use the zip file.  
+    <VideoEmbed
+      src="https://youtu.be/nXbXNB9E71o"
+      text="<ins>[For more tech videos, please visit our YT channel](https://youtube.com/@cedzlabs)</ins>
+  We are workign Hard to Bring you the exiting Stuff.
+  Stay Tuned for more Tech Videos.
+  Please Support Us 🙂.
+  "/>
+  </Step>
+  <Step>Done!</Step>
+</Steps>
+</TabsContent>
+</Tabs>
+
+## props
+
+    | Prop name         | Type                                      | Default   | Description                                                                 |
+    | ----------------- | ----------------------------------------- | --------- | --------------------------------------------------------------------------- |
+    | type              | 'visible' \| 'invisible'                  | 'visible' | Determines the initial visibility of the search bar.                        |
+
+
+## Here are Few other ui Examples 
+
+<Accordion type="single" collapsible>
+  <AccordionItem value="item-1">
+    <AccordionTrigger> Example 1 </AccordionTrigger>
+    <AccordionContent>
+      <ComponentPreview name="image-reels-demo" />
+    </AccordionContent>
+    </AccordionItem>
+</Accordion>
+
+
+## Credits
+
+| Name      | Credit For          | Link                                               |
+| --------- | ------------------- | -------------------------------------------------- |
+| Yakkshit  | Component Developer | [yakkshit](https://x.com/yakkshit)                 |
+| Cedz Labs | Video Tutorial      | [Cedz Labs](https://www.cedzlabs.com)              |
+| Magic ui  | Marquee             | [Magic ui](https://magicui.design)                 |
+
+## Suggestions Or Book
+
+| Name     | Credit For          | Contact                                           |
+| -------- | ------------------- | ------------------------------------------------- |
+| Yakkshit | Component Developer | [<Button>Book Appointment</Button>](https://cal.com/yakkshit) |
+
+<SupportOverlay
+  videoSrc="https://youtu.be/nXbXNB9E71o"
+  supportLink="https://cedzlabs.com/payments"
+/>

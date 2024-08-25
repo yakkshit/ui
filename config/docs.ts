@@ -66,14 +66,13 @@ const docsConfig: DocsConfig = {
           title: "Magic-card",
           href: `/components/magic-card`,
           items: [],
-          label: "new",
           tags: ['hover effect', 'spotlight', 'UI', 'magic card', 'hover cards']
         },
         {
           title: "Blob",
           href: `/beta`,
           items: [],
-          label: "beta",
+          label: "soon ..",
         },
         {
           title: "Buttons",
@@ -135,7 +134,14 @@ const docsConfig: DocsConfig = {
           title: "Price Templates",
           href: `/components/price`,
           items: [],
-          tags: ['fixer','framer motion', 'Quote', 'currency update', 'price', 'React', 'Currency', 'Pricing', 'API', 'Component', 'Fixer Api', 'Real time Currency Converter']
+          label: 'beta',
+          tags: ['fixer','framer motion', 'currency update', 'price', 'React', 'Currency', 'Pricing', 'API', 'Component', 'Fixer Api', 'Real time Currency Converter']
+        },
+        {
+          title: "Image Search",
+          href: `/components/images`,
+          items: [],
+          tags: ['Unsplash api','framer motion', 'images', 'API', 'image scroll', 'image feed', 'random']
         },
       ],
     },

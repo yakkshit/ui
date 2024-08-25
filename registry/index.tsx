@@ -88,6 +88,22 @@ const example: Registry = {
       () => import("@/registry/components/beta/beta-demo")
     ),
   },
+  "image-search-demo": {
+    name: "image-search-demo",
+    type: "components:example",
+    files: ["registry/components/example/image/image-search-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/image/image-search-demo")
+    ),
+  },
+  "image-reels-demo": {
+    name: "image-reels-demo",
+    type: "components:example",
+    files: ["registry/components/example/image/image-reels-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/image/image-reels-demo")
+    ),
+  },
   "price-demo": {
     name: "price-demo",
     type: "components:example",
