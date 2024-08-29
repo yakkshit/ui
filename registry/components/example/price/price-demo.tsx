@@ -55,7 +55,7 @@ const PriceDemo = () => {
   const [currencies, setCurrencies] = useState<Currency[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [isErrorPopupVisible, setIsErrorPopupVisible] = useState(false);
+  const [isToastVisible, setIsToastVisible] = useState(false);
 
   const defaultPrices = {
     pricec1: 20,
@@ -118,7 +118,6 @@ const PriceDemo = () => {
             pricec2: parseFloat((defaultPrices.pricec2 * rates.SEK).toFixed(2)),
             pricec3: parseFloat((defaultPrices.pricec3 * rates.SEK).toFixed(2)),
           },
-          // Add more currencies as needed
         ];
 
         setCurrencies(updatedCurrencies);
@@ -139,8 +138,13 @@ const PriceDemo = () => {
         setCurrencies([defaultCurrency]);
         setSelectedCurrency(defaultCurrency);
         setError("Error fetching currency rates, defaulting to Euro prices");
-        setIsErrorPopupVisible(true);
+        setIsToastVisible(true);
         setIsLoading(false);
+
+        // Hide the toast after 5 seconds
+        setTimeout(() => {
+          setIsToastVisible(false);
+        }, 5000);
       }
     };
 
@@ -168,18 +172,9 @@ const PriceDemo = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      {isErrorPopupVisible && (
-        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg">
-            <h2 className="text-xl font-bold mb-4">Error</h2>
-            <p>{error}</p>
-            <button
-              className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
-              onClick={() => setIsErrorPopupVisible(false)}
-            >
-              Close
-            </button>
-          </div>
+      {isToastVisible && (
+        <div className="fixed bottom-0 left-0 right-0 bg-black text-white p-4 text-center z-50">
+          <p>{error}</p>
         </div>
       )}
       <div className="mx-auto mb-8 max-w-screen-md  lg:mb-12 text-center">

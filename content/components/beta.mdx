@@ -5,7 +5,33 @@ summary: Join our cutting-edge Waitlist component! This uses Shadcn for UI, Fram
 author: yakkshit
 published: false
 video: https://youtu.be/C1B4NdIFpdE
+tags: ['beta']
 ---
 
 
-<ComponentPreview name="blob-demo" />
+<ComponentPreview name="file-qr-demo" />
+
+## ai
+
+<ComponentPreview name="ai-chat-demo" />
+
+## Spoki
+
+<ComponentPreview name="beta-demo" />
+
+## Comment
+
+```
+CREATE TABLE comments (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  name VARCHAR NOT NULL,
+  email VARCHAR NOT NULL,
+  comment TEXT NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT now()
+);
+
+
+INSERT INTO comments (name, email, comment)
+VALUES ('John Doe', 'john.doe@example.com', 'This is a great article! I really enjoyed reading it.');
+
+```

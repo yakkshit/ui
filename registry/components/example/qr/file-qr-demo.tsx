@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label"
 import { useTheme } from "next-themes"
 import { QRCodeSVG } from "qrcode.react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Upload, Link, QrCode } from "lucide-react"
+import { Upload, QrCode } from "lucide-react"
 
 export default function QRComponent() {
   const [file, setFile] = useState<File | null>(null)
@@ -16,15 +16,41 @@ export default function QRComponent() {
   const fileInputRef = useRef<HTMLInputElement>(null)
   const { theme, setTheme } = useTheme()
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
-      setFile(e.target.files[0])
-      setLink(URL.createObjectURL(e.target.files[0]))
+      const selectedFile = e.target.files[0]
+      setFile(selectedFile)
+
+      const formData = new FormData()
+      formData.append("file", selectedFile)
+
+      try {
+        const response = await fetch('https://store1.gofile.io/contents/uploadfile', {
+          method: 'POST',
+          body: formData
+        })
+        const data = await response.json()
+
+        if (data.status === "ok") {
+          const downloadUrl = data.data.downloadPage
+          setLink(downloadUrl)
+          alert("File uploaded successfully!")
+        } else {
+          alert("Failed to upload file.")
+        }
+      } catch (error) {
+        alert("An error occurred while uploading the file.")
+        console.error(error)
+      }
     }
   }
 
   const handleLinkChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLink(e.target.value)
+  }
+
+  const handleGenerateQR = () => {
+    setShowQR(!showQR)
   }
 
   const toggleTheme = () => {
@@ -79,10 +105,11 @@ export default function QRComponent() {
             onChange={handleLinkChange}
             placeholder="Enter or paste a link"
             className="mt-1"
+            disabled={!!file} // Disable input if a file is selected
           />
         </div>
 
-        <Button onClick={() => setShowQR(!showQR)} className="w-full">
+        <Button onClick={handleGenerateQR} className="w-full">
           <QrCode className="mr-2 h-4 w-4" />
           {showQR ? "Hide" : "Generate"} QR Code
         </Button>

@@ -15,6 +15,11 @@ const docsConfig: DocsConfig = {
       title: "Cedzlabs",
       href: "https://cedzlabs.com",
     },
+    {
+      title: "Ai Resume",
+      label: "soon",
+      href: "https://ui.cedzlabs.com/resume",
+    }
   ],
   sidebarNav: [
     {
@@ -49,6 +54,12 @@ const docsConfig: DocsConfig = {
         {
           title: "CLI",
           href: "/docs/cli",
+          items: [],
+        },
+        {
+          title: "Beta",
+          href: "/components/beta",
+          label:"beta",
           items: [],
         },
       ],

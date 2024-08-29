@@ -5,10 +5,13 @@ import { createClient } from '@supabase/supabase-js';
 import 'tailwindcss/tailwind.css';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
+import { ChevronLeft, ChevronLeftIcon, ChevronRight, ChevronRightIcon, Star } from 'lucide-react';
 import { toast } from '@/components/ui/use-toast';
 import clsx, { ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from '@/components/ui/carousel';
+
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
@@ -132,33 +135,9 @@ interface Testimonial {
   rating: number;
 }
 
-interface TestimonialsSliderProps {
-  bgColor?: string;
-  textColor?: string;
-  borderColor?: string;
-  starColor?: string;
-  starEmptyColor?: string;
-  buttonBgColor?: string;
-  buttonHoverColor?: string;
-  transitionDuration?: number;
-  transitionEase?: string;
-}
-
-const TestimonialsSlider: React.FC<TestimonialsSliderProps> = ({
-  bgColor = 'bg-white dark:bg-gray-800',
-  textColor = 'text-gray-700 dark:text-gray-300',
-  borderColor = 'border-gray-300 dark:border-gray-600',
-  starColor = 'text-yellow-500',
-  starEmptyColor = 'text-gray-300',
-  buttonBgColor = 'bg-gray-200',
-  buttonHoverColor = 'bg-gray-300',
-  transitionDuration = 0.5,
-  transitionEase = 'easeInOut',
-}) => {
+const TestimonialsSlider: React.FC = () => {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
-
+  
   useEffect(() => {
     const fetchTestimonials = async () => {
       const { data, error } = await supabase.from('testimonials').select('*');
@@ -172,68 +151,44 @@ const TestimonialsSlider: React.FC<TestimonialsSliderProps> = ({
     fetchTestimonials();
   }, []);
 
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-  };
-
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
-  };
-
   return (
-    <div className="relative">
-      <div className="flex overflow-hidden whitespace-nowrap" ref={containerRef}>
-        <motion.div
-          className="flex"
-          animate={{ x: `-${currentIndex * 100}%` }}
-          transition={{ duration: transitionDuration, ease: transitionEase }}
-          style={{ display: 'flex', whiteSpace: 'nowrap' }}
-        >
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={`${testimonial.id}-${index}`}
-              className={cn(bgColor, borderColor, "border rounded-lg shadow-lg p-4 m-2 w-80 flex-shrink-0")}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <h3 className="text-xl font-bold text-center">{testimonial.name}</h3>
-              <p className={cn(textColor, "mt-2 line-clamp-3")}>
-                {testimonial.feedback}
-              </p>
-              <div className="flex justify-center mt-4">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <Star
-                    key={star}
-                    className={cn("w-6 h-6", star <= testimonial.rating ? starColor : starEmptyColor)}
-                    fill={star <= testimonial.rating ? 'currentColor' : 'none'}
-                  />
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+    <section className="w-full max-w-4xl mx-auto py-12 md:py-16 lg:py-20">
+      <div className="flex flex-col items-center gap-6">
+        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">What Our Customers Say</h2>
+        <Carousel className="w-full">
+          <CarouselContent>
+            {testimonials.map((testimonial) => (
+              <CarouselItem key={testimonial.id}>
+                <div className="grid gap-4 md:grid-cols-2 md:gap-8">
+                  <div className="flex justify-center items-center gap-4">
+                    <Avatar className="w-16 h-16 border">
+                      <AvatarImage src="/placeholder-user.jpg" alt={testimonial.name} />
+                      <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
+                    </Avatar>
+                    <div>
+                      <h3 className="text-lg font-semibold">{testimonial.name}</h3>
+                      <p className="text-muted-foreground">Rating: {testimonial.rating}</p>
+                    </div>
+                  </div>
+                  <blockquote className="text-lg leading-relaxed md:text-xl">
+                    &ldquo;{testimonial.feedback}&rdquo;
+                  </blockquote>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-background p-2 shadow-md transition-all hover:bg-accent hover:text-accent-foreground focus:outline-none focus-visible:ring-1 focus-visible:ring-ring">
+            <ChevronLeftIcon className="h-6 w-6" />
+          </CarouselPrevious>
+          <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-background p-2 shadow-md transition-all hover:bg-accent hover:text-accent-foreground focus:outline-none focus-visible:ring-1 focus-visible:ring-ring">
+            <ChevronRightIcon className="h-6 w-6" />
+          </CarouselNext>
+        </Carousel>
       </div>
-      <div className="flex justify-center mt-4 space-x-4">
-        <motion.button
-          onClick={handlePrev}
-          className={cn("p-2", buttonBgColor, "rounded-full")}
-          whileHover={{ backgroundColor: buttonHoverColor }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <ChevronLeft className="w-6 h-6" />
-        </motion.button>
-        <motion.button
-          onClick={handleNext}
-          className={cn("p-2", buttonBgColor, "rounded-full")}
-          whileHover={{ backgroundColor: buttonHoverColor }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <ChevronRight className="w-6 h-6" />
-        </motion.button>
-      </div>
-    </div>
+    </section>
   );
 };
+
 
 interface MarqueeTestimonialsProps {
   duration?: number;

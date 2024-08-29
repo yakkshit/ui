@@ -9,13 +9,15 @@ import ImageSearchDemo from "@/registry/components/example/image/image-search-de
 import ImageReelsDemo from "@/registry/components/example/image/image-reels-demo";
 import RecipesDemo from "@/registry/components/example/Recipes/recipes-demo";
 import TextEffect from "@/registry/components/frontend/3d/blob/test-effects";
-import QRComponent from "@/registry/components/frontend/qr/qr";
+import Price2Demo from "@/registry/components/example/price/price-2-demo";
+import QRComponent from "@/registry/components/example/qr/file-qr-demo";
+import CommentDemo from "@/registry/components/example/comment/comment-demo";
 
 const queryClient = new QueryClient();
 
 const Beta: React.FC = () => {
   return (
-    <div className="space-y-8 p-8 bg-background text-foreground">
+    <div className="space-y-8 p-8 justify-center items-centerbg-background text-foreground">
       {/* <TextEffect text="Gradient Text" style="gradient" />
       <TextEffect text="Neon Glow" style="neon" color="text-green-500" />
       <TextEffect text="Glitch Effect" style="glitch" color="text-red-500" />
@@ -26,7 +28,10 @@ const Beta: React.FC = () => {
         text="Custom Tailwind" 
         tailwind="italic underline decoration-wavy decoration-pink-500 underline-offset-8" 
       /> */}
-      <QRComponent/>
+      {/* <QRComponent/> */}
+      {/* <Price1Demo/> */}
+      {/* <GeminiChatBot/> */}
+      <CommentDemo type={"upload"} limit={2}/>
     </div>
   );
 };

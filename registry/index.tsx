@@ -88,6 +88,14 @@ const example: Registry = {
       () => import("@/registry/components/beta/beta-demo")
     ),
   },
+  "ai-chat-demo": {
+    name: "ai-chat-demo",
+    type: "components:example",
+    files: ["registry/components/example/aichat/ai-chat-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/aichat/ai-chat-demo")
+    ),
+  },
   "image-search-demo": {
     name: "image-search-demo",
     type: "components:example",
@@ -110,6 +118,30 @@ const example: Registry = {
     files: ["registry/components/example/price/price-demo.tsx"],
     component: React.lazy(
       () => import("@/registry/components/example/price/price-demo")
+    ),
+  },
+  "price-1-demo": {
+    name: "price-1-demo",
+    type: "components:example",
+    files: ["registry/components/example/price/price-1-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/price/price-1-demo")
+    ),
+  },
+  "price-2-demo": {
+    name: "price-2-demo",
+    type: "components:example",
+    files: ["registry/components/example/price/price-2-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/price/price-2-demo")
+    ),
+  },
+  "file-qr-demo": {
+    name: "file-qr-demo",
+    type: "components:example",
+    files: ["registry/components/example/qr/file-qr-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/qr/file-qr-demo")
     ),
   },
   "magic-card-demo": {
