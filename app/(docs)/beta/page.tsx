@@ -8,15 +8,25 @@ import Price1Demo from "@/registry/components/example/price/price-1-demo";
 import ImageSearchDemo from "@/registry/components/example/image/image-search-demo";
 import ImageReelsDemo from "@/registry/components/example/image/image-reels-demo";
 import RecipesDemo from "@/registry/components/example/Recipes/recipes-demo";
+import TextEffect from "@/registry/components/frontend/3d/blob/test-effects";
+import QRComponent from "@/registry/components/frontend/qr/qr";
 
 const queryClient = new QueryClient();
 
 const Beta: React.FC = () => {
   return (
-    <div className="flex min-h-screen justify-center items-center h-screen mx-auto p-4">
-      <QueryClientProvider client={queryClient}>
-        <RecipesDemo />
-      </QueryClientProvider>
+    <div className="space-y-8 p-8 bg-background text-foreground">
+      {/* <TextEffect text="Gradient Text" style="gradient" />
+      <TextEffect text="Neon Glow" style="neon" color="text-green-500" />
+      <TextEffect text="Glitch Effect" style="glitch" color="text-red-500" />
+      <TextEffect text="Typewriter Effect" style="typewriter" color="text-blue-500" />
+      <TextEffect text="Wavy Animation" style="wavy" color="text-purple-500" />
+      <TextEffect text="Highlight Effect" style="highlight" color="text-gray-800" />
+      <TextEffect 
+        text="Custom Tailwind" 
+        tailwind="italic underline decoration-wavy decoration-pink-500 underline-offset-8" 
+      /> */}
+      <QRComponent/>
     </div>
   );
 };
