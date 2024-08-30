@@ -3,7 +3,7 @@
 import { useEffect, useState, FormEvent } from 'react';
 import { useTheme } from 'next-themes';
 import { createClient } from '@supabase/supabase-js';
-import { User, Edit, Trash } from 'lucide-react';
+import { User} from 'lucide-react';
 
 // Initialize Supabase
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
@@ -136,13 +136,6 @@ export default function CommentDemo({ type = 'both', limit = 10 }: CommentDemoPr
           </form>
         </div>
       )}
-
-      <button
-        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-        className="fixed bottom-4 right-4 bg-gray-200 text-gray-800 p-2 rounded-full"
-      >
-        {theme === 'dark' ? <Edit className="w-6 h-6" /> : <Trash className="w-6 h-6" />}
-      </button>
     </div>
   );
 }

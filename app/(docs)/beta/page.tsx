@@ -13,6 +13,7 @@ import Price2Demo from "@/registry/components/example/price/price-2-demo";
 import QRComponent from "@/registry/components/example/qr/file-qr-demo";
 import CommentDemo from "@/registry/components/example/comment/comment-demo";
 import Calander1Demo from "@/registry/components/backend/GCalander/calander";
+import MapComponentDemo from "@/registry/components/example/map/map-box-demo";
 
 const queryClient = new QueryClient();
 
@@ -33,7 +34,8 @@ const Beta: React.FC = () => {
       {/* <Price1Demo/> */}
       {/* <GeminiChatBot/> */}
       {/* <CommentDemo type={"upload"} limit={2}/> */}
-      <Calander1Demo/>
+      {/* <Calander1Demo/> */}
+      <MapComponentDemo/>
     </div>
   );
 };

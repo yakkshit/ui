@@ -344,6 +344,14 @@ const example: Registry = {
       () => import("@/registry/components/example/Recipes/recipes-demo")
     ),
   },
+  "ai-bot-demo": {
+    name: "ai-bot-demo",
+    type: "components:example",
+    files: ["registry/components/example/aichat/ai-bot-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/aichat/ai-bot-demo")
+    ),
+  },
   "quote-card-demo": {
     name: "quote-card-demo",
     type: "components:example",
