@@ -6,6 +6,7 @@ import GitHubCalendar from 'react-github-calendar';
 import { motion } from 'framer-motion';
 import { Github } from 'lucide-react';
 import { EventHandlerMap } from 'react-activity-calendar';
+import { Day } from 'date-fns';
 
 // Inject the styles into the document head
 const styleSheet = document.createElement("style");

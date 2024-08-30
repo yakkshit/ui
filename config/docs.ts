@@ -16,10 +16,9 @@ const docsConfig: DocsConfig = {
       href: "https://cedzlabs.com",
     },
     {
-      title: "Ai Resume",
-      label: "soon",
-      href: "https://ui.cedzlabs.com/resume",
-    }
+      title: "Apps",
+      href: "/components",
+    },
   ],
   sidebarNav: [
     {
@@ -95,6 +94,25 @@ const docsConfig: DocsConfig = {
           href: `/components/slider`,
           items: [],
         }
+      ],
+    },
+    {
+      title: "Apps",
+      items: [
+        {
+          title: "Calander",
+          href: `/calander`,
+          items: [],
+          label:'soon..',
+          tags: ['Shadcn', 'Framer Motion', 'Supabase', 'Waitlist']
+        },
+        {
+          title: "Ai Resume",
+          href: `/resume`,
+          label:'soon',
+          items: [],
+          tags: ['Shadcn', 'Framer Motion', 'Supabase', 'Waitlist']
+        },
       ],
     },
     {

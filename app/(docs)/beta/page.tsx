@@ -12,12 +12,13 @@ import TextEffect from "@/registry/components/frontend/3d/blob/test-effects";
 import Price2Demo from "@/registry/components/example/price/price-2-demo";
 import QRComponent from "@/registry/components/example/qr/file-qr-demo";
 import CommentDemo from "@/registry/components/example/comment/comment-demo";
+import Calander1Demo from "@/registry/components/backend/GCalander/calander";
 
 const queryClient = new QueryClient();
 
 const Beta: React.FC = () => {
   return (
-    <div className="space-y-8 p-8 justify-center items-centerbg-background text-foreground">
+      <div className="m-2 h-full flex-col justify-center items-center overflow-auto">
       {/* <TextEffect text="Gradient Text" style="gradient" />
       <TextEffect text="Neon Glow" style="neon" color="text-green-500" />
       <TextEffect text="Glitch Effect" style="glitch" color="text-red-500" />
@@ -31,7 +32,8 @@ const Beta: React.FC = () => {
       {/* <QRComponent/> */}
       {/* <Price1Demo/> */}
       {/* <GeminiChatBot/> */}
-      <CommentDemo type={"upload"} limit={2}/>
+      {/* <CommentDemo type={"upload"} limit={2}/> */}
+      <Calander1Demo/>
     </div>
   );
 };
