@@ -14,6 +14,7 @@ import QRComponent from "@/registry/components/example/qr/file-qr-demo";
 import CommentDemo from "@/registry/components/example/comment/comment-demo";
 import Calander1Demo from "@/registry/components/backend/GCalander/calander";
 import MapComponentDemo from "@/registry/components/example/map/map-box-demo";
+import RecipeSearchDemo from "@/registry/components/example/Recipes/recipes-search-demo";
 
 const queryClient = new QueryClient();
 
@@ -35,7 +36,8 @@ const Beta: React.FC = () => {
       {/* <GeminiChatBot/> */}
       {/* <CommentDemo type={"upload"} limit={2}/> */}
       {/* <Calander1Demo/> */}
-      <MapComponentDemo/>
+      {/* <MapComponentDemo/> */}
+      <RecipeSearchDemo/>
     </div>
   );
 };

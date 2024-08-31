@@ -96,6 +96,11 @@
   }
 }
 
+::selection {
+  background: rgb(0 229 255);
+  color: rgb(0 0 0);
+}
+
 .line-clamp-3 {
   display: -webkit-box;
   -webkit-line-clamp: 3;
