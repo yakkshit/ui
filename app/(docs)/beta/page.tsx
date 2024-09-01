@@ -15,6 +15,7 @@ import CommentDemo from "@/registry/components/example/comment/comment-demo";
 import Calander1Demo from "@/registry/components/backend/GCalander/calander";
 import MapComponentDemo from "@/registry/components/example/map/map-box-demo";
 import RecipeSearchDemo from "@/registry/components/example/Recipes/recipes-search-demo";
+import LinkedInProfile from "@/registry/components/example/linkedin/profile-demo";
 
 const queryClient = new QueryClient();
 
@@ -37,7 +38,8 @@ const Beta: React.FC = () => {
       {/* <CommentDemo type={"upload"} limit={2}/> */}
       {/* <Calander1Demo/> */}
       {/* <MapComponentDemo/> */}
-      <RecipeSearchDemo/>
+      {/* <RecipeSearchDemo/> */}
+      <LinkedInProfile/>
     </div>
   );
 };

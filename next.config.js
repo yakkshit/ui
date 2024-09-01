@@ -6,7 +6,7 @@ const nextConfig = {
   swcMinify: true,
   images: {
     domains: ["localhost", "cdn.cedzlabs.com", "www.cedzlabs.com", "github.com", "dummyjson.com", "static.wixstatic.com", "api.microlink.io", "api.unsplash.com",
-      "www.youtube.com", "www.playbook.com", "prod.spline.design", "static.wixstatic.com", "edamam-product-images.s3.amazonaws.com"],
+      "www.youtube.com", "www.playbook.com", "prod.spline.design", "static.wixstatic.com", "edamam-product-images.s3.amazonaws.com", "media.licdn.com"],
   },
 };
 

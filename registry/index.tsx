@@ -384,6 +384,14 @@ const example: Registry = {
       () => import("@/registry/components/example/quotecard/quote-marquee-1-demo")
     ),
   },
+  "linkedin-profile-demo": {
+    name: "linkedin-profile-demo",
+    type: "components:example",
+    files: ["registry/components/example/linkedin/profile-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/linkedin/profile-demo")
+    ),
+  },
 };
 
 export const registry: Registry = {
