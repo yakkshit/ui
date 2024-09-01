@@ -1,0 +1,149 @@
+{
+    "name": "Venkata Sai Yakkshit Reddy Asodi",
+    "location": "Berlin, Germany",
+    "phone": "+91 9493006444",
+    "email": "saiyakkshit2001@gmail.com",
+    "linkedin": "yakkshit",
+    "linkedinref": "https://linkedin.com/in/yakkshit",
+    "website": "https://yakkshit.com",
+    "summary": "Passionate Software Developer specializing in crafting high-quality, scalable software solutions. Well-versed in Software Quality Development, I navigate the entire product lifecycle from requirements analysis to deployment with a keen emphasis on automation, authentication, databases, microservices, networking, and logs. Proficient in tools like Bash Scripting and Cloud CLI. I possess hands-on experience with cloud-based services and infrastructure, particularly in GCP, with a focus on GKE. My expertise extends to microservice architecture, CI/CD pipelines, SQL dialects, schema design, and containerization using Kubernetes. Demonstrating a proven ability to implement professional practices, I am adept in Agile, Git, Selenium, Unittesting, and Jenkins. I’ve also contributed to Open Source services, including Micro K8s clusters and Kubernetes. Additionally, I’ve hosted a podcast named 'cedzxtech.' For more details, visit yakkshit.com.",
+    "skills": [
+        "Deployment/Automation/templating tools - Kubernetes, Docker, Bash Scripting, GraphQL, GithubActions, Terraform, Bitbucket/Gitlab",
+        "Frameworks - Django, Firebase, React, Flutter, Laravel",
+        "Languages - Python, JAVA, HTML, Go, JS, SQL, TypeScript, PHP"
+    ],
+    "experience": [
+        {
+            "company": "Spoki",
+            "position": "Software Developer",
+            "duration": "Apr 2024 – May 2024",
+            "location": "Remote",
+            "description": "Worked as a consultant to develop a software integration between Spoki and Magento. Demonstrated exceptional technical skills, professionalism, and a strong work ethic, ensuring the project was completed on time with high quality. Effectively communicated and collaborated with the team, making a valuable asset to the project’s success."
+        },
+        {
+            "company": "Circleup",
+            "position": "Co-Founder/Lead Full Stack Engineer",
+            "duration": "December 2023 – Present",
+            "location": "Zurich, Switzerland",
+            "description": "Developed React and Flutter applications using Django for the backend. Skilled in debugging code, resolving issues, and optimizing code efficiency using testing frameworks and libraries. Responsible for ensuring application quality and performance, and worked within Agile and Kanban methodologies to deliver high-quality software in sprints."
+        },
+        {
+            "company": "GatewayD",
+            "position": "FullStack Engineer",
+            "duration": "November 2023 – January 2024",
+            "location": "Stockholm",
+            "description": "Contributed to the latest release by implementing automated plugin installation and developing API metrics. Focused on bug fixes, enhancing existing functionalities, and updating dependencies to ensure the project’s performance and reliability."
+        },
+        {
+            "company": "BetaTesting",
+            "position": "Application Tester",
+            "duration": "Jan 2023 – June 2023",
+            "location": "Remote",
+            "description": "Conducted beta testing for a new application, developed a test plan, executed test cases, and reported 25+ critical bugs to the development team, reducing the overall bug rate by 40%. Used various testing methods such as functional, load, security, compatibility, usability, and automated testing to enhance application performance."
+        },
+        {
+            "company": "CEDZLABS",
+            "position": "FullStack Engineer",
+            "duration": "June 2022 – Jan 2023",
+            "location": "Remote",
+            "description": "Created and maintained websites and web applications using multiple programming languages and technologies. Utilized Django framework and RESTful APIs to improve functionality and interactivity of websites. Monitored website performance through Google Search Console, Google Analytics, and Firebase Performance SDK."
+        },
+        {
+            "company": "CEDZLABS.COM",
+            "position": "Application Developer",
+            "duration": "May 2021 – Aug 2022",
+            "location": "Remote",
+            "description": "Developed a mobile application using the Flutter framework for both iOS and Android platforms. Key achievements include implementing a machine learning model with TensorFlow Lite on Google Cloud Platform, using Flutter for app development, integrating various APIs, and designing the user interface with Adobe XD."
+        },
+        {
+            "company": "VERZEO.INC",
+            "position": "AI Engineer Intern",
+            "duration": "Aug 2020 – Mar 2021",
+            "location": "Remote",
+            "description": "Implemented a face mask detection system using Matlab, TensorFlow, OpenCV, and deep learning techniques on a provided dataset. Integrated the model into a real-time system using OpenCV’s computer vision capabilities and conducted thorough testing to ensure its precision and reliability."
+        }
+    ],
+    "projects": [
+        {
+            "name": "Covid 19 News",
+            "description": "Played a key role in developing the iOS app 'COVID-19 New Alert' using Swift and Xcode. Integrated APIs and data sources to provide real-time COVID-19 case notifications, ensuring accuracy. Partnered with health organizations and government agencies to offer trustworthy health resources and guidelines. Designed a user-friendly interface using tools like Sketch and Adobe XD."
+        },
+        {
+            "name": "CO2 monitoring system",
+            "description": "Developed an air quality monitor with particle matter monitoring and MQTT connectivity. The project uses a LILYGO TTGO T-Display ESP32 microcontroller, a Particulate Matter Sensor SPS30, and an SGP30 Air Quality Sensor."
+        },
+        {
+            "name": "Analysis of Webxr and Arcore",
+            "description": "Developed an Android and web AR application using Firebase(GCP), ARCore API, and Three.js. Created a 3D model in Blender deployed to the cloud. Conducted hardware tests and utilized machine learning for analysis."
+        },
+        {
+            "name": "3d game in AR/VR",
+            "description": "Used Unity Engine to develop the 2048 3D game in AR/VR. The game is available on both iOS and Android platforms. Also developed 3D modeling for the VR projection in Unity using Blender."
+        },
+        {
+            "name": "Azure DevOps",
+            "description": "Automated software development and deployment, resulting in improved quality and faster deployment of new features and bug fixes. Implemented a comprehensive approach with a training plan, custom integration, and streamlined deployment process."
+        },
+        {
+            "name": "Deploying an Application using Gerrit",
+            "description": "Implemented Zuul CI with Gerrit Code Review for efficient code review and integration. Developed a Python project integrated with Zuul, incorporating third-party dependencies to generate SVG images."
+        },
+        {
+            "name": "Debian Contents Tool",
+            "description": "Created a Python tool that downloads and analyzes the compressed Contents file for a Debian architecture, displaying statistics on the top 10 packages with the most associated files."
+        },
+        {
+            "name": "AWS Hosting Deployment, Monitoring, and Serverless Functions",
+            "description": "Implemented a secure file encryption/decryption system on AWS using KMS and S3. Created a scalable NextJS website with ThreeJS, AWS SQS for contact and articles, and GitHub Actions for automated deployment."
+        },
+        {
+            "name": "Networking and Firewalls",
+            "description": "Established communication between networked devices using bash scripting and Ubuntu. Employed HTTP requests for data transfer and set up firewall rules for secure communication."
+        },
+        {
+            "name": "Fall Detection system",
+            "description": "Developed a fall detection algorithm using Yolo v4 and OpenCV with 95% accuracy. Built a web app with Django framework for viewing videos of falls and confirming them. Sent SMS notifications to guardians within 10 seconds of fall detection via Twilio’s API."
+        },
+        {
+            "name": "DevOps Essentials in Google Cloud",
+            "description": "Utilized Cloud Source Repositories, Kubernetes Engine, Load Balancers, and troubleshooting workloads on GKE to improve DevOps practices in GCP. Managed deployments using Kubernetes Engine, scaling and managing containers for common scenarios."
+        },
+        {
+            "name": "Langversation",
+            "description": "Developed an end-to-end encrypted multilingual chat-based android app in both Kotlin and Flutter. Used FirebaseStorage and FirebaseAuthentication for storage and authentication. Ml kit translational API was used for language translation."
+        }
+    ],
+    "education": [
+        {
+            "institution": "Blekinge Institute of Technology",
+            "degree": "Computer Science",
+            "duration": "Sep. 2022 – June. 2023",
+            "gpa": "3.5/4"
+        },
+        {
+            "institution": "University College Of Engineering Jntuk",
+            "degree": "Bachelor of Science in Computer Science",
+            "duration": "Aug. 2019 – Jun. 2022",
+            "gpa": "3/4"
+        }
+    ],
+    "certificates": [
+        "MTA(Microsoft Technical Associate)-Python",
+        "AI - Intern at Verzeo.inc",
+        "MTA(Microsoft Technical Associate)-Java",
+        "Skill badges at Google Cloud carrier path",
+        "Azure Certificates and many others Related to Software Development",
+        "Data Visualization with R Issued by IBM",
+        "Database Operations in MariaDB Using Python From Infosys",
+        "Introduction to Generative AI by Google",
+        "Introduction to Large Language Models by Google",
+        "Python for Data Science Issued by IBM",
+        "Azure: Create a REST API using NodeJS Serverless Functions"
+    ],
+    "leadership": [
+        "Led a chapter of 30+ members to work towards goals that improve and promote CedzLabs community service, with collaborative environment, academics, and unity.",
+        "Contributed to Kubernetes by developing new functions in the release script to ensure a smooth and error-free release process by checking dependencies, generating release notes for microservices, and uploading the final tarball to a remote storage location.",
+        "Added a new class, MicroK8sClusterUpgradeEvent, to the Micro K8s Cluster and implemented upgrade logic to handle it for performing necessary upgrade logic for the Micro K8s cluster.",
+        "Extensive experience in implementing professional practices such as Agile methodologies including Scrum and Kanban."
+    ]
+}

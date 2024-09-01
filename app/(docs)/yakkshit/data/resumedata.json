@@ -1,10 +1,11 @@
 {
-    "name": "Venkata Sai Yakkshit Reddy Asodi",
+    "name": "Venkata Asodi",
     "location": "Berlin, Germany",
     "phone": "+91 9493006444",
     "email": "saiyakkshit2001@gmail.com",
     "linkedin": "yakkshit",
-    "website": "yakkshit.com",
+    "linkedinref": "https://linkedin.com/in/yakkshit",
+    "website": "https://yakkshit.com",
     "summary": "Passionate Software Developer specializing in crafting high-quality, scalable software solutions...",
     "skills": [
       "Deployment/Automation/templating tools - Kubernetes, Docker, Bash Scripting, GraphQL, GithubActions, Terraform, Bitbucket/Gitlab",
@@ -42,13 +43,13 @@
         "institution": "Blekinge Institute of Technology",
         "degree": "Computer Science",
         "duration": "Sep. 2022 – June. 2023",
-        "location": "Valhallav¨agen 1, 371 41 Karlskrona"
+        "gpa": "Gpa: 3/4"
       },
       {
         "institution": "University College Of Engineering Jntuk",
         "degree": "Bachelor of Science in Computer Science",
         "duration": "Aug. 2019 – Jun. 2022",
-        "location": "Kakinada, Andhra Pradesh, India 533003"
+        "gpa": "Gpa: 3/4"
       }
     ],
     "certificates": [
@@ -60,5 +61,4 @@
       "Led a chapter of 30+ members to work towards goals that improve and promote CedzLabs community service...",
       "Contributed to Kubernetes by developing new functions in the release script..."
     ]
-  }
-  
+}
