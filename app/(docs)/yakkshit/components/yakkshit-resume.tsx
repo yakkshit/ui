@@ -214,22 +214,8 @@ const YakkshitResume: React.FC<YakkshitProps> = ({ resumeData }) => {
   const downloadPDF = () => {
     const input = document.getElementById("resumeContent");
     if (input) {
-      // Save the current background color
-      const originalBgColor = window.getComputedStyle(input).backgroundColor;
-
-      // Set background color based on the current theme
-      const themeBackgroundClass = getCurrentThemeBackground();
-
-      // Check if themeBackgroundClass is undefined and handle it
-      const themeBackgroundColor =
-        themeBackgroundClass && themeBackgroundClass.includes("bg-white")
-          ? "#ffffff"
-          : "#000000";
-
-      input.style.backgroundColor = `${themeBackgroundColor} !important`;
-
       toast.info(
-        "Try to download file in light mode full screen and prefer to downloading in desktop device",
+        "Try to download the file in light mode, full screen, and prefer to download it on a desktop device",
         {
           position: "top-right",
           autoClose: 5000,
@@ -240,9 +226,15 @@ const YakkshitResume: React.FC<YakkshitProps> = ({ resumeData }) => {
           progress: undefined,
         }
       );
-
+  
+      // Detect current theme
+      const isDarkMode = document.documentElement.classList.contains('dark');
+  
+      // Temporarily add background color to ensure it is captured
+      const originalBackgroundColor = window.getComputedStyle(input).backgroundColor;
+      input.style.backgroundColor = isDarkMode ? '#000000' : '#ffffff';
+  
       html2canvas(input, { scale: 2 }).then((canvas) => {
-        // scale improves image quality
         const imgData = canvas.toDataURL("image/png");
         const pdf = new jsPDF("p", "mm", "a4");
         const imgWidth = 210; // A4 width in mm
@@ -250,21 +242,22 @@ const YakkshitResume: React.FC<YakkshitProps> = ({ resumeData }) => {
         const imgHeight = (canvas.height * imgWidth) / canvas.width;
         let heightLeft = imgHeight;
         let position = 0;
-
+  
+        // Adjust the first page's image to start at the top
         pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
         heightLeft -= pageHeight;
-
-        while (heightLeft >= 0) {
+  
+        while (heightLeft > 0) {
           position = heightLeft - imgHeight;
           pdf.addPage();
           pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
           heightLeft -= pageHeight;
         }
-
-        pdf.save(`${resumeData.name}-resume.pdf`);
-
-        // Restore the original background color
-        input.style.backgroundColor = originalBgColor;
+  
+        pdf.save(`${resumeData.name || 'resume'}-resume.pdf`);
+  
+        // Remove the temporary background color
+        input.style.backgroundColor = originalBackgroundColor;
       });
     }
   };

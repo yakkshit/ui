@@ -1,13 +1,25 @@
+"use client"
+
+
 import YakkshitResume from "@/app/(docs)/yakkshit/components/yakkshit-resume";
-import resumeD from "@/app/(docs)/yakkshit/data/resumeData.json";
+import { useEffect, useState } from 'react';
 
 const Yakkshit: React.FC = () => {
-    return (
-        <>
-         <YakkshitResume resumeData={resumeD} />
-        </>
+  const [resumeData, setResumeData] = useState(null);
 
-    );
+  useEffect(() => {
+    fetch('/data/resumeData.json')
+      .then(response => response.json())
+      .then(data => setResumeData(data));
+  }, []);
+
+  if (!resumeData) return <div>Loading...</div>;
+
+  return (
+    <>
+      <YakkshitResume resumeData={resumeData} />
+    </>
+  );
 };
 
 export default Yakkshit;
