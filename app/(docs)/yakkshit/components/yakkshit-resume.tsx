@@ -1,12 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import {
-  Download,
-  Search,
-  Calendar,
-  X,
-} from "lucide-react";
+import { Download, Search, Calendar, X } from "lucide-react";
 import { motion } from "framer-motion";
 import jsPDF from "jspdf"; // Include this library for PDF generation
 import html2canvas from "html2canvas"; // Include this library to convert HTML to canvas
@@ -16,25 +11,36 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 interface ResumeData {
-    name: string;
-    phone: string;
-    email: string;
-    linkedin: string;
+  name: string;
+  phone: string;
+  email: string;
+  linkedin?: string;
+  location?: string;
+  linkedinref?: string;
+  website?: string;
+  summary?: string;
+  skills: string[];
+  experience: {
+    company: string;
+    position: string;
+    duration: string;
     location: string;
-    linkedinref: string;
-    website: string;
-    summary: string;
-    skills: string[];
-    experience: { company: string; position: string; duration: string; location: string; description: string }[];
-    projects: { name: string; description: string }[];
-    education: { institution: string; degree: string; duration: string; gpa: string }[];
-    certificates: string[];
-    leadership: string[];
-};
-  
+    description: string;
+  }[];
+  projects: { name: string; description: string }[];
+  education: {
+    institution: string;
+    degree: string;
+    duration: string;
+    gpa: string;
+  }[];
+  certificates: string[];
+  leadership: string[];
+}
+
 interface YakkshitProps {
-resumeData: ResumeData;
-};
+  resumeData: ResumeData;
+}
 
 const themes: {
   [key in
@@ -50,8 +56,8 @@ const themes: {
     quaternary?: string;
     quinary?: string;
     headingtext?: string;
-    text: string;
-    background: string;
+    text?: string;
+    background?: string;
   };
 } = {
   default: {
@@ -187,17 +193,20 @@ const YakkshitResume: React.FC<YakkshitProps> = ({ resumeData }) => {
         e.preventDefault();
         setSearchOpen((open) => !open);
       }
+      if (e.key === "x" && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        setSearchOpen((close) => !close);
+      }
     };
 
     document.addEventListener("keydown", down);
     return () => document.removeEventListener("keydown", down);
   }, []);
 
-
   const getCurrentThemeBackground = () => {
     // Example: Retrieve theme class from a global state or context
     // Adjust this based on how you manage themes in your application
-    const theme = 'default'; // Replace this with actual logic to get the current theme
+    const theme = "default"; // Replace this with actual logic to get the current theme
     return themes[theme].background;
   };
 
@@ -206,12 +215,18 @@ const YakkshitResume: React.FC<YakkshitProps> = ({ resumeData }) => {
     if (input) {
       // Save the current background color
       const originalBgColor = window.getComputedStyle(input).backgroundColor;
-  
+
       // Set background color based on the current theme
       const themeBackgroundClass = getCurrentThemeBackground();
-      const themeBackgroundColor = themeBackgroundClass.includes("bg-white") ? "#ffffff" : "#000000";
-      input.style.backgroundColor = themeBackgroundColor + " !important";
-  
+
+      // Check if themeBackgroundClass is undefined and handle it
+      const themeBackgroundColor =
+        themeBackgroundClass && themeBackgroundClass.includes("bg-white")
+          ? "#ffffff"
+          : "#000000";
+
+      input.style.backgroundColor = `${themeBackgroundColor} !important`;
+
       toast.info(
         "Try to download file in light mode and prefer to downloading in desktop device",
         {
@@ -224,7 +239,7 @@ const YakkshitResume: React.FC<YakkshitProps> = ({ resumeData }) => {
           progress: undefined,
         }
       );
-  
+
       html2canvas(input, { scale: 2 }).then((canvas) => {
         // scale improves image quality
         const imgData = canvas.toDataURL("image/png");
@@ -234,25 +249,24 @@ const YakkshitResume: React.FC<YakkshitProps> = ({ resumeData }) => {
         const imgHeight = (canvas.height * imgWidth) / canvas.width;
         let heightLeft = imgHeight;
         let position = 0;
-  
+
         pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
         heightLeft -= pageHeight;
-  
+
         while (heightLeft >= 0) {
           position = heightLeft - imgHeight;
           pdf.addPage();
           pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
           heightLeft -= pageHeight;
         }
-  
+
         pdf.save(`${resumeData.name}-resume.pdf`);
-  
+
         // Restore the original background color
         input.style.backgroundColor = originalBgColor;
       });
     }
   };
-  
 
   const handleSearchChange = (event: {
     target: { value: React.SetStateAction<string> };
@@ -488,8 +502,8 @@ const YakkshitResume: React.FC<YakkshitProps> = ({ resumeData }) => {
       </main>
 
       {searchOpen && (
-        <div className="fixed inset-0 bg-gray-800 bg-opacity-75 dark:bg-gray-900 dark:bg-opacity-75 flex justify-center items-center z-50">
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg w-full max-w-md relative">
+        <div className="fixed pt-20 pb-20 inset-0 bg-gray-800 bg-opacity-75 dark:bg-gray-900 dark:bg-opacity-75 flex justify-center items-center z-50">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg w-full max-w-md relative flex flex-col max-h-full">
             <button
               onClick={handleCloseSearch}
               className="absolute top-2 right-2 p-2 rounded-full bg-gray-200 dark:bg-gray-600 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-500 transition-colors duration-200"
@@ -506,7 +520,7 @@ const YakkshitResume: React.FC<YakkshitProps> = ({ resumeData }) => {
                 onChange={handleSearchChange}
               />
             </div>
-            <div className="p-4">
+            <div className="p-4 overflow-y-auto flex-grow">
               <ul className="space-y-2">
                 {filteredSkills.length === 0 &&
                   filteredExperience.length === 0 &&
@@ -557,85 +571,87 @@ const YakkshitResume: React.FC<YakkshitProps> = ({ resumeData }) => {
           </div>
         </div>
       )}
+
       <ToastContainer />
       <ChatSupport />
     </div>
   );
-}
+};
 
 YakkshitResume.defaultProps = {
-    resumeData: {
-      name: "Venkata Sai Yakkshit Reddy Asodi",
-      location: "Berlin, Germany",
-      phone: "+91 9493006444",
-      email: "saiyakkshit2001@gmail.com",
-      linkedin: "yakkshit",
-      linkedinref: "https://linkedin.com/in/yakkshit",
-      website: "https://yakkshit.com",
-      summary:
-        "Passionate Software Developer specializing in crafting high-quality, scalable software solutions...",
-      skills: [
-        "Deployment/Automation/templating tools - Kubernetes, Docker, Bash Scripting, GraphQL, GithubActions, Terraform, Bitbucket/Gitlab",
-        "Frameworks - Django, Firebase, React, Flutter, Laravel",
-        "Languages - Python, JAVA, HTML, Go, JS, SQL, TypeScript, PHP",
-      ],
-      experience: [
-        {
-          company: "Spoki",
-          position: "Software Developer",
-          duration: "Apr 2024 – May 2024",
-          location: "Remote",
-          description:
-            "Worked as a consultant to develop a software integration between Spoki and Magento...",
-        },
-        {
-          company: "Circleup",
-          position: "Co-Founder/Lead Full Stack Engineer",
-          duration: "December 2023 – Present",
-          location: "Zurich, Switzerland",
-          description:
-            "Developed React and Flutter applications using Django for the backend...",
-        },
-        // Add more experiences here
-      ],
-      projects: [
-        {
-          name: "Covid 19 News",
-          description:
-            "Developed the iOS app 'COVID-19 New Alert' using Swift and Xcode...",
-        },
-        {
-          name: "CO2 monitoring system",
-          description:
-            "Developed an air quality monitor with particle matter monitoring and MQTT connectivity...",
-        },
-        // Add more projects here
-      ],
-      education: [
-        {
-          institution: "Blekinge Institute of Technology",
-          degree: "Computer Science",
-          duration: "Sep. 2022 – June. 2023",
-          gpa: "3.3/4",
-        },
-        {
-          institution: "University College Of Engineering Jntuk",
-          degree: "Bachelor of Science in Computer Science",
-          duration: "Aug. 2019 – Jun. 2022",
-          gpa: "3/4",
-        },
-      ],
-      certificates: [
-        "MTA(Microsoft Technical Associate)-Python",
-        "AI - Intern at Verzeo.inc",
-        "MTA(Microsoft Technical Associate)-Java",
-        // Add more certificates here
-      ],
-      leadership: [
-        "Led a chapter of 30+ members to work towards goals that improve and promote CedzLabs community service...",
-        "Contributed to Kubernetes by developing new functions in the release script...",
-        // Add more leadership experiences here
-      ],
-    }
+  resumeData: {
+    name: "Venkata Sai Yakkshit Reddy Asodi",
+    location: "Berlin, Germany",
+    phone: "+91 9493006444",
+    email: "saiyakkshit2001@gmail.com",
+    linkedin: "yakkshit",
+    linkedinref: "https://linkedin.com/in/yakkshit",
+    website: "https://yakkshit.com",
+    summary:
+      "Passionate Software Developer specializing in crafting high-quality, scalable software solutions...",
+    skills: [
+      "Deployment/Automation/templating tools - Kubernetes, Docker, Bash Scripting, GraphQL, GithubActions, Terraform, Bitbucket/Gitlab",
+      "Frameworks - Django, Firebase, React, Flutter, Laravel",
+      "Languages - Python, JAVA, HTML, Go, JS, SQL, TypeScript, PHP",
+    ],
+    experience: [
+      {
+        company: "Spoki",
+        position: "Software Developer",
+        duration: "Apr 2024 – May 2024",
+        location: "Remote",
+        description:
+          "Worked as a consultant to develop a software integration between Spoki and Magento...",
+      },
+      {
+        company: "Circleup",
+        position: "Co-Founder/Lead Full Stack Engineer",
+        duration: "December 2023 – Present",
+        location: "Zurich, Switzerland",
+        description:
+          "Developed React and Flutter applications using Django for the backend...",
+      },
+      // Add more experiences here
+    ],
+    projects: [
+      {
+        name: "Covid 19 News",
+        description:
+          "Developed the iOS app 'COVID-19 New Alert' using Swift and Xcode...",
+      },
+      {
+        name: "CO2 monitoring system",
+        description:
+          "Developed an air quality monitor with particle matter monitoring and MQTT connectivity...",
+      },
+      // Add more projects here
+    ],
+    education: [
+      {
+        institution: "Blekinge Institute of Technology",
+        degree: "Computer Science",
+        duration: "Sep. 2022 – June. 2023",
+        gpa: "3.3/4",
+      },
+      {
+        institution: "University College Of Engineering Jntuk",
+        degree: "Bachelor of Science in Computer Science",
+        duration: "Aug. 2019 – Jun. 2022",
+        gpa: "3/4",
+      },
+    ],
+    certificates: [
+      "MTA(Microsoft Technical Associate)-Python",
+      "AI - Intern at Verzeo.inc",
+      "MTA(Microsoft Technical Associate)-Java",
+      // Add more certificates here
+    ],
+    leadership: [
+      "Led a chapter of 30+ members to work towards goals that improve and promote CedzLabs community service...",
+      "Contributed to Kubernetes by developing new functions in the release script...",
+      // Add more leadership experiences here
+    ],
+  },
 };
+
 export default YakkshitResume;

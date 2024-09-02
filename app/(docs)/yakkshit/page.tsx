@@ -1,10 +1,10 @@
 import YakkshitResume from "@/app/(docs)/yakkshit/components/yakkshit-resume";
-import { resumeData } from "./data/resumedata";
+import resumeD from "@/app/(docs)/yakkshit/data/resumeData.json";
 
 const Yakkshit: React.FC = () => {
     return (
         <>
-         <YakkshitResume resumeData={resumeData} />
+         <YakkshitResume resumeData={resumeD} />
         </>
 
     );
