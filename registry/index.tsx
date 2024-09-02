@@ -392,6 +392,14 @@ const example: Registry = {
       () => import("@/registry/components/example/linkedin/profile-demo")
     ),
   },
+  "json-to-cv-demo": {
+    name: "json-to-cv-demo",
+    type: "components:example",
+    files: ["registry/components/example/JsonToCv/JsonToCvDemo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/JsonToCv/JsonToCvDemo")
+    ),
+  },
 };
 
 export const registry: Registry = {

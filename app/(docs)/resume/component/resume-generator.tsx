@@ -6,7 +6,7 @@
 // import { Button } from "@/components/ui/button"
 // import { Textarea } from "@/components/ui/textarea"
 // import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-// import Yakkshit from './resume'
+// import Yakkshit from '@/app/(docs)/resume/component/yakkshit-resume'
 // import { ModeToggle } from '@/components/mode-toggle'
 
 // interface ResumeData {
