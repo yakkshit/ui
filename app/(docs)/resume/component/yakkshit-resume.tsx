@@ -9,6 +9,8 @@ import ChatSupport from "@/registry/components/example/aichat/ai-bot-demo";
 import LinkedIn from "@/components/icons/linkedin";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Button } from "@/components/ui/button";
+import EnhancedSearchUI from "./search";
 
 interface ResumeData {
   name: string;
@@ -16,7 +18,7 @@ interface ResumeData {
   email: string;
   linkedin: string;
   location: string;
-  linkedinref: string;
+  linkedinref?: string;
   cal?: string;
   website: string;
   summary: string;
@@ -204,7 +206,7 @@ const Yakkshit: React.FC<YakkshitProps> = ({ resumeData }) => {
     const input = document.getElementById("resumeContent");
     if (input) {
       toast.info(
-        "Try to download file in light mode and prefer to downloading in desktop device",
+        "Try to download file in light mode, full screen and prefer to downloading in desktop device",
         {
           position: "top-right",
           autoClose: 5000,
@@ -300,12 +302,12 @@ const Yakkshit: React.FC<YakkshitProps> = ({ resumeData }) => {
           >
             <Calendar className="w-6 h-6" />
           </button>
-          <button
+          <Button
             onClick={downloadPDF}
             className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200"
           >
-            <Download className="w-6 h-6" />
-          </button>
+            <Download className="mr-2 h-6 w-6" /> Download pdf
+          </Button>
         </div>
       </header>
       <main id="resumeContent" className="container rounded-lg mx-auto p-4">
@@ -478,8 +480,18 @@ const Yakkshit: React.FC<YakkshitProps> = ({ resumeData }) => {
       </main>
 
       {searchOpen && (
-        <div className="fixed inset-0 bg-gray-800 bg-opacity-75 dark:bg-gray-900 dark:bg-opacity-75 flex justify-center items-center z-50">
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg w-full max-w-md relative">
+        <motion.div
+          className="fixed inset-0 bg-gray-800 bg-opacity-75 dark:bg-gray-900 dark:bg-opacity-75 flex justify-center items-center z-50"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <motion.div
+            className="bg-white dark:bg-gray-800 rounded-lg shadow-lg w-full max-w-md relative"
+            initial={{ scale: 0.8 }}
+            animate={{ scale: 1 }}
+            exit={{ scale: 0.8 }}
+          >
             <button
               onClick={handleCloseSearch}
               className="absolute top-2 right-2 p-2 rounded-full bg-gray-200 dark:bg-gray-600 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-500 transition-colors duration-200"
@@ -496,7 +508,7 @@ const Yakkshit: React.FC<YakkshitProps> = ({ resumeData }) => {
                 onChange={handleSearchChange}
               />
             </div>
-            <div className="p-4">
+            <div className="p-4 max-h-60 overflow-y-auto">
               <ul className="space-y-2">
                 {filteredSkills.length === 0 &&
                   filteredExperience.length === 0 &&
@@ -507,45 +519,49 @@ const Yakkshit: React.FC<YakkshitProps> = ({ resumeData }) => {
                     </li>
                   )}
                 {filteredSkills.map((skill, index) => (
-                  <li
+                  <motion.li
                     key={index}
                     className="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 p-2 rounded dark:text-gray-200"
                     onClick={() => alert(`Skill: ${skill}`)}
+                    whileHover={{ scale: 1.05 }}
                   >
                     {skill}
-                  </li>
+                  </motion.li>
                 ))}
                 {filteredExperience.map((exp, index) => (
-                  <li
+                  <motion.li
                     key={index}
                     className="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 p-2 rounded dark:text-gray-200"
                     onClick={() => alert(`Experience: ${exp.company}`)}
+                    whileHover={{ scale: 1.05 }}
                   >
                     {exp.company} - {exp.position}
-                  </li>
+                  </motion.li>
                 ))}
                 {filteredProjects.map((project, index) => (
-                  <li
+                  <motion.li
                     key={index}
                     className="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 p-2 rounded dark:text-gray-200"
                     onClick={() => alert(`Project: ${project.name}`)}
+                    whileHover={{ scale: 1.05 }}
                   >
                     {project.name}
-                  </li>
+                  </motion.li>
                 ))}
                 {filteredEducation.map((edu, index) => (
-                  <li
+                  <motion.li
                     key={index}
                     className="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 p-2 rounded dark:text-gray-200"
                     onClick={() => alert(`Education: ${edu.institution}`)}
+                    whileHover={{ scale: 1.05 }}
                   >
                     {edu.institution}
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       )}
       <ToastContainer />
       <ChatSupport />

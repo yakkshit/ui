@@ -3,54 +3,90 @@
 import { useState, useEffect } from 'react'
 import { useTheme } from 'next-themes'
 import { MessageSquare, Send, X } from 'lucide-react'
+import { createClient } from '@supabase/supabase-js'
+
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+
+export const supabase = createClient(supabaseUrl, supabaseKey);
 
 type Message = {
   id: number
   text: string
   sender: 'user' | 'support'
+  category: string
 }
 
 export default function ChatSupport() {
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState<Message[]>([])
   const [inputMessage, setInputMessage] = useState('')
+  const [category, setCategory] = useState('feedback')
   const { theme, setTheme } = useTheme()
 
   useEffect(() => {
-    // Add a welcome message when the chat is first opened
-    if (isOpen && messages.length === 0) {
-      setMessages([
-        {
-          id: 1,
-          text: "Hello! How can I help you today?",
-          sender: 'support'
-        }
-      ])
+    // Fetch existing messages from Supabase
+    if (isOpen) {
+      fetchMessages()
     }
-  }, [isOpen, messages.length])
+  }, [isOpen])
 
-  const handleSendMessage = (e: React.FormEvent) => {
+  const fetchMessages = async () => {
+    const { data, error } = await supabase
+      .from('messages')
+      .select('*')
+      .eq('category', category)
+
+    if (error) {
+      console.error(error)
+    } else {
+      setMessages(data)
+    }
+  }
+
+  const handleSendMessage = async (e: React.FormEvent) => {
     e.preventDefault()
     if (inputMessage.trim() === '') return
 
     const newMessage: Message = {
       id: messages.length + 1,
       text: inputMessage,
-      sender: 'user'
+      sender: 'user',
+      category: category
     }
 
-    setMessages([...messages, newMessage])
-    setInputMessage('')
+    // Save the message to Supabase
+    const { error } = await supabase
+      .from('messages')
+      .insert([newMessage])
 
-    // Simulate a support response
-    setTimeout(() => {
-      const supportResponse: Message = {
-        id: messages.length + 2,
-        text: "Thank you for your message. Our team will get back to you soon.",
-        sender: 'support'
-      }
-      setMessages(prevMessages => [...prevMessages, supportResponse])
-    }, 1000)
+    if (error) {
+      console.error(error)
+    } else {
+      setMessages([...messages, newMessage])
+      setInputMessage('')
+
+      // Simulate a support response
+      setTimeout(async () => {
+        const supportResponse: Message = {
+          id: messages.length + 2,
+          text: "Thank you for your message. Our team will get back to you soon.",
+          sender: 'support',
+          category: category
+        }
+
+        const { error } = await supabase
+          .from('messages')
+          .insert([supportResponse])
+
+        if (error) {
+          console.error(error)
+        } else {
+          setMessages(prevMessages => [...prevMessages, supportResponse])
+        }
+      }, 1000)
+    }
   }
 
   return (
@@ -76,6 +112,21 @@ export default function ChatSupport() {
             >
               <X className="w-5 h-5" />
             </button>
+          </div>
+
+          <div className="p-4">
+            <label className="block text-sm font-medium text-muted-foreground">
+              Select Category
+            </label>
+            <select
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              className="mt-1 block w-full rounded-md bg-muted text-muted-foreground border-border focus:border-primary focus:ring focus:ring-primary"
+            >
+              <option value="feedback">Feedback</option>
+              <option value="chat">Chat</option>
+              <option value="support">Support</option>
+            </select>
           </div>
 
           <div className="flex-1 overflow-y-auto p-4 space-y-4">
@@ -122,3 +173,14 @@ export default function ChatSupport() {
     </div>
   )
 }
+
+
+// sql command 
+
+// CREATE TABLE messages (
+//   id SERIAL PRIMARY KEY,
+//   text TEXT NOT NULL,
+//   sender VARCHAR(10) CHECK (sender IN ('user', 'support')) NOT NULL,
+//   category VARCHAR(50) NOT NULL,
+//   created_at TIMESTAMPTZ DEFAULT NOW()
+// );

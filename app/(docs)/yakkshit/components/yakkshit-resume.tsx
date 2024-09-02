@@ -9,6 +9,7 @@ import ChatSupport from "@/registry/components/example/aichat/ai-bot-demo";
 import LinkedIn from "@/components/icons/linkedin";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Button } from "@/components/ui/button";
 
 interface ResumeData {
   name: string;
@@ -228,7 +229,7 @@ const YakkshitResume: React.FC<YakkshitProps> = ({ resumeData }) => {
       input.style.backgroundColor = `${themeBackgroundColor} !important`;
 
       toast.info(
-        "Try to download file in light mode and prefer to downloading in desktop device",
+        "Try to download file in light mode full screen and prefer to downloading in desktop device",
         {
           position: "top-right",
           autoClose: 5000,
@@ -324,12 +325,12 @@ const YakkshitResume: React.FC<YakkshitProps> = ({ resumeData }) => {
           >
             <Calendar className="w-6 h-6" />
           </button>
-          <button
+          <Button
             onClick={downloadPDF}
             className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200"
           >
-            <Download className="w-6 h-6" />
-          </button>
+            <Download className="mr-2 h-6 w-6" /> Download pdf
+          </Button>
         </div>
       </header>
       <main id="resumeContent" className="container rounded-lg mx-auto p-4">
@@ -502,76 +503,89 @@ const YakkshitResume: React.FC<YakkshitProps> = ({ resumeData }) => {
       </main>
 
       {searchOpen && (
-        <div className="fixed pt-20 pb-20 inset-0 bg-gray-800 bg-opacity-75 dark:bg-gray-900 dark:bg-opacity-75 flex justify-center items-center z-50">
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg w-full max-w-md relative flex flex-col max-h-full">
-            <button
-              onClick={handleCloseSearch}
-              className="absolute top-2 right-2 p-2 rounded-full bg-gray-200 dark:bg-gray-600 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-500 transition-colors duration-200"
-            >
-              <X className="w-6 h-6" />
-            </button>
-            <div className="p-4 border-b border-gray-200 dark:border-gray-700">
-              <input
-                type="text"
-                placeholder="Search skills, experience, projects, etc."
-                className="w-full p-2 rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-200"
-                autoFocus
-                value={searchTerm}
-                onChange={handleSearchChange}
-              />
-            </div>
-            <div className="p-4 overflow-y-auto flex-grow">
-              <ul className="space-y-2">
-                {filteredSkills.length === 0 &&
-                  filteredExperience.length === 0 &&
-                  filteredProjects.length === 0 &&
-                  filteredEducation.length === 0 && (
-                    <li className="text-gray-500 dark:text-gray-400">
-                      No results found.
-                    </li>
-                  )}
-                {filteredSkills.map((skill, index) => (
-                  <li
-                    key={index}
-                    className="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 p-2 rounded dark:text-gray-200"
-                    onClick={() => alert(`Skill: ${skill}`)}
-                  >
-                    {skill}
-                  </li>
-                ))}
-                {filteredExperience.map((exp, index) => (
-                  <li
-                    key={index}
-                    className="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 p-2 rounded dark:text-gray-200"
-                    onClick={() => alert(`Experience: ${exp.company}`)}
-                  >
-                    {exp.company} - {exp.position}
-                  </li>
-                ))}
-                {filteredProjects.map((project, index) => (
-                  <li
-                    key={index}
-                    className="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 p-2 rounded dark:text-gray-200"
-                    onClick={() => alert(`Project: ${project.name}`)}
-                  >
-                    {project.name}
-                  </li>
-                ))}
-                {filteredEducation.map((edu, index) => (
-                  <li
-                    key={index}
-                    className="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 p-2 rounded dark:text-gray-200"
-                    onClick={() => alert(`Education: ${edu.institution}`)}
-                  >
-                    {edu.institution}
-                  </li>
-                ))}
-              </ul>
-            </div>
+      <motion.div
+        className="fixed inset-0 bg-gray-800 bg-opacity-75 dark:bg-gray-900 dark:bg-opacity-75 flex justify-center items-center z-50"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
+        <motion.div
+          className="bg-white dark:bg-gray-800 rounded-lg shadow-lg w-full max-w-md relative"
+          initial={{ scale: 0.8 }}
+          animate={{ scale: 1 }}
+          exit={{ scale: 0.8 }}
+        >
+          <button
+            onClick={handleCloseSearch}
+            className="absolute top-2 right-2 p-2 rounded-full bg-gray-200 dark:bg-gray-600 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-500 transition-colors duration-200"
+          >
+            <X className="w-6 h-6" />
+          </button>
+          <div className="p-4 border-b border-gray-200 dark:border-gray-700">
+            <input
+              type="text"
+              placeholder="Search skills, experience, projects, etc."
+              className="w-full p-2 rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-200"
+              autoFocus
+              value={searchTerm}
+              onChange={handleSearchChange}
+            />
           </div>
-        </div>
-      )}
-
+          <div className="p-4 max-h-60 overflow-y-auto">
+            <ul className="space-y-2">
+              {filteredSkills.length === 0 &&
+                filteredExperience.length === 0 &&
+                filteredProjects.length === 0 &&
+                filteredEducation.length === 0 && (
+                  <li className="text-gray-500 dark:text-gray-400">
+                    No results found.
+                  </li>
+                )}
+              {filteredSkills.map((skill, index) => (
+                <motion.li
+                  key={index}
+                  className="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 p-2 rounded dark:text-gray-200"
+                  onClick={() => alert(`Skill: ${skill}`)}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  {skill}
+                </motion.li>
+              ))}
+              {filteredExperience.map((exp, index) => (
+                <motion.li
+                  key={index}
+                  className="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 p-2 rounded dark:text-gray-200"
+                  onClick={() => alert(`Experience: ${exp.company}`)}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  {exp.company} - {exp.position}
+                </motion.li>
+              ))}
+              {filteredProjects.map((project, index) => (
+                <motion.li
+                  key={index}
+                  className="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 p-2 rounded dark:text-gray-200"
+                  onClick={() => alert(`Project: ${project.name}`)}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  {project.name}
+                </motion.li>
+              ))}
+              {filteredEducation.map((edu, index) => (
+                <motion.li
+                  key={index}
+                  className="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 p-2 rounded dark:text-gray-200"
+                  onClick={() => alert(`Education: ${edu.institution}`)}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  {edu.institution}
+                </motion.li>
+              ))}
+            </ul>
+          </div>
+        </motion.div>
+      </motion.div>
+    )}
       <ToastContainer />
       <ChatSupport />
     </div>
