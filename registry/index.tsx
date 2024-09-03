@@ -400,6 +400,14 @@ const example: Registry = {
       () => import("@/registry/components/example/JsonToCv/JsonToCvDemo")
     ),
   },
+  "chat-support-spoki-demo": {
+    name: "chat-support-spoki-demo",
+    type: "components:example",
+    files: ["registry/components/example/aichat/chat-support-spoki-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/aichat/chat-support-spoki-demo")
+    ),
+  },
 };
 
 export const registry: Registry = {

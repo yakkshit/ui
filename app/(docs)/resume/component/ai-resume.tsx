@@ -408,7 +408,7 @@ export default function AiResume() {
             </CardContent>
           </Card>
 
-          <Card className="hidden lg:block">
+          <Card>
             <CardContent>
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-2xl font-bold">Resume View</h2>
@@ -466,12 +466,12 @@ export default function AiResume() {
                 </CardContent>
           </Card> */}
 
-          <Card className="hidden lg:block">
+          <Card>
             <CardContent>
               <div className="rounded-lg shadow-grey-glow dark:shadow-white-glow overflow-hidden">
                 <VideoEmbed
                   src="https://youtu.be/I7-hxTbpscU?si=YRcpA8s4B0uDNFvT"
-                  text={"## We Are working on Ai Resume share your comments through chat bot"}
+                  text={"## We Are working on Ai Resume share your comments through chat bot in feedback category."}
                 />
               </div>
             </CardContent>

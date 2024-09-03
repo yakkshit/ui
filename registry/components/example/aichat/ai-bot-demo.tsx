@@ -5,7 +5,6 @@ import { useTheme } from 'next-themes'
 import { MessageSquare, Send, X } from 'lucide-react'
 import { createClient } from '@supabase/supabase-js'
 
-
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
 
@@ -18,7 +17,11 @@ type Message = {
   category: string
 }
 
-export default function ChatSupport() {
+type ChatSupportProps = {
+  placement?: 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right';
+}
+
+export default function ChatSupport({ placement = 'bottom-left' }: ChatSupportProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState<Message[]>([])
   const [inputMessage, setInputMessage] = useState('')
@@ -26,7 +29,6 @@ export default function ChatSupport() {
   const { theme, setTheme } = useTheme()
 
   useEffect(() => {
-    // Fetch existing messages from Supabase
     if (isOpen) {
       fetchMessages()
     }
@@ -56,7 +58,6 @@ export default function ChatSupport() {
       category: category
     }
 
-    // Save the message to Supabase
     const { error } = await supabase
       .from('messages')
       .insert([newMessage])
@@ -67,7 +68,6 @@ export default function ChatSupport() {
       setMessages([...messages, newMessage])
       setInputMessage('')
 
-      // Simulate a support response
       setTimeout(async () => {
         const supportResponse: Message = {
           id: messages.length + 2,
@@ -89,8 +89,21 @@ export default function ChatSupport() {
     }
   }
 
+  const getPlacementClasses = () => {
+    switch (placement) {
+      case 'bottom-right':
+        return 'bottom-4 right-4';
+      case 'top-left':
+        return 'top-4 left-4';
+      case 'top-right':
+        return 'top-4 right-4';
+      default:
+        return 'bottom-4 left-4'; // 'bottom-left'
+    }
+  }
+
   return (
-    <div className="fixed bottom-4 right-4 z-50">
+    <div className={`fixed ${getPlacementClasses()} z-50`}>
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
