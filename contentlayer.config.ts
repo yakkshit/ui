@@ -1,10 +1,15 @@
-import { defineDocumentType, defineNestedType, makeSource } from "contentlayer/source-files";
+import {
+  defineDocumentType,
+  defineNestedType,
+  makeSource,
+} from "contentlayer/source-files";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 import { BlogPosting, WithContext } from "schema-dts";
 import { visit } from "unist-util-visit";
+
 import { rehypeComponent } from "./lib/rehype-component";
 import { rehypeNpmCommand } from "./lib/rehype-npm-command";
 
@@ -13,6 +18,11 @@ const computedFields = {
   url: {
     type: "string",
     resolve: (post: any) => `/${post._raw.flattenedPath}`,
+  },
+  image: {
+    type: "string",
+    resolve: (post: any) =>
+      `${process.env.NEXT_PUBLIC_APP_URL}/api/og?title=${encodeURI(post.title)}`,
   },
   slug: {
     type: "string",
@@ -39,7 +49,7 @@ const computedFields = {
           name: doc.author,
           url: `https://twitter.com/${doc.author}`,
         },
-      } as WithContext<BlogPosting>),
+      }) as WithContext<BlogPosting>,
   },
 };
 
@@ -199,7 +209,7 @@ export const Page = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: "./content",
-  documentTypes: [Component, Page],
+  documentTypes: [Component, Page, Doc, Showcase],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
@@ -232,11 +242,9 @@ export default makeSource({
       [
         rehypePrettyCode,
         {
-          theme: "slack-dark",
-          // light: "material-theme-lighter",
-          // },
+          theme: "github-dark",
           onVisitLine(node: any) {
-            // Prevent lines from collapsing in display: grid mode, and allow empty
+            // Prevent lines from collapsing in `display: grid` mode, and allow empty
             // lines to be copy/pasted
             if (node.children.length === 0) {
               node.children = [{ type: "text", value: " " }];

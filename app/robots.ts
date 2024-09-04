@@ -16,7 +16,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: '/private/',
+        disallow: ["/api/", "/_next/", "/public/", "/private/"],
       },
     ],
     sitemap: 'https://ui.cedzlabs.com/sitemap.xml',

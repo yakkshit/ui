@@ -103,6 +103,7 @@ const docsConfig: DocsConfig = {
           title: "Calander",
           href: `/calander`,
           items: [],
+          disabled: true,
           label:'soon..',
           tags: ['Shadcn', 'Framer Motion', 'Supabase', 'Waitlist']
         },

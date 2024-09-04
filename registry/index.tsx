@@ -5,6 +5,7 @@ const ui: Registry = {
   "magic-card": {
     name: "magic-card",
     type: "components:ui",
+    registryDependencies: ["magic-card"],
     files: ["registry/components/frontend/magic-card.tsx"],
   },
   "linear-gradient": {
