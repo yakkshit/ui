@@ -136,6 +136,22 @@ const example: Registry = {
       () => import("@/registry/components/example/price/price-2-demo")
     ),
   },
+  "price-3-demo": {
+    name: "price-2-demo",
+    type: "components:example",
+    files: ["registry/components/example/price/price-3-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/price/price-3-demo")
+    ),
+  },
+  "price-4-demo": {
+    name: "price-2-demo",
+    type: "components:example",
+    files: ["registry/components/example/price/price-4-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/price/price-4-demo")
+    ),
+  },
   "file-qr-demo": {
     name: "file-qr-demo",
     type: "components:example",

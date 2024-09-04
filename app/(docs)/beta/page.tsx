@@ -16,6 +16,11 @@ import Calander1Demo from "@/registry/components/backend/GCalander/calander";
 import MapComponentDemo from "@/registry/components/example/map/map-box-demo";
 import RecipeSearchDemo from "@/registry/components/example/Recipes/recipes-search-demo";
 import LinkedInProfile from "@/registry/components/example/linkedin/profile-demo";
+import PriceCalculator1 from "@/registry/components/example/price/price-3-demo";
+import PriceCalculator2 from "@/registry/components/example/price/price-4-demo";
+import VideoWidget from "@/registry/components/example/video/video-widget";
+import WeatherWidget1Demo from "@/registry/components/example/WeatherCard/weather-card-1-demo";
+import ComingSoon from "@/registry/components/example/WeatherCard/weather-card-1-demo";
 
 const queryClient = new QueryClient();
 
@@ -39,7 +44,10 @@ const Beta: React.FC = () => {
       {/* <Calander1Demo/> */}
       {/* <MapComponentDemo/> */}
       {/* <RecipeSearchDemo/> */}
-      <LinkedInProfile/>
+      {/* <LinkedInProfile/> */}
+      {/* <PriceCalculator1 /> */}
+      {/* <PriceCalculator2 /> */}
+      <ComingSoon/>
     </div>
   );
 };

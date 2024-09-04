@@ -75,6 +75,36 @@ tags: ['React', 'Currency', 'Pricing', 'API', 'Component', 'Fixer Api', 'Real ti
       <ComponentPreview name="price-2-demo" />
     </AccordionContent>
     </AccordionItem>
+    <AccordionItem value="item-3">
+    <AccordionTrigger> With free api with unlimited requests</AccordionTrigger>
+    <AccordionContent>
+      <ComponentPreview name="price-3-demo" />
+    </AccordionContent>
+    </AccordionItem>
+    <AccordionItem value="item-4">
+    <AccordionTrigger> Just Copy and paste the code </AccordionTrigger>
+    <AccordionContent>
+      <ComponentPreview name="price-4-demo" />
+
+      ## Props 
+
+      Here are the props for the `PriceCalculator` component:
+
+      | Prop name          | Type                        | Default   | Description                                                             |
+      | ------------------ | --------------------------- | --------- | ----------------------------------------------------------------------- |
+      | `basePrice`        | `number`                    | `10`      | The base price for the calculation.                                     |
+      | `pricePerUser`     | `number`                    | `10`      | The price per user.                                                     |
+      | `currency`         | `string`                    | `USD`     | The currency code to display the price in.                              |
+      | `users`            | `number`                    | `1`       | The initial number of users for the calculation.                        |
+      | `support`          | `string`                    | `24/7 Support` | The type of support included in the plan.                               |
+      | `requests`         | `number`                    | `100`     | The number of API requests included per month.                          |
+      | `storage`          | `string`                    | `10GB Storage` | The storage capacity included in the plan.                             |
+      | `customDomain`     | `boolean`                   | `true`    | Whether a custom domain is included in the plan.                        |
+      | `dedicatedManager` | `boolean`                   | `false`   | Whether a dedicated account manager is included.                        |
+      | `integration`      | `string[]`                  | `["Slack", "Zapier"]` | An array of integrations included in the plan.                        |
+      
+    </AccordionContent>
+    </AccordionItem>
 </Accordion>
 
 ## Credits
