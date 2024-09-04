@@ -19,11 +19,11 @@ const computedFields = {
     type: "string",
     resolve: (post: any) => `/${post._raw.flattenedPath}`,
   },
-  image: {
-    type: "string",
-    resolve: (post: any) =>
-      `${process.env.NEXT_PUBLIC_APP_URL}/api/og?title=${encodeURI(post.title)}`,
-  },
+  // image: {
+  //   type: "string",
+  //   resolve: (post: any) =>
+  //     `${process.env.NEXT_PUBLIC_APP_URL}/api/og?title=${encodeURI(post.title)}`,
+  // },
   slug: {
     type: "string",
     resolve: (doc: any) => `/${doc._raw.flattenedPath}`,
