@@ -29,7 +29,7 @@ export default function Home() {
     });
   return (
     <>
-      <section className="custom-background space-y-2 pb-2 pt-6 md:pb-12 md:pt-10 lg:py-32 overflow-x-hidden">
+      <section className="custom-background flex justify-center items-center min-h-screen space-y-2 pb-2 pt-6 md:pb-12 md:pt-10 lg:py-32 overflow-x-hidden">
         <div className="container flex w-screen flex-col items-center gap-4 text-center">
           <FadeIn className="z-10 flex flex-col items-center justify-center w-full h-full">
             <Link
@@ -88,8 +88,9 @@ export default function Home() {
             </div>
           </FadeIn>
         </div>
-        </section>
-        {/* <hr className="my-10" /> */}
+      </section>
+
+      {/* <hr className="my-10" /> */}
       {/* <section className="overflow-x-hidden">
         <div className="flex flex-col">
           <Section2 />
