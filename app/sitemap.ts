@@ -1,10 +1,9 @@
 import { NextResponse } from 'next/server';
-import { MetadataRoute } from 'next';
 import { docsConfig } from '@/config/docs';
 
 export const runtime = 'edge';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default function sitemap() {
   const baseUrl = 'https://ui.cedzlabs.com';
 
   type SitemapEntry = {
@@ -31,18 +30,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
 
     docsConfig.sidebarNav.forEach(section => {
-      if (section.items) {
-        section.items.forEach(item => {
-          if (item.href) {
-            urls.push(createEntry(item.href));
+      section.items?.forEach(item => {
+        if (item.href) {
+          urls.push(createEntry(item.href));
+        }
+        item.items?.forEach(subItem => {
+          if (subItem.href) {
+            urls.push(createEntry(subItem.href));
           }
-          item.items?.forEach(subItem => {
-            if (subItem.href) {
-              urls.push(createEntry(subItem.href));
-            }
-          });
         });
-      }
+      });
     });
 
     return urls;
@@ -50,20 +47,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const sitemapEntries = getUrlsFromConfig();
 
-  return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 1,
-    },
-    ...sitemapEntries,
-  ];
-}
+  const sitemapXml = `
+    <?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+      ${sitemapEntries
+        .map(
+          entry => `
+            <url>
+              <loc>${entry.url}</loc>
+              <lastmod>${entry.lastModified.toISOString()}</lastmod>
+              <changefreq>${entry.changeFrequency}</changefreq>
+              <priority>${entry.priority}</priority>
+            </url>
+          `
+        )
+        .join('')}
+    </urlset>
+  `;
 
-export async function GET() {
-  const sitemapEntries = sitemap();
-  return NextResponse.json(sitemapEntries, {
+  return NextResponse.json({
+    sitemap: sitemapXml
+  }, {
     headers: {
       'Content-Type': 'application/xml',
     },
