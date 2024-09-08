@@ -17,7 +17,7 @@ const docsConfig: DocsConfig = {
     },
     {
       title: "Apps",
-      href: "/components",
+      href: "/apps",
     },
   ],
   sidebarNav: [

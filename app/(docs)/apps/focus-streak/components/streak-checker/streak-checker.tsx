@@ -829,7 +829,7 @@ export default function StreakCheckerDemo() {
           <DialogHeader>
             <DialogTitle>Forgot Password</DialogTitle>
           </DialogHeader>
-          <p>Please contact our support team at support@streakchecker.com for assistance with resetting your password.</p>
+          <p>Please contact our support team in chat for assistance with resetting your password.</p>
           <Button onClick={() => setShowForgotPassword(false)}>Close</Button>
         </DialogContent>
       </Dialog>
