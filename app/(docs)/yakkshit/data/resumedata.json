@@ -5,12 +5,12 @@
   "email": "saiyakkshit2001@gmail.com",
   "linkedin": "https://linkedin.com/in/yakkshit",
   "website": "https://yakkshit.com",
-  "summary": "Passionate and results-driven Software Developer with extensive experience in developing high-quality, scalable software solutions. Expertise in full product lifecycle management, with a strong focus on automation, authentication, databases, and microservices. Proficient in cloud-based services (GCP) and tools like Kubernetes, Docker, and CI/CD pipelines. Demonstrated ability to implement Agile methodologies, ensuring the delivery of robust and efficient software solutions. Committed to continuous learning and contributing to the open-source community.",
+  "summary": "Passionate and results-driven Software Developer with extensive experience in developing high-quality, scalable software solutions. Expertise in full product lifecycle management, with a strong focus on automation, authentication, databases, and microservices. Proficient in cloud services like GCP and tools such as Kubernetes, Docker, and CI/CD pipelines. Proven ability to implement Agile methodologies, delivering robust and efficient software solutions. Committed to continuous learning and contributing to the open-source community.",
   "skills": [
     "Deployment & Automation: Kubernetes, Docker, Bash Scripting, Terraform, GitHub Actions",
-    "Frameworks: Django, React, Flutter, Laravel, Firebase",
+    "Frameworks: Django, React, Flutter, Langchain, Next.js",
     "Languages: Python, Java, JavaScript, TypeScript, Go, SQL, PHP, HTML",
-    "Tools & Technologies: Git, Jenkins, Selenium, GCP, Microservices, SQL Dialects, Cloud CLI"
+    "Tools & Technologies: Git, Jenkins, Selenium, GCP, Microservices, Cloud CLI, Vertex AI, LLMS (GPT-4, Ollama, Gemini)"
   ],
   "experience": [
     {
@@ -18,14 +18,14 @@
       "position": "Software Developer",
       "duration": "January 2024 – May 2024",
       "location": "Remote/Italy",
-      "description": "Developed software integration between Spoki and Magento, ensuring project completion with high quality. Collaborated effectively with cross-functional teams, demonstrating strong technical skills and professionalism."
+      "description": "Developed software integration between Spoki and Magento, ensuring project completion with high quality. Collaborated with cross-functional teams, demonstrating strong technical skills and professionalism."
     },
     {
       "company": "Circleup",
       "position": "Co-Founder/Lead Full Stack Engineer",
-      "duration": "December 2023 – July 2024",
+      "duration": "December 2023 – Present",
       "location": "Zurich, Switzerland",
-      "description": "Led the development of React and Flutter applications with Django backend. Enhanced application quality through effective debugging, issue resolution, and code optimization. Delivered high-quality software in Agile sprints."
+      "description": "Led the development of React and Flutter applications with Django backend. Built a RAG-based automation agent using Langchain and Vertex AI. Enhanced application quality through effective debugging, issue resolution, and code optimization. Delivered high-quality software in Agile sprints."
     },
     {
       "company": "GatewayD",
@@ -44,6 +44,10 @@
   ],
   "projects": [
     {
+      "name": "AI Resume Tuner/Designer",
+      "description": "Created an AI-powered resume tuner application based on job descriptions. Built using Next.js for the frontend and RAG, Langchain, Vertex AI, and LLMS (GPT-4, Ollama, Gemini) to generate resumes tailored to uploaded career data."
+    },
+    {
       "name": "COVID-19 News Alert",
       "description": "Developed an iOS app providing real-time COVID-19 case notifications. Integrated APIs and partnered with health organizations to deliver accurate information."
     },
@@ -52,28 +56,12 @@
       "description": "Created an air quality monitor using ESP32 microcontroller and sensors. Implemented MQTT connectivity for real-time monitoring."
     },
     {
-      "name": "WebXR and ARCore Analysis",
-      "description": "Developed AR applications using Firebase, ARCore, and Three.js. Conducted hardware tests and used machine learning for analysis."
-    },
-    {
-      "name": "Application Deployment using Gerrit",
-      "description": "Implemented Zuul CI with Gerrit for efficient code review. Integrated Python project dependencies and generated SVG images."
-    },
-    {
-      "name": "Debian Contents Tool",
-      "description": "Developed a Python tool for analyzing Debian package contents, providing statistics on the most associated files."
+      "name": "Langversation",
+      "description": "Developed a multilingual chat app with end-to-end encryption. Integrated FirebaseStorage, FirebaseAuthentication, and ML Kit for language translation."
     },
     {
       "name": "AWS Hosting and Serverless Functions",
       "description": "Implemented secure file encryption on AWS and developed a scalable website using NextJS and Three.js with automated deployment."
-    },
-    {
-      "name": "Networking and Firewalls",
-      "description": "Configured secure communication between networked devices using bash scripting and Ubuntu. Managed firewall rules and HTTP requests."
-    },
-    {
-      "name": "Langversation",
-      "description": "Developed a multilingual chat app with end-to-end encryption. Integrated FirebaseStorage, FirebaseAuthentication, and ML Kit for language translation."
     }
   ],
   "education": [

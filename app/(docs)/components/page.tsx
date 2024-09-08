@@ -2,6 +2,7 @@
 
 import Article from "@/components/ui/Article";
 import { constructMetadata, formatDate } from "@/lib/utils";
+import AnimatedGradientBackground from "@/registry/components/example/gradient/gradient-bg-demo";
 import { allComponents } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
 
@@ -9,7 +10,7 @@ export const metadata = constructMetadata({
   title: "Components - Lingo UI",
   description:
     "Beautiful API connected UI components to make your landing page look stunning.",
-    image: "logo.png",
+    image: "icon.png",
 });
 
 export default async function ComponentPage() {
@@ -21,7 +22,7 @@ export default async function ComponentPage() {
 
   return (
     <div className="container max-w-full py-6 lg:py-10 overflow-x-hidden">
-      <div className="flex flex-col items-start gap-4 md:flex-row md:justify-between md:gap-8">
+      <div className="flex flex-col items-start gap-4 md:flex-row md:justify-between md:gap-8 ">
         <div className="flex-1 space-y-4">
           <h1 className="inline-block font-medium text-4xl lg:text-5xl">
             Components

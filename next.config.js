@@ -3,6 +3,7 @@ const { withContentlayer } = require("next-contentlayer");
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  // basePath: '/next',
   swcMinify: true,
   images: {
     domains: ["localhost", "cdn.cedzlabs.com", "www.cedzlabs.com", "github.com", "dummyjson.com", "static.wixstatic.com", "api.microlink.io", "api.unsplash.com",
@@ -13,6 +14,7 @@ const nextConfig = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
+  
 };
 
 module.exports = withContentlayer(nextConfig);

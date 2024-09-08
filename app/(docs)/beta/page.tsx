@@ -21,10 +21,24 @@ import PriceCalculator2 from "@/registry/components/example/price/price-4-demo";
 import VideoWidget from "@/registry/components/example/video/video-widget";
 import WeatherWidget1Demo from "@/registry/components/example/WeatherCard/weather-card-1-demo";
 import ComingSoon from "@/registry/components/example/WeatherCard/weather-card-1-demo";
+import Component from "@/registry/components/example/showcase-demo";
+import GradientCardDemo from "@/registry/components/example/showcase-demo";
+import ParallaxScrollSection from "@/registry/components/example/mockup/mock-up-demo";
+import EnhancedParallaxScrollSection from "@/registry/components/example/mockup/mock-up-demo";
+import APIRequestBuilder from "@/registry/components/example/apifetch/api-fetch";
 
 const queryClient = new QueryClient();
 
 const Beta: React.FC = () => {
+  const screens = [
+    { content: <div>Music Player</div>, image: '/music-player.jpg' },
+    { content: <div>Stock Market</div>, image: '/stock-market.jpg' },
+    { content: <div>Social Feed</div>, image: '/social-feed.jpg' },
+    { content: <div>Weather App</div>, image: '/weather-app.jpg' },
+  ]
+
+  const backgroundText = ['Innovative', 'Powerful', 'Intuitive', 'Seamless']
+
   return (
       <div className="m-2 h-full flex-col justify-center items-center overflow-auto">
       {/* <TextEffect text="Gradient Text" style="gradient" />
@@ -47,7 +61,16 @@ const Beta: React.FC = () => {
       {/* <LinkedInProfile/> */}
       {/* <PriceCalculator1 /> */}
       {/* <PriceCalculator2 /> */}
-      <ComingSoon/>
+      {/* <ComingSoon/> */}
+        {/* <GradientCardDemo/> */}
+        {/* <ParallaxScrollSection
+        screens={screens}
+        cardWidth="300px"
+        cardHeight="600px"
+        backgroundTextSize="100px"
+        scrollSpeed={0.7} backgroundText={[]}    /> */}
+        <APIRequestBuilder/>
+        {/* <StreakCheckerDemo/> */}
     </div>
   );
 };

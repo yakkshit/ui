@@ -14,6 +14,7 @@ import Tailwind from "@/components/icons/tailwind";
 import Framer from "@/components/icons/framer";
 import { Plus } from "lucide-react";
 import Article from "@/components/ui/Article";
+import AnimatedGradientBackground from "@/registry/components/example/gradient/gradient-bg-demo";
 
 export const metadata: Metadata = constructMetadata({
   title: "Lingo UI",
@@ -29,7 +30,8 @@ export default function Home() {
     });
   return (
     <>
-      <section className="custom-background flex justify-center items-center min-h-screen space-y-2 pb-2 pt-6 md:pb-12 md:pt-10 lg:py-32 overflow-x-hidden">
+    {/* custom-background */}
+      <section className=" flex justify-center items-center min-h-screen space-y-2 pb-2 pt-6 md:pb-12 md:pt-10 lg:py-32 overflow-x-hidden">
         <div className="container flex w-screen flex-col items-center gap-4 text-center">
           <FadeIn className="z-10 flex flex-col items-center justify-center w-full h-full">
             <Link
@@ -89,7 +91,7 @@ export default function Home() {
           </FadeIn>
         </div>
       </section>
-
+    <AnimatedGradientBackground/>
       {/* <hr className="my-10" /> */}
       {/* <section className="overflow-x-hidden">
         <div className="flex flex-col">
