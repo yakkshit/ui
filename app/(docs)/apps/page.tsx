@@ -8,7 +8,8 @@ const appLinks = [
   { name: "Resume", url: "/resume" },
   { name: "Calander", url: "/calander" },
   { name: "Focus Streak", url: "/apps/focus-streak" },
-  { name: "Yakkshit", url: "/yakkshit" }
+  { name: "Yakkshit", url: "/yakkshit" },
+  { name: "interview", url: "/apps/temp-interview" }
 ];
 
 const Apps: React.FC = () => {
