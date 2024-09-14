@@ -57,7 +57,7 @@ const Beta: React.FC = () => {
       {/* <CommentDemo type={"upload"} limit={2}/> */}
       {/* <Calander1Demo/> */}
       {/* <MapComponentDemo/> */}
-      {/* <RecipeSearchDemo/> */}
+      <RecipeSearchDemo/>
       {/* <LinkedInProfile/> */}
       {/* <PriceCalculator1 /> */}
       {/* <PriceCalculator2 /> */}
@@ -69,7 +69,7 @@ const Beta: React.FC = () => {
         cardHeight="600px"
         backgroundTextSize="100px"
         scrollSpeed={0.7} backgroundText={[]}    /> */}
-        <APIRequestBuilder/>
+        {/* <APIRequestBuilder/> */}
         {/* <StreakCheckerDemo/> */}
     </div>
   );

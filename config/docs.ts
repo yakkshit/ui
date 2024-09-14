@@ -126,6 +126,12 @@ const docsConfig: DocsConfig = {
           tags: ['Shadcn', 'Framer Motion', 'Supabase', 'Waitlist']
         },
         {
+          title: "File Upload & QR Generator",
+          href: `/components/qr`,
+          items: [],
+          tags: ['lucid icons', 'Framer Motion', 'QRCode', 'File Upload', 'Gofile', 'file api', 'temp file', 'file api', 'link qr']
+        },
+        {
           title: "Weather",
           href: `/components/weathercard`,
           items: [],
@@ -152,7 +158,6 @@ const docsConfig: DocsConfig = {
           title: "Recipes",
           href: `/components/recipes`,
           items: [],
-          label:'AI'
         },
         {
           title: "Quote card",
@@ -164,7 +169,6 @@ const docsConfig: DocsConfig = {
           title: "Price Templates",
           href: `/components/price`,
           items: [],
-          label: 'beta',
           tags: ['fixer','framer motion', 'currency update', 'price', 'React', 'Currency', 'Pricing', 'API', 'Component', 'Fixer Api', 'Real time Currency Converter']
         },
         {

@@ -1,0 +1,133 @@
+---
+title: File Upload & QR Generator Widget
+date: 2023-09-14
+summary: A file uploader and QR code generator component using lucid icons, Framer Motion, and QRCodeSVG for Next.js.
+author: Yakkshit
+published: true
+video: https://www.youtube.com/embed/B-6-cYz78kQ
+image: https://github.com/yakkshit/canonical-assignmnet/blob/main/qr-component-preview.gif?raw=true
+tags: ['lucid icons', 'Framer Motion', 'QRCode', 'File Upload', 'Gofile', 'file api', 'temp file', 'file api', 'link qr']
+previewimg: https://ui.cedzlabs.com/components/qr
+---
+
+<ComponentPreview name="file-qr-demo" />
+
+## Installation
+
+<Tabs defaultValue="doc">
+
+<TabsList>
+  <TabsTrigger value="doc">Manual</TabsTrigger>
+  <TabsTrigger value="video">Video</TabsTrigger>
+  <TabsTrigger value="files">File</TabsTrigger>
+</TabsList>
+
+<TabsContent value="doc">
+
+<Steps>
+  <Step>
+  Install the Required Dependencies in your project:
+    - lucid react icons
+    - Tailwind CSS
+    - Framer Motion
+    - qrcode.react
+    - Gofile API
+   
+    ```bash
+      npx install lucide-react framer-motion qrcode.react tailwindcss
+    ```
+
+    ```bash
+    npx shadcn add label input button
+    ```
+
+  </Step>
+  
+  <Step>
+    Create a file named `QRComponent.tsx` copy and paste the following code:
+
+    <ComponentSource name="file-qr-demo" />
+
+  </Step>
+
+  <Step>Now You&apos;re ready to use the component!</Step>
+  
+</Steps>
+
+</TabsContent>
+
+<TabsContent value="video">
+
+<Steps>
+  <Step>
+  Watch the Video Tutorial for detailed guidance:
+  <VideoEmbed src="https://youtu.be/B-6-cYz78kQ" text="
+  <ins>[For more tech videos, please visit our YT channel](https://youtube.com/@cedzlabs)</ins>
+  
+  We are working hard to bring you exciting content. Stay tuned for more tech videos. Please support us 🙂."/>
+  </Step>
+  <Step>Done!</Step>
+</Steps>
+
+</TabsContent>
+
+<TabsContent value="files">
+  # File Upload Link Will be available soon..
+  <Link href=''><Button>Download zip</Button></Link>
+  <Steps>
+  <Step>
+    After downloading, follow the instructions in the video tutorial.
+    <VideoEmbed
+      src="https://youtu.be/B-6-cYz78kQ"
+      text="<ins>[For more tech videos, please visit our YT channel](https://youtube.com/@cedzlabs)</ins>
+  Stay tuned for more exciting tech content!
+  " />
+  </Step>
+  <Step>Enjoy your new QR generator component!</Step>
+</Steps>
+</TabsContent>
+
+</Tabs>
+
+## Props
+
+| Prop name            | Type                                      | Default   | Description                                                                 |
+| -------------------- | ----------------------------------------- | --------- | --------------------------------------------------------------------------- |
+| `file`               | `File \| null`                            | `null`    | File to be uploaded.                                                        |
+| `link`               | `string`                                  | `''`      | URL or link to generate the QR code for.                                     |
+| `showQR`             | `boolean`                                 | `false`   | Determines if the QR code is visible.                                        |
+| `handleFileChange`   | `(e: React.ChangeEvent<HTMLInputElement>) => void` |         | Handles file upload changes.                                                 |
+| `handleGenerateQR`   | `() => void`                              |           | Toggles the visibility of the QR code.                                       |
+| `theme`              | `'light' \| 'dark'`                       | `'light'` | Sets the QR code background and foreground color scheme.                     |
+
+## Example UI Demos
+
+<Accordion type="single" collapsible>
+  <AccordionItem value="item-1">
+    <AccordionTrigger> ## Example 1 </AccordionTrigger>
+    <AccordionContent>
+      <ComponentPreview name="file-qr-demo-1" />
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="item-2">
+    <AccordionTrigger> ## Example 2 </AccordionTrigger>
+    <AccordionContent>
+      <ComponentPreview name="qr-file-upload-demo-2" />
+    </AccordionContent>
+  </AccordionItem>
+</Accordion>
+
+## Credits
+
+| Name          | Credit For          | Link                                                         |
+| ------------- | ------------------- | ------------------------------------------------------------ |
+| Yakkshit      | Component Developer | [yakkshit](https://x.com/yakkshit)                           |
+| Cedz Labs     | Video Tutorial      | [Cedz Labs](https://www.cedzlabs.com)                        |
+
+## Suggestions or Book
+
+| Name          | Credit For          | Link                                                         |
+| ------------- | ------------------- | ------------------------------------------------------------ |
+| Yakkshit      | Component Developer | [<Button>Book</Button>](https://cal.com/yakkshit)                           |
+
+<SupportOverlay videoSrc="https://youtu.be/sample-support-video-url" supportLink="https://www.cedzlabs.com/payments" />
