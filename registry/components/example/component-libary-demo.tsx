@@ -224,7 +224,7 @@ function ComponentList({ components, onUpdateStatus }: { components: Component[]
                 <Button variant="outline" asChild className="w-full sm:w-auto">
                   <a href={component.link} target="_blank" rel="noopener noreferrer">View Component</a>
                 </Button>
-                <select
+                {/* <select
                   value={component.status}
                   onChange={(e) => onUpdateStatus(component.id, e.target.value as "done" | "upcoming" | "requested")}
                   className="bg-transparent border border-gray-300 rounded-md p-2 w-full sm:w-auto"
@@ -232,7 +232,7 @@ function ComponentList({ components, onUpdateStatus }: { components: Component[]
                   <option value="done">Done</option>
                   <option value="upcoming">Upcoming</option>
                   <option value="requested">Requested</option>
-                </select>
+                </select> */}
               </CardFooter>
             </Card>
           </motion.div>
