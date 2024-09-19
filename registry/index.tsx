@@ -201,6 +201,22 @@ const example: Registry = {
       () => import("@/registry/components/example/magic-card/magic-card-4-demo")
     ),
   },
+  "exam-cal-demo": {
+    name: "exam-cal-demo",
+    type: "components:example",
+    files: ["registry/components/example/examcal/ielts-calaculator.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/examcal/ielts-calaculator")
+    ),
+  },
+  "component-liberary-demo": {
+    name: "component-liberary-demo",
+    type: "components:example",
+    files: ["registry/components/example/component-libary-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/component-libary-demo")
+    ),
+  },
   "gradient-demo": {
     name: "gradient-demo",
     type: "components:example",

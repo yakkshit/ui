@@ -40,7 +40,7 @@ const ResumeComponent: React.FC = () => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={handleToggle}
-          className="bg-indigo-600 text-white rounded-full p-4 shadow-lg hover:bg-indigo-700 transition duration-300"
+          className="bg-gray-600 text-white rounded-full p-4 shadow-lg hover:bg-indigo-700 transition duration-300"
         >
           {view === 'resume' ? (
             <FileMinus className="w-6 h-6" />
