@@ -109,7 +109,7 @@ export default function ComponentLibraryDemo() {
   }
 
   return (
-    <div className={`min-h-screen p-4 md:p-8 ${theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-gray-900"}`}>
+    <div className="min-h-screen p-4 md:p-8 dark:text-white text-gray-900">
       <div className="flex flex-col md:flex-row justify-between items-center mb-4 md:mb-6 space-y-4 md:space-y-0 md:space-x-4">
         <div className="flex items-center space-x-2 md:space-x-4 w-full md:w-auto">
           <Input
@@ -119,20 +119,6 @@ export default function ComponentLibraryDemo() {
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full md:w-64"
           />
-          <Search className="text-gray-400" />
-        </div>
-        <div className="flex items-center space-x-2 md:space-x-4 w-full md:w-auto">
-          <Filter className="text-gray-400" />
-          <select
-            value={filterStatus}
-            onChange={(e) => setFilterStatus(e.target.value as any)}
-            className="bg-transparent border border-gray-300 rounded-md p-2 w-full md:w-auto"
-          >
-            <option value="all">All</option>
-            <option value="done">Done</option>
-            <option value="upcoming">Upcoming</option>
-            <option value="requested">Requested</option>
-          </select>
         </div>
         <Dialog open={isRequestDialogOpen} onOpenChange={setIsRequestDialogOpen}>
           <DialogTrigger asChild>
