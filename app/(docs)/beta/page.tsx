@@ -26,6 +26,9 @@ import GradientCardDemo from "@/registry/components/example/showcase-demo";
 import ParallaxScrollSection from "@/registry/components/example/mockup/mock-up-demo";
 import EnhancedParallaxScrollSection from "@/registry/components/example/mockup/mock-up-demo";
 import APIRequestBuilder from "@/registry/components/example/apifetch/api-fetch";
+import CountryBackground from "@/registry/components/example/locationbg/CountryBackground";
+import WeatherBgDemo from "@/registry/components/example/WeatherCard/weather-bg-demo";
+import WeatherHero from "@/registry/components/example/WeatherCard/weather-bg-demo";
 
 const queryClient = new QueryClient();
 
@@ -41,6 +44,7 @@ const Beta: React.FC = () => {
 
   return (
       <div className="m-2 h-full flex-col justify-center items-center overflow-auto">
+        <WeatherHero>
       {/* <TextEffect text="Gradient Text" style="gradient" />
       <TextEffect text="Neon Glow" style="neon" color="text-green-500" />
       <TextEffect text="Glitch Effect" style="glitch" color="text-red-500" />
@@ -71,6 +75,9 @@ const Beta: React.FC = () => {
         scrollSpeed={0.7} backgroundText={[]}    /> */}
         {/* <APIRequestBuilder/> */}
         {/* <StreakCheckerDemo/> */}
+        {/* <CountryBackground /> */}
+        {/* <WeatherBgDemo /> */}
+        </WeatherHero>
     </div>
   );
 };
