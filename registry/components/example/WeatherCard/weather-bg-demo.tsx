@@ -3,9 +3,8 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react'
 import { motion, useAnimation } from 'framer-motion'
 import axios from 'axios'
-import { MapPin, Sun, Moon } from 'lucide-react'
+import { Sun, Moon, RefreshCw } from 'lucide-react'
 
-// Note: Replace 'YOUR_WEATHER_API_KEY' and 'YOUR_PIXABAY_API_KEY' with actual API keys
 const WEATHER_API_KEY = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY
 const PIXABAY_API_KEY = process.env.NEXT_PUBLIC_PIXABAY_API_KEY
 
@@ -21,19 +20,22 @@ interface VideoBackgroundProps {
   videoUrls: string[]
   effect: 'normal' | 'glassmorphic'
   opacity: number
+  refresh: boolean
+  time: number
+  onRefresh: () => void
 }
 
-const VideoBackground: React.FC<VideoBackgroundProps> = ({ videoUrls, effect, opacity }) => {
+const VideoBackground: React.FC<VideoBackgroundProps> = ({ videoUrls, effect, opacity, refresh, time, onRefresh }) => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([])
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videoUrls.length)
-    }, 10000)
+    }, time * 1000)
 
     return () => clearInterval(interval)
-  }, [videoUrls.length])
+  }, [videoUrls.length, time])
 
   useEffect(() => {
     videoRefs.current.forEach((video, index) => {
@@ -69,6 +71,15 @@ const VideoBackground: React.FC<VideoBackgroundProps> = ({ videoUrls, effect, op
         />
       ))}
       <div className={overlayClassName} style={{ backgroundColor: `rgba(0, 0, 0, ${(100 - opacity) / 200})` }} />
+      {refresh && (
+        <button
+          onClick={onRefresh}
+          className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 md:bottom-8 md:left-8 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-2 rounded-full transition-colors duration-200"
+          aria-label="Refresh videos"
+        >
+          <RefreshCw size={24} />
+        </button>
+      )}
     </>
   )
 }
@@ -77,12 +88,21 @@ interface WeatherHeroProps {
   children: React.ReactNode
   effect?: 'normal' | 'glassmorphic'
   opacity?: number
+  refresh?: 'yes' | 'no'
+  time?: number
 }
 
-const WeatherHero: React.FC<WeatherHeroProps> = ({ children, effect = 'normal', opacity = 100 }) => {
+const WeatherHero: React.FC<WeatherHeroProps> = ({
+  children,
+  effect = 'normal',
+  opacity = 100,
+  refresh = 'no',
+  time = 10000
+}) => {
   const [weather, setWeather] = useState<WeatherData | null>(null)
   const [videoUrls, setVideoUrls] = useState<string[]>([])
   const [isNight, setIsNight] = useState<boolean>(false)
+  const [location, setLocation] = useState<{ latitude: number, longitude: number } | null>(null)
   const controls = useAnimation()
 
   const fetchVideos = useCallback(async (query: string) => {
@@ -141,13 +161,21 @@ const WeatherHero: React.FC<WeatherHeroProps> = ({ children, effect = 'normal', 
   const handleLocationChange = useCallback(() => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        fetchWeatherData(position.coords.latitude, position.coords.longitude)
+        const { latitude, longitude } = position.coords
+        setLocation({ latitude, longitude })
+        fetchWeatherData(latitude, longitude)
       },
       (error) => {
         console.error('Error getting location:', error)
       }
     )
   }, [fetchWeatherData])
+
+  const handleRefresh = useCallback(() => {
+    if (location) {
+      fetchWeatherData(location.latitude, location.longitude)
+    }
+  }, [fetchWeatherData, location])
 
   useEffect(() => {
     handleLocationChange()
@@ -159,7 +187,16 @@ const WeatherHero: React.FC<WeatherHeroProps> = ({ children, effect = 'normal', 
 
   return (
     <div className="relative w-full min-h-screen overflow-hidden">
-      {videoUrls.length > 0 && <VideoBackground videoUrls={videoUrls} effect={effect} opacity={opacity} />}
+      {videoUrls.length > 0 && (
+        <VideoBackground
+          videoUrls={videoUrls}
+          effect={effect}
+          opacity={opacity}
+          refresh={refresh === 'yes'}
+          time={time}
+          onRefresh={handleRefresh}
+        />
+      )}
       <motion.div
         initial={{ opacity: 0 }}
         animate={controls}
@@ -169,7 +206,8 @@ const WeatherHero: React.FC<WeatherHeroProps> = ({ children, effect = 'normal', 
           <div className="absolute top-4 left-4 sm:top-6 sm:left-6 md:top-8 md:left-8 p-4 text-white">
             <h2 className="text-xl sm:text-2xl font-bold mb-2 flex items-center space-x-2">
               {weather.location} {isNight ? <Moon size={24} /> : <Sun size={24} />}
-            </h2>            <div className="flex items-center">
+            </h2>           
+            <div className="flex items-center">
               <img
                 src={`http://openweathermap.org/img/wn/${weather.icon}@2x.png`}
                 alt={weather.description}

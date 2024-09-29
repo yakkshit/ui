@@ -93,8 +93,8 @@ export default function Home() {
             </FadeIn>
           </div>
         </section>
-      </WeatherHero>
-      {/* <AnimatedGradientBackground/> */}
+      {/* </WeatherHero> */}
+      <AnimatedGradientBackground/>
       {/* <hr className="my-10" /> */}
       {/* <section className="overflow-x-hidden">
         <div className="flex flex-col">

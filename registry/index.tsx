@@ -369,6 +369,14 @@ const example: Registry = {
       () => import("@/registry/components/example/WeatherCard/WeatherCard-demo")
     ),
   },
+  "WeatherCard-2-demo": {
+    name: "WeatherCard-2-demo",
+    type: "components:example",
+    files: ["registry/components/example/WeatherCard/weatherCard-2-demo.tsx"],
+    component: React.lazy(
+      () => import("@/registry/components/example/WeatherCard/weatherCard-2-demo")
+    ),
+  },
   "recipes-demo": {
     name: "recipes-demo",
     type: "components:example",
