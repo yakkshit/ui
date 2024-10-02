@@ -31,7 +31,7 @@ export default function Home() {
     });
   return (
     <>
-      <WeatherHero effect="glassmorphic" opacity={50}>
+      {/* <WeatherHero effect="glassmorphic" opacity={50}> */}
         {/* custom-background */}
         <section className=" flex justify-center items-center min-h-screen space-y-2 pb-2 pt-6 md:pb-12 md:pt-10 lg:py-32 overflow-x-hidden">
           <div className="container flex w-screen flex-col items-center gap-4 text-center">
